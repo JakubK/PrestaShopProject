@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using AngleSharp;
@@ -9,6 +8,21 @@ namespace Scrapper
 {
     class Program
     {
+        public static void ScrapPage(List<Product> products, IHtmlCollection<IElement> rawProducts, string baseImgUrl)
+        {
+            foreach(var rawProduct in rawProducts)
+            {
+                Product p = new Product
+                {
+                    Name = rawProduct.QuerySelector(".full-title-tooltip").TextContent,
+                    Price = decimal.Parse(rawProduct.QuerySelector(".price span").TextContent.Split(" ")[0], CultureInfo.InvariantCulture),
+                    ImageUrl = baseImgUrl + rawProduct.QuerySelector("a").GetAttribute("class").Split("-")[0] + ".png",
+                    Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href"),
+                    Author = rawProduct.QuerySelector("p a").TextContent
+                };
+                products.Add(p);
+            }
+        }
         static async Task Main(string[] args)
         {
             var target = "https://helion.pl/kategorie/kursy";
@@ -25,17 +39,7 @@ namespace Scrapper
             //Scrap 1 page
             var rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
             string baseImgUrl = rawProducts[0].QuerySelector("img").GetAttribute("src").Split("helion-brak.png")[0];
-            foreach(var rawProduct in rawProducts)
-            {
-                Product p = new Product
-                {
-                    Name = rawProduct.QuerySelector(".full-title-tooltip").TextContent,
-                    Price = decimal.Parse(rawProduct.QuerySelector(".price span").TextContent.Split(" ")[0], CultureInfo.InvariantCulture),
-                    ImageUrl = baseImgUrl + rawProduct.QuerySelector("a").GetAttribute("class").Split("-")[0] + ".png",
-                    Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href")
-                };
-                products.Add(p);
-            }
+            ScrapPage(products,rawProducts,baseImgUrl);
             if(pages > 1)
             {
                 //Scrap 2...n pages
@@ -43,19 +47,7 @@ namespace Scrapper
                 {
                     document = await context.OpenAsync(target + "/" + i);
                     rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
-                    foreach(var rawProduct in rawProducts)
-                    {
-                        Product p = new Product
-                        {
-                            Name = rawProduct.QuerySelector(".full-title-tooltip").TextContent,
-                            Price = decimal.Parse(rawProduct.QuerySelector(".price span").TextContent.Split(" ")[0], CultureInfo.InvariantCulture),
-                            ImageUrl = baseImgUrl + rawProduct.QuerySelector("a").GetAttribute("class").Split("-")[0] + ".png",
-                            Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href"),
-                            Author = rawProduct.QuerySelector("p a").TextContent
-                        };
-                        Console.WriteLine(p.Author);
-                        products.Add(p);
-                    }
+                    ScrapPage(products,rawProducts,baseImgUrl);
                 }
             }
             
@@ -64,7 +56,6 @@ namespace Scrapper
                 document = await context.OpenAsync(product.Url);
                 product.Description = document.QuerySelector(".book-description .center-body-center").TextContent;
             }
-
         }
     }
 }
