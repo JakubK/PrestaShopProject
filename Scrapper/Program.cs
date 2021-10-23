@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
@@ -23,6 +26,7 @@ namespace Scrapper
                 products.Add(p);
             }
         }
+
         static async Task Main(string[] args)
         {
             var target = "https://helion.pl/kategorie/kursy";
@@ -30,11 +34,10 @@ namespace Scrapper
             var config = Configuration.Default.WithDefaultLoader();
             var context = BrowsingContext.New(config);
             var document = await context.OpenAsync(target);
-
             // Get amount of pages
             var paging = document.QuerySelector(".stronicowanie");
             int pages = paging.QuerySelectorAll("a").Length;
-
+            // Console.WriteLine(document.DocumentElement.OuterHtml);
             List<Product> products = new List<Product>();
             //Scrap 1 page
             var rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
@@ -46,16 +49,26 @@ namespace Scrapper
                 for(int i = 2;i <= pages;i++)
                 {
                     document = await context.OpenAsync(target + "/" + i);
+                    // document = await context.OpenAsync(resp => resp.Header("Content-Type", "text/html;charset=utf-8").Address(target + "/" + i));
                     rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
                     ScrapPage(products,rawProducts,baseImgUrl);
                 }
             }
-            
-            foreach(var product in products)
-            {
-                document = await context.OpenAsync(product.Url);
-                product.Description = document.QuerySelector(".book-description .center-body-center").TextContent;
-            }
+            // int j = 1;
+            // foreach(var product in products)
+            // {
+            //     document = await context.OpenAsync(product.Url);
+            //     product.Description = document.QuerySelector(".book-description .center-body-center").TextContent;
+            //     Console.WriteLine("Already visited " + j);
+            //     j++;
+            // }
+
+            string fileName = "data.json"; 
+            JsonSerializerOptions jso = new JsonSerializerOptions();
+            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            using FileStream createStream = File.Create(fileName);
+            await JsonSerializer.SerializeAsync(createStream, products, jso);
+            await createStream.DisposeAsync();
         }
     }
 }
