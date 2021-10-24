@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
+using CsvHelper;
 
 namespace Scrapper
 {
@@ -49,7 +51,6 @@ namespace Scrapper
                 for(int i = 2;i <= pages;i++)
                 {
                     document = await context.OpenAsync(target + "/" + i);
-                    // document = await context.OpenAsync(resp => resp.Header("Content-Type", "text/html;charset=utf-8").Address(target + "/" + i));
                     rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
                     ScrapPage(products,rawProducts,baseImgUrl);
                 }
@@ -63,12 +64,20 @@ namespace Scrapper
             //     j++;
             // }
 
-            string fileName = "data.json"; 
-            JsonSerializerOptions jso = new JsonSerializerOptions();
-            jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            using FileStream createStream = File.Create(fileName);
-            await JsonSerializer.SerializeAsync(createStream, products, jso);
-            await createStream.DisposeAsync();
+            // string fileName = "data.json"; 
+            // JsonSerializerOptions jso = new JsonSerializerOptions();
+            // jso.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            // using FileStream createStream = File.Create(fileName);
+            // await JsonSerializer.SerializeAsync(createStream, products, jso);
+            // await createStream.DisposeAsync();
+
+            string fileName = "data.csv";
+            using (var writer = new StreamWriter(fileName))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(products);
+            }
+
         }
     }
 }
