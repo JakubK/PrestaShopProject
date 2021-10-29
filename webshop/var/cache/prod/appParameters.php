@@ -1,0 +1,25 @@
+<?php return array (
+  'parameters' => 
+  array (
+    'database_host' => 'db',
+    'database_port' => '',
+    'database_name' => 'CourseShop',
+    'database_user' => 'root',
+    'database_password' => 'root',
+    'database_prefix' => 'ps_',
+    'database_engine' => 'InnoDB',
+    'mailer_transport' => 'smtp',
+    'mailer_host' => '127.0.0.1',
+    'mailer_user' => NULL,
+    'mailer_password' => NULL,
+    'secret' => 'W9qwKOrrXHzu0FnNr5n36r5NrvnPzwiuw4KMaubHpbm242NQgWr9KZIG86E2tn5B',
+    'ps_caching' => 'CacheMemcache',
+    'ps_cache_enable' => false,
+    'ps_creation_date' => '2021-10-27',
+    'locale' => 'pl-PL',
+    'use_debug_toolbar' => true,
+    'cookie_key' => 'r234AUoBomtvWXJXY3QQx3KzMainxePV0jRCHP92inHVmzBJWCONZ6qZAvws9NF2',
+    'cookie_iv' => 'gpVZCTizexQKgmKqgSoh3juDN4bvWWY8',
+    'new_cookie_key' => 'def00000250e8f874f347ae3104e93f505e7a517a75fd8a100d2ad5ffea4c36f40ee08de9420f687b22717cdd1d7ef856da3214dfe062e3f7d855a8b76e05e7eac20fb75',
+  ),
+);
