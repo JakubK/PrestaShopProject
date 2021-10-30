@@ -408,7 +408,7 @@ class ProductCore extends ObjectModel
                     'modifier' => 'modifierWsLinkRewrite',
                 ],
             ],
-            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isCatalogName', 'required' => false, 'size' => 128],
+            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'required' => false, 'size' => 128],
             'description' => ['type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml'],
             'description_short' => ['type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml'],
             'available_now' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255],
