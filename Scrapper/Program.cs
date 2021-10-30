@@ -5,31 +5,32 @@ using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
 using CsvHelper;
-using CsvHelper.Configuration;
 
 namespace Scrapper
 {
     class Program
     {
-        public static void ScrapPage(List<Product> products, IHtmlCollection<IElement> rawProducts, string baseImgUrl)
+        public static List<Product> ScrapPage(int catId, IHtmlCollection<IElement> rawProducts, string baseImgUrl)
         {
+            List<Product> result = new List<Product>();
             foreach (var rawProduct in rawProducts)
             {
                 Product p = new Product
                 {
-                    Id = products.Count,
                     Name = rawProduct.QuerySelector(".full-title-tooltip").TextContent,
                     Price = decimal.Parse(rawProduct.QuerySelector(".price span").TextContent.Split(" ")[0], CultureInfo.InvariantCulture),
                     ImageUrl = baseImgUrl + rawProduct.QuerySelector("a").GetAttribute("class").Split("-")[0] + ".png",
                     Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href"),
                     Author = rawProduct.QuerySelector("p a").TextContent
                 };
-                products.Add(p);
+                result.Add(p);
             }
+            return result;
         }
 
         static async Task Main(string[] args)
         {
+            var baseTarget = "https://helion.pl";
             var target = "https://helion.pl/kategorie/kursy";
 
             var config = Configuration.Default.WithDefaultLoader();
@@ -38,24 +39,30 @@ namespace Scrapper
             
             // Console.WriteLine(document.DocumentElement.OuterHtml);
             List<Product> products = new List<Product>();
+
             Dictionary<Category, List<Product>> productsDictionary = new Dictionary<Category, List<Product>>();
+            // Get category urls
+            var categories = document.QuerySelectorAll(".sub-categories a");
+            var catCounter = 0;
             // Get amount of pages
-            var paging = document.QuerySelector(".stronicowanie");
-            int pages = paging.QuerySelectorAll("a").Length;
-            //Scrap 1 page
-            var rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
+            int pages = categories.Length;
+            var rawProducts = document.QuerySelectorAll(".book-list-container .list > li");
             string baseImgUrl = rawProducts[0].QuerySelector("img").GetAttribute("src").Split("helion-brak.png")[0];
-            ScrapPage(products, rawProducts, baseImgUrl);
-            if (pages > 1)
+
+            foreach(var cat in categories)
             {
-                //Scrap 2...n pages
-                for (int i = 2; i <= pages; i++)
+                var ID = catCounter++;
+                var catText = cat.TextContent;
+                System.Console.WriteLine("Visiting " + catText);
+                document = await context.OpenAsync(baseTarget + cat.GetAttribute("href"));
+                rawProducts = document.QuerySelectorAll(".book-list-container .list > li");
+                productsDictionary.Add(new Category
                 {
-                    document = await context.OpenAsync(target + "/" + i);
-                    rawProducts = document.QuerySelectorAll(".book-list-container .list>li");
-                    ScrapPage(products, rawProducts, baseImgUrl);
-                }
+                    ID = ID,
+                    Name = catText
+                }, ScrapPage(ID, rawProducts,baseImgUrl));
             }
+
             // int j = 1;
             // foreach(var product in products)
             // {
@@ -65,11 +72,14 @@ namespace Scrapper
             //     j++;
             // }
 
-            string fileName = "data.csv";
-            using (var writer = new StreamWriter(fileName))
+            string productFileName = "data.csv";
+            using (var writer = new StreamWriter(productFileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                await csv.WriteRecordsAsync(products);
+                foreach(var productsPart in productsDictionary.Values)
+                {
+                    await csv.WriteRecordsAsync(productsPart);
+                }
             }
 
         }
