@@ -1,18 +1,17 @@
-using System.Collections.Generic;
 using CsvHelper.Configuration.Attributes;
 
 namespace Scrapper
 {
     public class Product
     {
-        [Name("ID")]
-        public int Id { get; set; }
-
         [Name("Base Price")]
         public decimal Price { get; set; }
 
         [Name("Price Tax Included")]
         public int PriceTaxIncluded { get; set; } = 1;
+
+        [Name("Quantity")]
+        public int Quantity {get;set;} = 9999;
 
         [Name("Name")]
         public string Name { get; set; }
