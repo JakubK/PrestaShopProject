@@ -11,7 +11,7 @@ namespace Scrapper
         public int PriceTaxIncluded { get; set; } = 1;
 
         [Name("Quantity")]
-        public int Quantity {get;set;} = 9999;
+        public int Quantity { get; set; } = 9999;
 
         [Name("Name")]
         public string Name { get; set; }
@@ -21,5 +21,8 @@ namespace Scrapper
         public string ImageUrl { get; set; }
         [Name("Reference")]
         public string Url { get; set; }
+
+        [Name("Category")]
+        public string Categories { get; set; }
     }
 }

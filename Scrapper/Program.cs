@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
@@ -10,7 +11,11 @@ namespace Scrapper
 {
     class Program
     {
-        public static List<Product> ScrapPage(int catId, IHtmlCollection<IElement> rawProducts, string baseImgUrl)
+        //name
+        public static Dictionary<string, List<int>> prodCatDictionary = new Dictionary<string, List<int>>();
+        public static List<Product> allProducts = new List<Product>();
+
+        public static void ScrapPage(int catId, IHtmlCollection<IElement> rawProducts, string baseImgUrl)
         {
             List<Product> result = new List<Product>();
             foreach (var rawProduct in rawProducts)
@@ -23,9 +28,18 @@ namespace Scrapper
                     Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href"),
                     Author = rawProduct.QuerySelector("p a").TextContent
                 };
-                result.Add(p);
+
+                if(prodCatDictionary.ContainsKey(p.Name))
+                {
+                    prodCatDictionary[p.Name].Add(catId);
+                }
+                else {
+                    prodCatDictionary.Add(p.Name,new List<int>());
+                    prodCatDictionary[p.Name].Add(catId);
+                }
+
+                allProducts.Add(p);
             }
-            return result;
         }
 
         static async Task Main(string[] args)
@@ -39,8 +53,8 @@ namespace Scrapper
             
             // Console.WriteLine(document.DocumentElement.OuterHtml);
             List<Product> products = new List<Product>();
-
-            Dictionary<Category, List<Product>> productsDictionary = new Dictionary<Category, List<Product>>();
+            List<Category> categoriesList = new List<Category>();
+            
             // Get category urls
             var categories = document.QuerySelectorAll(".sub-categories a");
             var catCounter = 0;
@@ -51,16 +65,16 @@ namespace Scrapper
 
             foreach(var cat in categories)
             {
-                var ID = catCounter++;
+                var ID = ++catCounter;
                 var catText = cat.TextContent;
-                System.Console.WriteLine("Visiting " + catText);
-                document = await context.OpenAsync(baseTarget + cat.GetAttribute("href"));
-                rawProducts = document.QuerySelectorAll(".book-list-container .list > li");
-                productsDictionary.Add(new Category
-                {
+                categoriesList.Add(new Category {
                     ID = ID,
                     Name = catText
-                }, ScrapPage(ID, rawProducts,baseImgUrl));
+                });
+                System.Console.WriteLine("Visiting " + catText + " " + ID + "/" + pages);
+                document = await context.OpenAsync(baseTarget + cat.GetAttribute("href"));
+                rawProducts = document.QuerySelectorAll(".book-list-container .list > li");
+                ScrapPage(ID, rawProducts,baseImgUrl);
             }
 
             // int j = 1;
@@ -71,15 +85,24 @@ namespace Scrapper
             //     Console.WriteLine("Already visited " + j);
             //     j++;
             // }
+            var limitedProducts = allProducts.GroupBy(x => x.Name).Select(g=>g.First()).ToList();
+            foreach(var limited in limitedProducts)
+            {
+                limited.Categories = string.Join(" ", prodCatDictionary[limited.Name]);
+            }
 
             string productFileName = "data.csv";
             using (var writer = new StreamWriter(productFileName))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                foreach(var productsPart in productsDictionary.Values)
-                {
-                    await csv.WriteRecordsAsync(productsPart);
-                }
+                await csv.WriteRecordsAsync(limitedProducts);
+            }
+
+            string categoryFileName = "categories.csv";
+            using (var writer = new StreamWriter(categoryFileName))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                await csv.WriteRecordsAsync(categoriesList);
             }
 
         }
