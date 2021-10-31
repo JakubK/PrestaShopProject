@@ -1,48 +1,48 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-30 13:51:10
+/* Smarty version 3.1.39, created on 2021-10-31 10:49:49
   from 'module:psfeaturedproductsviewste' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617d31aea3f870_10881891',
+  'unifunc' => 'content_617e66bd3d9f58_91208250',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa6cc378d2942c8857b89d6bca728048c0caeedd' => 
     array (
       0 => 'module:psfeaturedproductsviewste',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'module',
     ),
     '86a4d354f725902b1405db749b93834da03807f6' => 
     array (
       0 => '/var/www/html/themes/classic/templates/catalog/_partials/productlist.tpl',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'file',
     ),
     '4e48f9081812442e5797c9033049dad3e79d82e7' => 
     array (
       0 => '/var/www/html/themes/classic/templates/catalog/_partials/miniatures/product.tpl',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'file',
     ),
     '0724df70e9113f9ffcf0299fe2d091b4d46089e2' => 
     array (
       0 => '/var/www/html/themes/classic/templates/catalog/_partials/product-flags.tpl',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'file',
     ),
     'e64c699d70ea897ec9ed5b992b73872ad92542b6' => 
     array (
       0 => '/var/www/html/themes/classic/templates/catalog/_partials/variant-links.tpl',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_617d31aea3f870_10881891 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617e66bd3d9f58_91208250 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="featured-products clearfix">
   <h2 class="h2 products-section-title text-uppercase">
     Popularne produkty

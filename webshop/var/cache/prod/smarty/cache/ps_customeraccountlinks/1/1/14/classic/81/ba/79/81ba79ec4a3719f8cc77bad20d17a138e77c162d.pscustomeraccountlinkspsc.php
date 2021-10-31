@@ -1,24 +1,24 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-30 13:51:10
+/* Smarty version 3.1.39, created on 2021-10-31 10:49:49
   from 'module:pscustomeraccountlinkspsc' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_617d31aeaca409_99742268',
+  'unifunc' => 'content_617e66bd49b1d6_17169114',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '42f9461127ce7396a601c2484841253ea5ba658f' => 
     array (
       0 => 'module:pscustomeraccountlinkspsc',
-      1 => 1635372133,
+      1 => 1635673466,
       2 => 'module',
     ),
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_617d31aeaca409_99742268 (Smarty_Internal_Template $_smarty_tpl) {
+function content_617e66bd49b1d6_17169114 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
 ));
 ?>
