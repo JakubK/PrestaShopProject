@@ -7,9 +7,6 @@ namespace Scrapper
         [Name("Base Price")]
         public decimal Price { get; set; }
 
-        [Name("Price Tax Included")]
-        public int PriceTaxIncluded { get; set; } = 1;
-
         [Name("Quantity")]
         public int Quantity { get; set; } = 9999;
 
@@ -19,7 +16,10 @@ namespace Scrapper
         public string Author { get; set; }
         [Name("Image URL")]
         public string ImageUrl { get; set; }
-        [Name("Reference")]
+
+        public string Description { get; set; }
+
+        [Ignore]
         public string Url { get; set; }
 
         [Name("Category")]
