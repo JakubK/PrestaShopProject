@@ -30,6 +30,7 @@ namespace Scrapper
                     Url = "https:" + rawProduct.QuerySelector("a").GetAttribute("href"),
                     Author = rawProduct.QuerySelector("p a").TextContent
                 };
+                p.Name = p.Name.Length > 128 ? p.Name.Substring(0,127) : p.Name;
                 if(prodCatDictionary.ContainsKey(p.Name))
                 {
                     prodCatDictionary[p.Name].Add(catName);
