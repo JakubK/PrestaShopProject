@@ -84,7 +84,7 @@ namespace Scrapper
                 System.Console.WriteLine("Evaluating " + (++j) + " of " + limitedProducts.Count);
                 limited.Categories = string.Join(";", prodCatDictionary[limited.Name]);
                 document = await context.OpenAsync(limited.Url);
-                limited.Description = Regex.Replace(document.QuerySelector(".book-description .text").TextContent, @"\t|\n|\r", "");
+                limited.Description = Regex.Replace(document.QuerySelector(".book-description .text").InnerHtml, @"\t|\n|\r", "");
             }
 
             var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
