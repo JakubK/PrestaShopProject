@@ -20,7 +20,6 @@ services:
   prestashop:
     depends_on:
       - db
-    image: bipmobility
     build: 
       context: .
       dockerfile: Dockerfile
