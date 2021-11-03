@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 03 Lis 2021, 17:42
+-- Czas generowania: 03 Lis 2021, 18:45
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -2669,7 +2669,7 @@ INSERT INTO `ps_cart` (`id_cart`, `id_shop_group`, `id_shop`, `id_carrier`, `del
 (4, 1, 1, 2, '{\"3\":\"2,\"}', 1, 5, 5, 1, 2, 1, 'b44a6d9efd7a0076a0fbce6b15eaf3b1', 0, 0, '', 0, 0, '2021-10-27 21:22:14', '2021-10-27 21:22:14', NULL),
 (5, 1, 1, 2, '{\"3\":\"2,\"}', 1, 5, 5, 1, 2, 1, 'b44a6d9efd7a0076a0fbce6b15eaf3b1', 0, 0, '', 0, 0, '2021-10-27 21:22:14', '2021-10-27 21:22:14', NULL),
 (6, 1, 1, 1, '{\"6\":\"1,\"}', 1, 6, 6, 1, 3, 5, 'c65a65af59e5f99b18162b50a585c535', 0, 0, '', 0, 0, '2021-10-31 11:01:57', '2021-10-31 11:02:19', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5d4ee55c5ef54441b050df5fee7123243e84336c\"}'),
-(7, 1, 1, 11, '{\"7\":\"11,\"}', 1, 7, 7, 1, 4, 4, '62f5b2598668348b91aa68de68d7577c', 0, 0, '', 0, 0, '2021-10-31 16:03:07', '2021-11-03 17:04:48', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"d1bb5e8d4429469999f0acc8a974e44fed319846\"}'),
+(7, 1, 1, 11, '{\"7\":\"11,\"}', 1, 7, 7, 1, 4, 4, '62f5b2598668348b91aa68de68d7577c', 0, 0, '', 0, 0, '2021-10-31 16:03:07', '2021-11-03 19:11:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"d1bb5e8d4429469999f0acc8a974e44fed319846\"}'),
 (8, 1, 1, 1, '{\"8\":\"1,\"}', 1, 8, 8, 1, 5, 0, '64717bd11786636ebb33117e73911659', 0, 0, '', 0, 0, '2021-11-03 12:52:14', '2021-11-03 12:52:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5288dd62159660008856811fff89fa6a1080f701\"}'),
 (9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}');
 
@@ -2706,6 +2706,8 @@ CREATE TABLE `ps_cart_product` (
 --
 
 INSERT INTO `ps_cart_product` (`id_cart`, `id_product`, `id_address_delivery`, `id_shop`, `id_product_attribute`, `id_customization`, `quantity`, `date_add`) VALUES
+(7, 1, 7, 1, 0, 0, 4, '2021-11-03 19:11:39'),
+(7, 11, 7, 1, 0, 0, 11, '2021-11-03 19:11:07'),
 (7, 193, 7, 1, 0, 0, 1, '2021-11-03 17:03:55'),
 (8, 30, 8, 1, 0, 0, 2, '2021-11-03 12:52:14'),
 (9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25');
@@ -3899,7 +3901,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (183, NULL, NULL, 'CHEQUE_CURRENCIES', '2,1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (184, NULL, NULL, 'PRODUCTS_VIEWED_NBR', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (185, NULL, NULL, 'BLOCK_CATEG_DHTML', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(186, NULL, NULL, 'BLOCK_CATEG_MAX_DEPTH', '4', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(186, NULL, NULL, 'BLOCK_CATEG_MAX_DEPTH', '0', '0000-00-00 00:00:00', '2021-11-03 18:51:55'),
 (187, NULL, NULL, 'MANUFACTURER_DISPLAY_FORM', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (188, NULL, NULL, 'MANUFACTURER_DISPLAY_TEXT', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (189, NULL, NULL, 'MANUFACTURER_DISPLAY_TEXT_NB', '5', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3923,7 +3925,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (207, NULL, NULL, 'BLOCKADVERT_LINK', 'http://www.prestashop.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (208, NULL, NULL, 'BLOCKSTORE_IMG', 'store.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (209, NULL, NULL, 'BLOCKADVERT_IMG_EXT', 'jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(210, NULL, NULL, 'MOD_BLOCKTOPMENU_ITEMS', 'ALLMAN0,CAT2', '0000-00-00 00:00:00', '2021-11-03 17:12:02'),
+(210, NULL, NULL, 'MOD_BLOCKTOPMENU_ITEMS', 'CAT3,CAT4,CAT5,CAT6,CAT7,CAT8,CAT9,CAT10,CAT11,CAT12,CAT13,CAT14,CAT15,CAT16,CAT17,CAT18,CAT19,CAT20,CAT21,CAT22,CAT23,CAT24,CAT25,CAT26,CAT27', '0000-00-00 00:00:00', '2021-11-03 19:44:15'),
 (211, NULL, NULL, 'MOD_BLOCKTOPMENU_SEARCH', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (212, NULL, NULL, 'BLOCKSOCIAL_FACEBOOK', NULL, '0000-00-00 00:00:00', '2021-10-27 21:21:24'),
 (213, NULL, NULL, 'BLOCKSOCIAL_TWITTER', NULL, '0000-00-00 00:00:00', '2021-10-27 21:21:24'),
@@ -4025,7 +4027,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (309, NULL, NULL, 'BANNER_IMG', NULL, '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
 (310, NULL, NULL, 'BANNER_LINK', NULL, '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
 (311, NULL, NULL, 'BANNER_DESC', NULL, '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
-(312, NULL, NULL, 'BLOCK_CATEG_ROOT_CATEGORY', '1', '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
+(312, NULL, NULL, 'BLOCK_CATEG_ROOT_CATEGORY', '0', '2021-10-27 21:21:22', '2021-11-03 18:51:55'),
 (313, NULL, NULL, 'CONF_PS_CHECKPAYMENT_FIXED', '0.2', '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
 (314, NULL, NULL, 'CONF_PS_CHECKPAYMENT_VAR', '2', '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
 (315, NULL, NULL, 'CONF_PS_CHECKPAYMENT_FIXED_FOREIGN', '0.2', '2021-10-27 21:21:22', '2021-10-27 21:21:22'),
@@ -4116,7 +4118,9 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (409, NULL, NULL, 'PS_LABEL_DELIVERY_TIME_AVAILABLE', NULL, '2021-11-03 12:56:19', '2021-11-03 12:56:19'),
 (410, NULL, NULL, 'PS_LABEL_DELIVERY_TIME_OOSBOA', NULL, '2021-11-03 12:56:19', '2021-11-03 12:56:19'),
 (411, NULL, NULL, 'PS_CCCJS_VERSION', '2', '2021-11-03 12:56:19', '2021-11-03 13:00:58'),
-(412, NULL, NULL, 'PS_CCCCSS_VERSION', '2', '2021-11-03 12:56:19', '2021-11-03 13:00:58');
+(412, NULL, NULL, 'PS_CCCCSS_VERSION', '2', '2021-11-03 12:56:19', '2021-11-03 13:00:58'),
+(413, NULL, NULL, 'BLOCK_CATEG_SORT_WAY', '0', '2021-11-03 18:51:55', '2021-11-03 18:51:55'),
+(414, NULL, NULL, 'BLOCK_CATEG_SORT', '1', '2021-11-03 18:51:55', '2021-11-03 18:51:55');
 
 -- --------------------------------------------------------
 
@@ -4280,7 +4284,9 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (13, 1, 1, 7, 2, 2887188481, '2021-11-03 12:53:03', ''),
 (14, 1, 1, 4, 1, 2887188481, '2021-11-03 16:57:22', ''),
 (15, 1, 1, 4, 1, 2887188481, '2021-11-03 17:41:14', ''),
-(16, 1, 1, 4, 1, 2887188481, '2021-11-03 18:37:54', '');
+(16, 1, 1, 4, 1, 2887188481, '2021-11-03 18:37:54', ''),
+(17, 1, 1, 4, 1, 2887188481, '2021-11-03 19:11:01', ''),
+(18, 1, 1, 4, 1, 2887188481, '2021-11-03 19:44:22', '');
 
 -- --------------------------------------------------------
 
@@ -5596,7 +5602,7 @@ INSERT INTO `ps_employee_session` (`id_employee_session`, `id_employee`, `token`
 (4, 1, '9707d2a786a693fb53dea673b0438e5b1b55a995'),
 (5, 1, '87485db5e7baa74d9b9248eed50a6732496300bc'),
 (6, 1, '351bd592f487dacf0cb52a1da11745f95c7f75b4'),
-(8, 1, 'a05e03f6864dfaf7789db166086c7a51fc3fcb7f');
+(9, 1, 'c3566ffecfdad20dc7ef1e34868c85d2c5f51ade');
 
 -- --------------------------------------------------------
 
@@ -8142,6 +8148,24 @@ CREATE TABLE `ps_layered_filter_block` (
   `data` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Zrzut danych tabeli `ps_layered_filter_block`
+--
+
+INSERT INTO `ps_layered_filter_block` (`hash`, `data`) VALUES
+('048dfb3296fe18a3d673230c44f2c6f6', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('3c89e4d2fe714839734a43c9245e4117', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:57:{i:4;a:2:{s:4:\"name\";s:13:\"Artur Kulesza\";s:3:\"nbr\";s:1:\"1\";}i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:6;a:2:{s:4:\"name\";s:11:\"Karol Kurek\";s:3:\"nbr\";s:1:\"8\";}i:7;a:2:{s:4:\"name\";s:17:\"Zofia Matusiewicz\";s:3:\"nbr\";s:1:\"2\";}i:8;a:2:{s:4:\"name\";s:10:\"Anna Kempa\";s:3:\"nbr\";s:1:\"1\";}i:9;a:2:{s:4:\"name\";s:15:\"Tomasz Kaniecki\";s:3:\"nbr\";s:1:\"2\";}i:10;a:2:{s:4:\"name\";s:14:\"Piotr Tenyszyn\";s:3:\"nbr\";s:1:\"3\";}i:11;a:2:{s:4:\"name\";s:15:\"Marcin Biegała\";s:3:\"nbr\";s:1:\"1\";}i:12;a:2:{s:4:\"name\";s:14:\"Marcin Szeliga\";s:3:\"nbr\";s:1:\"1\";}i:13;a:2:{s:4:\"name\";s:15:\"Piotr Szajowski\";s:3:\"nbr\";s:1:\"1\";}i:14;a:2:{s:4:\"name\";s:16:\"Kacper Łukawski\";s:3:\"nbr\";s:1:\"1\";}i:15;a:2:{s:4:\"name\";s:12:\"Dawid Perdek\";s:3:\"nbr\";s:1:\"1\";}i:16;a:2:{s:4:\"name\";s:13:\"Adam Bobowski\";s:3:\"nbr\";s:1:\"2\";}i:17;a:2:{s:4:\"name\";s:15:\"Joanna Zatorska\";s:3:\"nbr\";s:1:\"1\";}i:18;a:2:{s:4:\"name\";s:14:\"Jakub Wasielak\";s:3:\"nbr\";s:1:\"1\";}i:19;a:2:{s:4:\"name\";s:14:\"Marcin Gomulak\";s:3:\"nbr\";s:1:\"1\";}i:20;a:2:{s:4:\"name\";s:18:\"Arkadiusz Brzegowy\";s:3:\"nbr\";s:1:\"1\";}i:21;a:2:{s:4:\"name\";s:17:\"Jarosław Porwoł\";s:3:\"nbr\";s:1:\"2\";}i:22;a:2:{s:4:\"name\";s:21:\"Radosław Słowiński\";s:3:\"nbr\";s:1:\"1\";}i:23;a:2:{s:4:\"name\";s:18:\"Bartosz Zaczyński\";s:3:\"nbr\";s:1:\"1\";}i:24;a:2:{s:4:\"name\";s:14:\"Marcin Berendt\";s:3:\"nbr\";s:1:\"1\";}i:25;a:2:{s:4:\"name\";s:12:\"Jakub Kozera\";s:3:\"nbr\";s:1:\"2\";}i:26;a:2:{s:4:\"name\";s:12:\"Piotr Kośka\";s:3:\"nbr\";s:1:\"3\";}i:27;a:2:{s:4:\"name\";s:18:\"Michał Szczepanik\";s:3:\"nbr\";s:1:\"6\";}i:28;a:2:{s:4:\"name\";s:16:\"Jacek Matulewski\";s:3:\"nbr\";s:1:\"1\";}i:29;a:2:{s:4:\"name\";s:15:\"Tomasz Trębski\";s:3:\"nbr\";s:1:\"2\";}i:30;a:2:{s:4:\"name\";s:15:\"Jakub Zagórski\";s:3:\"nbr\";s:1:\"2\";}i:31;a:2:{s:4:\"name\";s:16:\"Paweł Choniawko\";s:3:\"nbr\";s:1:\"1\";}i:32;a:2:{s:4:\"name\";s:17:\"Radosław Madecki\";s:3:\"nbr\";s:1:\"1\";}i:33;a:2:{s:4:\"name\";s:12:\"Paweł Pluta\";s:3:\"nbr\";s:1:\"1\";}i:34;a:2:{s:4:\"name\";s:17:\"Roman Kierzkowski\";s:3:\"nbr\";s:1:\"1\";}i:35;a:2:{s:4:\"name\";s:16:\"Mariusz Postół\";s:3:\"nbr\";s:1:\"1\";}i:36;a:2:{s:4:\"name\";s:21:\"Alicja Wolny-Dominiak\";s:3:\"nbr\";s:1:\"1\";}i:37;a:2:{s:4:\"name\";s:20:\"Przemysław Starosta\";s:3:\"nbr\";s:1:\"4\";}i:38;a:2:{s:4:\"name\";s:15:\"Marcin Albiniak\";s:3:\"nbr\";s:1:\"1\";}i:39;a:2:{s:4:\"name\";s:23:\"Sebastian Opałczyński\";s:3:\"nbr\";s:1:\"1\";}i:40;a:2:{s:4:\"name\";s:14:\"Jarosław Baca\";s:3:\"nbr\";s:1:\"3\";}i:41;a:2:{s:4:\"name\";s:16:\"Adam Raźniewski\";s:3:\"nbr\";s:1:\"2\";}i:42;a:2:{s:4:\"name\";s:14:\"Marcin Szyszka\";s:3:\"nbr\";s:1:\"1\";}i:43;a:2:{s:4:\"name\";s:15:\"Tomasz Gilewski\";s:3:\"nbr\";s:1:\"1\";}i:44;a:2:{s:4:\"name\";s:15:\"Jacek Galanciak\";s:3:\"nbr\";s:1:\"4\";}i:45;a:2:{s:4:\"name\";s:15:\"Arkadiusz Wrzos\";s:3:\"nbr\";s:1:\"1\";}i:46;a:2:{s:4:\"name\";s:14:\"Urszula Wiejak\";s:3:\"nbr\";s:1:\"1\";}i:47;a:2:{s:4:\"name\";s:15:\"Krzysztof Komar\";s:3:\"nbr\";s:1:\"1\";}i:48;a:2:{s:4:\"name\";s:15:\"Mateusz Staniak\";s:3:\"nbr\";s:1:\"1\";}i:49;a:2:{s:4:\"name\";s:19:\"Agnieszka Borkowska\";s:3:\"nbr\";s:1:\"2\";}i:50;a:2:{s:4:\"name\";s:13:\"Dawid Borycki\";s:3:\"nbr\";s:1:\"2\";}i:51;a:2:{s:4:\"name\";s:12:\"Marek Stabla\";s:3:\"nbr\";s:1:\"1\";}i:52;a:2:{s:4:\"name\";s:19:\"Daniel Krzyczkowski\";s:3:\"nbr\";s:1:\"2\";}i:53;a:2:{s:4:\"name\";s:20:\"Dobromir Matusiewicz\";s:3:\"nbr\";s:1:\"3\";}i:54;a:2:{s:4:\"name\";s:18:\"Jarosław Ratajski\";s:3:\"nbr\";s:1:\"2\";}i:55;a:2:{s:4:\"name\";s:13:\"Łukasz Dusza\";s:3:\"nbr\";s:1:\"1\";}i:56;a:2:{s:4:\"name\";s:14:\"Iwona Kubowicz\";s:3:\"nbr\";s:1:\"1\";}i:57;a:2:{s:4:\"name\";s:13:\"Paweł Wimmer\";s:3:\"nbr\";s:1:\"1\";}i:58;a:2:{s:4:\"name\";s:14:\"Cezary Kaszuba\";s:3:\"nbr\";s:1:\"1\";}i:59;a:2:{s:4:\"name\";s:14:\"Łukasz Bownik\";s:3:\"nbr\";s:1:\"1\";}i:60;a:2:{s:4:\"name\";s:20:\"Sebastian Dąbrowski\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"96\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:0;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:96;s:5:\"value\";N;}}}'),
+('4acfb2f3e2939e23ab3d6611fe0c1a17', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:5:{i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:36;a:2:{s:4:\"name\";s:21:\"Alicja Wolny-Dominiak\";s:3:\"nbr\";s:1:\"1\";}i:92;a:2:{s:4:\"name\";s:11:\"Adam Kopeć\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:94;a:2:{s:4:\"name\";s:15:\"Daniel Brzózka\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"6\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:6;s:5:\"value\";N;}}}'),
+('669ca3b14fe2235d92fa8a14764674cb', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:10:{i:26;a:2:{s:4:\"name\";s:12:\"Piotr Kośka\";s:3:\"nbr\";s:1:\"1\";}i:97;a:2:{s:4:\"name\";s:20:\"Sebastian Wilczewski\";s:3:\"nbr\";s:1:\"1\";}i:103;a:2:{s:4:\"name\";s:23:\"Sylwester Wieczorkowski\";s:3:\"nbr\";s:1:\"1\";}i:104;a:2:{s:4:\"name\";s:10:\"Anna Lewoc\";s:3:\"nbr\";s:1:\"4\";}i:105;a:2:{s:4:\"name\";s:14:\"Rafał Tondera\";s:3:\"nbr\";s:1:\"3\";}i:106;a:2:{s:4:\"name\";s:13:\"Anna Brzegowa\";s:3:\"nbr\";s:1:\"1\";}i:107;a:2:{s:4:\"name\";s:21:\"Monika Popiołkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:108;a:2:{s:4:\"name\";s:15:\"Tomasz Waszczyk\";s:3:\"nbr\";s:1:\"1\";}i:109;a:2:{s:4:\"name\";s:12:\"Maciej Dutko\";s:3:\"nbr\";s:1:\"1\";}i:110;a:2:{s:4:\"name\";s:13:\"Michał Zawer\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"15\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:997;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:15;s:5:\"value\";N;}}}'),
+('99a8b59891d6832eefba67582517293d', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:1:{i:3;a:2:{s:4:\"name\";s:12:\"Denis Aleksa\";s:3:\"nbr\";s:1:\"9\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"9\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:49;s:3:\"min\";d:9;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:9;s:5:\"value\";N;}}}'),
+('ae3e1b351f2d704e2ba6b9bac118a438', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:13:{i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:10;a:2:{s:4:\"name\";s:14:\"Piotr Tenyszyn\";s:3:\"nbr\";s:1:\"1\";}i:12;a:2:{s:4:\"name\";s:14:\"Marcin Szeliga\";s:3:\"nbr\";s:1:\"3\";}i:37;a:2:{s:4:\"name\";s:20:\"Przemysław Starosta\";s:3:\"nbr\";s:1:\"6\";}i:38;a:2:{s:4:\"name\";s:15:\"Marcin Albiniak\";s:3:\"nbr\";s:1:\"1\";}i:41;a:2:{s:4:\"name\";s:16:\"Adam Raźniewski\";s:3:\"nbr\";s:1:\"1\";}i:54;a:2:{s:4:\"name\";s:18:\"Jarosław Ratajski\";s:3:\"nbr\";s:1:\"1\";}i:70;a:2:{s:4:\"name\";s:13:\"Bartosz Szmit\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:99;a:2:{s:4:\"name\";s:13:\"Piotr Chudzik\";s:3:\"nbr\";s:1:\"1\";}i:100;a:2:{s:4:\"name\";s:18:\"Krzysztof Piaskowy\";s:3:\"nbr\";s:1:\"1\";}i:101;a:2:{s:4:\"name\";s:12:\"Piotr Wrotny\";s:3:\"nbr\";s:1:\"1\";}i:102;a:2:{s:4:\"name\";s:13:\"Kamil Józwik\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"21\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:21;s:5:\"value\";N;}}}'),
+('b6ef76568b6854f006835140ada721db', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('bf570d7fcbc0cc514e3d589a5661a801', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('c66337838c00827f013a87345d7c130c', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('cd026ba3627dfe921ddef03e68992e09', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('d1bf5310738075f7ea41596e0cc502c5', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:8:{i:40;a:2:{s:4:\"name\";s:14:\"Jarosław Baca\";s:3:\"nbr\";s:1:\"3\";}i:92;a:2:{s:4:\"name\";s:11:\"Adam Kopeć\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:94;a:2:{s:4:\"name\";s:15:\"Daniel Brzózka\";s:3:\"nbr\";s:1:\"6\";}i:95;a:2:{s:4:\"name\";s:15:\"Marcin Cichocki\";s:3:\"nbr\";s:1:\"1\";}i:96;a:2:{s:4:\"name\";s:22:\"Aleksandra Tomaszewska\";s:3:\"nbr\";s:1:\"1\";}i:97;a:2:{s:4:\"name\";s:20:\"Sebastian Wilczewski\";s:3:\"nbr\";s:1:\"2\";}i:98;a:2:{s:4:\"name\";s:16:\"Bartosz Danowski\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"16\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:16;s:5:\"value\";N;}}}'),
+('ee06dee88b5c2623d21df115b3494e93', 'a:1:{s:7:\"filters\";a:0:{}}');
+
 -- --------------------------------------------------------
 
 --
@@ -8187,7 +8211,8 @@ INSERT INTO `ps_layered_indexable_attribute_group` (`id_attribute_group`, `index
 (2, 1),
 (3, 1),
 (4, 1),
-(5, 1);
+(5, 1),
+(6, 1);
 
 -- --------------------------------------------------------
 
@@ -8601,6 +8626,13 @@ CREATE TABLE `ps_linksmenutop` (
   `new_window` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Zrzut danych tabeli `ps_linksmenutop`
+--
+
+INSERT INTO `ps_linksmenutop` (`id_linksmenutop`, `id_shop`, `new_window`) VALUES
+(1, 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -8614,6 +8646,13 @@ CREATE TABLE `ps_linksmenutop_lang` (
   `label` varchar(128) NOT NULL,
   `link` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `ps_linksmenutop_lang`
+--
+
+INSERT INTO `ps_linksmenutop_lang` (`id_linksmenutop`, `id_lang`, `id_shop`, `label`, `link`) VALUES
+(1, 1, 1, 'Autorzy', 'https://localhost/index.php?controller=manufacturer');
 
 -- --------------------------------------------------------
 
@@ -9268,7 +9307,10 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (574, 1, 0, 'dodanie Attribute', 'Attribute', 26, 1, '2021-11-03 18:39:34', '2021-11-03 18:39:34'),
 (575, 1, 0, 'dodanie Attribute', 'Attribute', 27, 1, '2021-11-03 18:39:37', '2021-11-03 18:39:37'),
 (576, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:39:55', '2021-11-03 18:39:55'),
-(577, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:39:58', '2021-11-03 18:39:58');
+(577, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:39:58', '2021-11-03 18:39:58'),
+(578, 1, 0, 'dodanie AttributeGroup', 'AttributeGroup', 6, 1, '2021-11-03 18:57:02', '2021-11-03 18:57:02'),
+(579, 1, 0, 'usunięcie AttributeGroup', 'AttributeGroup', 6, 1, '2021-11-03 18:57:17', '2021-11-03 18:57:17'),
+(580, 1, 0, 'Połączenie z panelem administracyjnym z 172.23.0.1', '', 0, 1, '2021-11-03 19:43:15', '2021-11-03 19:43:15');
 
 -- --------------------------------------------------------
 
@@ -10586,7 +10628,7 @@ CREATE TABLE `ps_module_history` (
 
 INSERT INTO `ps_module_history` (`id`, `id_employee`, `id_module`, `date_add`, `date_upd`) VALUES
 (1, 1, 34, '2021-10-31 10:47:23', '2021-10-31 10:47:23'),
-(2, 1, 11, '2021-11-03 17:19:01', '2021-11-03 17:19:01');
+(2, 1, 11, '2021-11-03 17:19:01', '2021-11-03 18:54:43');
 
 -- --------------------------------------------------------
 
@@ -11313,6 +11355,16 @@ CREATE TABLE `ps_pagenotfound` (
   `http_referer` varchar(256) NOT NULL,
   `date_add` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `ps_pagenotfound`
+--
+
+INSERT INTO `ps_pagenotfound` (`id_pagenotfound`, `id_shop`, `id_shop_group`, `request_uri`, `http_referer`, `date_add`) VALUES
+(1, 1, 1, '/index.php?controller=404', 'https://localhost/index.php', '2021-11-03 18:00:11'),
+(2, 1, 1, '/index.php?controller=404', 'https://localhost/index.php', '2021-11-03 18:00:29'),
+(3, 1, 1, '/index.php?controller=404', '', '2021-11-03 18:01:33'),
+(4, 1, 1, '/index.php?controller=404', '', '2021-11-03 18:01:42');
 
 -- --------------------------------------------------------
 
@@ -116199,7 +116251,7 @@ ALTER TABLE `ps_attribute`
 -- AUTO_INCREMENT dla tabeli `ps_attribute_group`
 --
 ALTER TABLE `ps_attribute_group`
-  MODIFY `id_attribute_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_attribute_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_attribute_impact`
@@ -116289,7 +116341,7 @@ ALTER TABLE `ps_condition`
 -- AUTO_INCREMENT dla tabeli `ps_configuration`
 --
 ALTER TABLE `ps_configuration`
-  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
+  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=415;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_configuration_kpi`
@@ -116301,7 +116353,7 @@ ALTER TABLE `ps_configuration_kpi`
 -- AUTO_INCREMENT dla tabeli `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections_source`
@@ -116391,7 +116443,7 @@ ALTER TABLE `ps_employee`
 -- AUTO_INCREMENT dla tabeli `ps_employee_session`
 --
 ALTER TABLE `ps_employee_session`
-  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_feature`
@@ -116505,7 +116557,7 @@ ALTER TABLE `ps_layered_filter`
 -- AUTO_INCREMENT dla tabeli `ps_linksmenutop`
 --
 ALTER TABLE `ps_linksmenutop`
-  MODIFY `id_linksmenutop` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_linksmenutop` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_link_block`
@@ -116523,7 +116575,7 @@ ALTER TABLE `ps_link_block_shop`
 -- AUTO_INCREMENT dla tabeli `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=581;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_mail`
@@ -116661,7 +116713,7 @@ ALTER TABLE `ps_page`
 -- AUTO_INCREMENT dla tabeli `ps_pagenotfound`
 --
 ALTER TABLE `ps_pagenotfound`
-  MODIFY `id_pagenotfound` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pagenotfound` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_page_type`
