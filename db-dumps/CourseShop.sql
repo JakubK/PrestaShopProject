@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 03 Lis 2021, 16:26
+-- Czas generowania: 03 Lis 2021, 17:42
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -1334,7 +1334,9 @@ INSERT INTO `ps_attribute` (`id_attribute`, `id_attribute_group`, `color`, `posi
 (22, 4, '', 0),
 (23, 4, '', 1),
 (24, 4, '', 2),
-(25, 4, '', 3);
+(25, 4, '', 3),
+(26, 5, '', 0),
+(27, 5, '', 1);
 
 -- --------------------------------------------------------
 
@@ -1357,7 +1359,8 @@ INSERT INTO `ps_attribute_group` (`id_attribute_group`, `is_color_group`, `group
 (1, 0, 'select', 0),
 (2, 1, 'color', 1),
 (3, 0, 'select', 2),
-(4, 0, 'select', 3);
+(4, 0, 'select', 3),
+(5, 0, 'select', 4);
 
 -- --------------------------------------------------------
 
@@ -1380,7 +1383,8 @@ INSERT INTO `ps_attribute_group_lang` (`id_attribute_group`, `id_lang`, `name`, 
 (1, 1, 'Rozmiar', 'Rozmiar'),
 (2, 1, 'Kolor', 'Kolor'),
 (3, 1, 'Dimension', 'Dimension'),
-(4, 1, 'Paper Type', 'Paper Type');
+(4, 1, 'Paper Type', 'Paper Type'),
+(5, 1, 'Czas trwania', 'Czas trwania');
 
 -- --------------------------------------------------------
 
@@ -1401,7 +1405,8 @@ INSERT INTO `ps_attribute_group_shop` (`id_attribute_group`, `id_shop`) VALUES
 (1, 1),
 (2, 1),
 (3, 1),
-(4, 1);
+(4, 1),
+(5, 1);
 
 -- --------------------------------------------------------
 
@@ -1458,7 +1463,9 @@ INSERT INTO `ps_attribute_lang` (`id_attribute`, `id_lang`, `name`) VALUES
 (22, 1, 'Ruled'),
 (23, 1, 'Plain'),
 (24, 1, 'Squarred'),
-(25, 1, 'Doted');
+(25, 1, 'Doted'),
+(26, 1, '1h'),
+(27, 1, '4h');
 
 -- --------------------------------------------------------
 
@@ -1500,7 +1507,9 @@ INSERT INTO `ps_attribute_shop` (`id_attribute`, `id_shop`) VALUES
 (22, 1),
 (23, 1),
 (24, 1),
-(25, 1);
+(25, 1),
+(26, 1),
+(27, 1);
 
 -- --------------------------------------------------------
 
@@ -3851,7 +3860,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (144, NULL, NULL, 'PS_VIRTUAL_PROD_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '2021-10-27 21:22:15'),
 (145, NULL, NULL, 'PS_CUSTOMIZATION_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (146, NULL, NULL, 'PS_CART_RULE_FEATURE_ACTIVE', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(147, NULL, NULL, 'PS_PACK_FEATURE_ACTIVE', NULL, '0000-00-00 00:00:00', '2021-11-03 17:16:54'),
+(147, NULL, NULL, 'PS_PACK_FEATURE_ACTIVE', NULL, '0000-00-00 00:00:00', '2021-11-03 18:39:58'),
 (148, NULL, NULL, 'PS_ALIAS_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (149, NULL, NULL, 'PS_TAX_ADDRESS_TYPE', 'id_address_delivery', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (150, NULL, NULL, 'PS_SHOP_DEFAULT', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4269,7 +4278,9 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (11, 1, 1, 3, 1, 2887385089, '2021-11-02 17:01:32', ''),
 (12, 1, 1, 6, 1, 2887188481, '2021-11-03 12:46:46', ''),
 (13, 1, 1, 7, 2, 2887188481, '2021-11-03 12:53:03', ''),
-(14, 1, 1, 4, 1, 2887188481, '2021-11-03 16:57:22', '');
+(14, 1, 1, 4, 1, 2887188481, '2021-11-03 16:57:22', ''),
+(15, 1, 1, 4, 1, 2887188481, '2021-11-03 17:41:14', ''),
+(16, 1, 1, 4, 1, 2887188481, '2021-11-03 18:37:54', '');
 
 -- --------------------------------------------------------
 
@@ -5585,7 +5596,7 @@ INSERT INTO `ps_employee_session` (`id_employee_session`, `id_employee`, `token`
 (4, 1, '9707d2a786a693fb53dea673b0438e5b1b55a995'),
 (5, 1, '87485db5e7baa74d9b9248eed50a6732496300bc'),
 (6, 1, '351bd592f487dacf0cb52a1da11745f95c7f75b4'),
-(7, 1, 'd67f4f8466e0714b5e5161d20677e2cb62526c04');
+(8, 1, 'a05e03f6864dfaf7789db166086c7a51fc3fcb7f');
 
 -- --------------------------------------------------------
 
@@ -8175,7 +8186,8 @@ INSERT INTO `ps_layered_indexable_attribute_group` (`id_attribute_group`, `index
 (1, 1),
 (2, 1),
 (3, 1),
-(4, 1);
+(4, 1),
+(5, 1);
 
 -- --------------------------------------------------------
 
@@ -8568,6 +8580,14 @@ CREATE TABLE `ps_layered_product_attribute` (
   `id_attribute_group` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_shop` int(10) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `ps_layered_product_attribute`
+--
+
+INSERT INTO `ps_layered_product_attribute` (`id_attribute`, `id_product`, `id_attribute_group`, `id_shop`) VALUES
+(26, 43, 5, 1),
+(27, 43, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -9238,7 +9258,17 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (564, 1, 0, 'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart', 'Cart', 8, 0, '2021-11-03 12:53:03', '2021-11-03 12:53:03'),
 (565, 1, 0, 'Połączenie z panelem administracyjnym z 172.23.0.1', '', 0, 1, '2021-11-03 16:57:28', '2021-11-03 16:57:28'),
 (566, 1, 0, 'Product modification', 'Product', 109, 1, '2021-11-03 17:16:26', '2021-11-03 17:16:26'),
-(567, 1, 0, 'Product modification', 'Product', 109, 1, '2021-11-03 17:16:54', '2021-11-03 17:16:54');
+(567, 1, 0, 'Product modification', 'Product', 109, 1, '2021-11-03 17:16:54', '2021-11-03 17:16:54'),
+(568, 1, 0, 'Połączenie z panelem administracyjnym z 172.23.0.1', '', 0, 1, '2021-11-03 18:34:55', '2021-11-03 18:34:55'),
+(569, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:37:37', '2021-11-03 18:37:37'),
+(570, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:37:53', '2021-11-03 18:37:53'),
+(571, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:38:13', '2021-11-03 18:38:13'),
+(572, 1, 0, 'Product modification', 'Product', 96, 1, '2021-11-03 18:38:45', '2021-11-03 18:38:45'),
+(573, 1, 0, 'dodanie AttributeGroup', 'AttributeGroup', 5, 1, '2021-11-03 18:39:18', '2021-11-03 18:39:18'),
+(574, 1, 0, 'dodanie Attribute', 'Attribute', 26, 1, '2021-11-03 18:39:34', '2021-11-03 18:39:34'),
+(575, 1, 0, 'dodanie Attribute', 'Attribute', 27, 1, '2021-11-03 18:39:37', '2021-11-03 18:39:37'),
+(576, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:39:55', '2021-11-03 18:39:55'),
+(577, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-03 18:39:58', '2021-11-03 18:39:58');
 
 -- --------------------------------------------------------
 
@@ -11427,7 +11457,7 @@ INSERT INTO `ps_product` (`id_product`, `id_supplier`, `id_manufacturer`, `id_ca
 (40, 0, 6, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:31', 0, 3, 1),
 (41, 0, 26, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '47.195122', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:28', 0, 3, 1),
 (42, 0, 6, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '57.804878', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:58', 0, 3, 1),
-(43, 0, 27, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 0, 3, 1),
+(43, 0, 27, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 1, '2021-11-02 14:26:42', '2021-11-03 18:39:58', 0, 0, 1),
 (44, 0, 28, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:46:32', 0, 3, 1),
 (45, 0, 29, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:51', 0, 3, 1),
 (46, 0, 30, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 0, 3, 1),
@@ -11480,7 +11510,7 @@ INSERT INTO `ps_product` (`id_product`, `id_supplier`, `id_manufacturer`, `id_ca
 (93, 0, 27, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '13.943089', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:46:22', 0, 3, 1),
 (94, 0, 54, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 0, 3, 1),
 (95, 0, 55, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 0, 3, 1),
-(96, 0, 54, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 0, 3, 1),
+(96, 0, 54, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-03 18:38:45', 0, 0, 1),
 (97, 0, 52, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '28.170732', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:46:03', 0, 3, 1),
 (98, 0, 53, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:27:01', '2021-11-02 14:46:23', 0, 3, 1),
 (99, 0, 53, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:27:01', '2021-11-02 14:46:23', 0, 3, 1),
@@ -11714,6 +11744,14 @@ CREATE TABLE `ps_product_attribute` (
   `available_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Zrzut danych tabeli `ps_product_attribute`
+--
+
+INSERT INTO `ps_product_attribute` (`id_product_attribute`, `id_product`, `reference`, `supplier_reference`, `location`, `ean13`, `isbn`, `upc`, `mpn`, `wholesale_price`, `price`, `ecotax`, `quantity`, `weight`, `unit_price_impact`, `default_on`, `minimal_quantity`, `low_stock_threshold`, `low_stock_alert`, `available_date`) VALUES
+(1, 43, '', '', '', '', '', '', '', '0.000000', '0.000000', '0.000000', 0, '0.000000', '0.000000', 1, 1, NULL, 0, '0000-00-00'),
+(2, 43, '', '', '', '', '', '', '', '0.000000', '0.000000', '0.000000', 0, '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -11724,6 +11762,14 @@ CREATE TABLE `ps_product_attribute_combination` (
   `id_attribute` int(10) UNSIGNED NOT NULL,
   `id_product_attribute` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `ps_product_attribute_combination`
+--
+
+INSERT INTO `ps_product_attribute_combination` (`id_attribute`, `id_product_attribute`) VALUES
+(26, 1),
+(27, 2);
 
 -- --------------------------------------------------------
 
@@ -11757,6 +11803,14 @@ CREATE TABLE `ps_product_attribute_shop` (
   `low_stock_alert` tinyint(1) NOT NULL DEFAULT '0',
   `available_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `ps_product_attribute_shop`
+--
+
+INSERT INTO `ps_product_attribute_shop` (`id_product`, `id_product_attribute`, `id_shop`, `wholesale_price`, `price`, `ecotax`, `weight`, `unit_price_impact`, `default_on`, `minimal_quantity`, `low_stock_threshold`, `low_stock_alert`, `available_date`) VALUES
+(43, 1, 1, '0.000000', '0.000000', '0.000000', '0.000000', '0.000000', 1, 1, NULL, 0, '0000-00-00'),
+(43, 2, 1, '0.000000', '0.000000', '0.000000', '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -12002,7 +12056,7 @@ INSERT INTO `ps_product_lang` (`id_product`, `id_shop`, `id_lang`, `description`
 (41, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <h3>Obierz kurs na... automatyzację w administracji IT</h3><p>Ansible jest elastycznym, wszechstronnym i niezwykle pomocnym narzędziem do automatyzacji w IT. Jego użycie pozwala zautomatyzować pewne powtarzalne procesy i działania, co powinno szczególnie zainteresować osoby pełniące funkcje administratorów sieci. W ramach czynności administracyjnych automatyzować można choćby tworzone środowiska (takie jak stacje robocze dla pracowników) czy serwery w infrastrukturze IT. O ile jednak dla admina znajomość narzędzia Ansible jest kwestią wyboru, o tyle na przykład dla DevOps engineera to już właściwie sprawa obowiązkowa.</p><p>Popularność Ansible i innych tego typu narzędzi bierze się z wymogów biznesowych. Im więcej procesów w IT zostanie zautomatyzowanych, tym szybciej będzie można realizować zadania. Z tego powodu przyszli pracodawcy będą Cię coraz częściej pytać o umiejętność korzystania z Ansible. Już choćby dlatego warto się nim zainteresować i nauczyć się nim posługiwać. Z naszym kursem opanowanie tego narzędzia na poziomie podstawowym zajmie Ci dosłownie kilka godzin.</p><h4>Co Cię czeka w trakcie naszego profesjonalnego szkolenia?</h4><h4>Podczas pracy z tym kursem video:</h4><ul><li>Dowiesz się, czym jest Ansible i do czego może Ci się przydać.</li><li>Poznasz słownictwo specyficzne dla Ansible (moduły, inventory, playbooki).</li><li>Nauczysz się zbierać całe konfiguracje plików w playbookach opisanych w języku YAML.</li><li>Będziesz zapisywać konfiguracje w playbookach w sposób czytelny oraz odtwarzalny.</li></ul><p>Co więcej...</p><ul><li>Opanujesz zasady tworzenia ról, a poszczególne zadania będziesz umieszczać tak celnie, że umożliwi Ci to kontrolowanie całego procesu instalacji.</li></ul><p><em>Ansible. Kurs video. Automatyzacja w IT od podstaw </em>zakończysz na poziomie podstawowym. Nauczysz się używać i konfigurować usługi za pomocą Ansible. To całkowicie wystarczy, by korzystać z tego narzędzia w codziennej pracy. Opanowanie materiału proponowanego w ramach szkolenia będzie stanowić także wstęp do dalszego, samodzielnego zgłębiania tematu.</p><h4>Science fiction, które stało się rzeczywistością</h4><p>Określenie „ansible” zostało wymyślone przez pisarkę science fiction Ursulę K. Le Guin i użyte w jej powieści z 1966 roku <em>Świat Rocannona</em>. Ansible oznacza tam systemy służące do natychmiastowej komunikacji. Najwyraźniej książka Le Guin zainspirowała Michaela DeHaana do stworzenia narzędzia Ansible, którego premiera odbyła się w 2015 roku. Ansible Dehaana to narzędzie pozwalające na natychmiastowe skomunikowanie ze sobą serwerów i przekazywanie oraz odbieranie od nich wiadomości. Działa na zasadzie komunikacji kontroler &lt;-&gt; node, gdzie kontrolerem jest miejsce uruchomienia Ansible, zaś node to komputer, do którego użytkownik Ansible zamierza się podłączyć. Co ciekawe, node nie musi mieć wgranego żadnego dodatkowego softu. Wystarczy protokół SSH.</p><h4>Jak działa Ansible</h4><p>Skoro komputer, z którym komunikujemy się za pomocą Ansible, nie ma specjalnego oprogramowania komunikacyjnego, to jak Ansible „obchodzi” ten brak? Otóż, po pierwsze, podłącza się do owego komputera. Po drugie, wgrywa na niego niewielkich rozmiarów aplikacje zwane modułami. Pozwalają one wykonać jakąś konkretną, pojedynczą czynność - mogą działać samodzielnie lub w grupach. Po wgraniu modułów czynności są wykonywane, a następnie kasowane z node, czyli komputera, z którym komunikował się kontroler (miejsce uruchomienia Ansible).</p>    </div></div>', '', 'ansible-kurs-video-automatyzacja-w-it-od-podstaw', '', '', '', 'Ansible. Kurs video. Automatyzacja w IT od podstaw', '', '', '', ''),
 (42, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <h3>Obierz kurs na... matematyczne podstawy programowania</h3><p>Matematyka? Brr! A po co? Po co wracać do czasów szkolnych — godzin spędzonych nad niekończącymi się zadaniami domowymi? Po co rozdrapywać stare rany i przypominać sobie koszmar tkwienia pod tablicą tylko z kredą w dłoni, gdy przeciw sobie miało się wzór nie do wyprowadzenia...? W jakim celu dorosły, samodzielny programista miałby z własnej woli raz jeszcze otwierać drzwi z napisem „matma” i wkraczać do pomieszczenia, w którym czyhają na niego liczby niewymierne i zespolone, ułamki łańcuchowe albo nawet logarytmy? Prawdą jest, że dobry programista nie musi świetnie znać matematyki — tak jak dobry kierowca nie jest zobowiązany do poznania budowy samochodu. Jeśli jednak uczyni ten wysiłek i dowie się, z jakich elementów składa się silnik i jak działa skrzynia biegów, uzbroi się w wiedzę, która w razie awarii może okazać się bezcenna.</p><p>Każdy praktyk programowania na pewnym etapie kariery zawodowej zostaje zmuszony do powrotu do korzeni. Prędzej czy później staje przed problemem, którego nie można rozwiązać inaczej, jak tylko sięgając po wiedzę z dziedziny matematyki. Ciebie też to czeka. Warto się na to zawczasu przygotować i uzmysłowić sobie zależność, jaka istnieje między programowaniem, algorytmem a czystą matematyką. Dzięki naszemu kursowi video powrócisz do świata matematyki, przypomnisz sobie to, o czym była mowa w szkole, a nawet poszerzysz wiedzę o te zagadnienia spoza programu, które będą przydatne właśnie Tobie — programiście. Twoim przewodnikiem w tej nieco sentymentalnej podróży będzie Python, trzeci pod względem popularności język programowania, którego rola w segmencie data science oraz big data wciąż rośnie.</p><h4>Co Cię czeka podczas naszego profesjonalnego szkolenia?</h4><h4>Dzięki temu kursowi wideo między innymi:</h4><ul><li>Przypomnisz sobie, czym są liczby rzeczywiste.</li><li>Zrozumiesz zasady działania algorytmów.</li><li>Nauczysz się operować na funkcjach.</li><li>Dowiesz się, czym są liczby zespolone.</li><li>Poznasz najpiękniejszy wzór matematyki.</li></ul><p>Co więcej...</p><ul><li>Przetestujesz odświeżoną i zdobytą wiedzę matematyczną w praktyce — w pracy z językiem Python.</li></ul><p><em>Matematyka a programowanie. Kurs video. Od pojęcia liczby po płaszczyznę zespoloną w Pythonie</em> kończy się na poziomie podstawowym, na etapie zrozumienia podstaw zagadnień matematycznych, które są ważne we współczesnej informatyce. Dzięki temu po odbyciu kursu będziesz w stanie samodzielnie rozwiązywać zaawansowane problemy matematyczne, z jakimi z pewnością spotkasz się w praktyce zawodowej.</p><h4>Matematyka — od teorii do praktyki</h4><p>Czyli „ale po co mi to?” raz jeszcze... Otóż podstawowym zagadnieniem programistycznym jest realizacja algorytmu (znanego wcześniej lub tworzonego tuż przed rozpoczęciem programowania) i rzadko zdarza się, by nie było to powiązane z pewnymi elementarnymi zagadnieniami matematycznymi — dlatego ich pogłębienie z pewnością pomoże osobie zajmującej się wykonaniem dowolnego, nawet bardziej skomplikowanego algorytmu. Na przykład w programowaniu gier przydatna okazuje się wiedza o funkcjach trygonometrycznych lub liczbach zespolonych. Matematykę można także zaprząc do sprawdzenia czasochłonności programu oraz do ochrony przed popełnianiem podstawowych błędów programistycznych. Pewne nieskomplikowane obliczenia warto też wykorzystać do optymalizacji własnych algorytmów.<br>75 zadań wypełnionych treścią</p><p>Nasz kurs matematyki dla programistów jest podzielony na 75 lekcji uszeregowanych w 5 blokach tematycznych. Na początek zajmiemy się liczbami rzeczywistymi — systemami: dziesiętnym, dwójkowym i szesnastkowym, ułamkami dziesiętnymi oraz zwykłymi, zdaniami i spójnikami logicznymi w matematyce; oczywiście wszelkie operacje będziemy wykonywać w Pythonie. W rozdziale drugim, poświęconym algorytmom, poznamy między innymi instrukcję warunkową if, pętle i ciągi, zastanowimy się nad problemem Collatza i rozwiążemy równanie diofantyczne. Potem przejdziemy do funkcji, ich różnych rodzajów i wykresów. Pochylimy się także nad problemem 8 wież i 8 hetmanów. W części czwartej szkolenia w zagadnienie liczb zespolonych wprowadzą nas sinusy i cosinusy, a dalej pojawią się wielomiany, potęgowanie i pierwiastkowanie liczb zespolonych. Ostatni rozdział jest poświęcony najpiękniejszemu wzorowi matematyki. Przybliżą nas do niego liczba pi oraz liczba e. Poznamy logarytmy i ułamki łańcuchowe i wreszcie: wzór Eulera. W podsumowaniu kursu zastosujemy zdobytą wiedzę do rozwiązania zadań elementarnych.</p><blockquote><p>„Nie przejmuj się, jeżeli masz problemy z matematyką. Zapewniam cię, że ja mam jeszcze większe”.</p><p style=\"text-align: right;\"><strong>Albert Einstein</strong></p></blockquote>    </div></div>', '', 'matematyka-a-programowanie-kurs-video-od-pojecia-liczby-po-plaszczyzne-zespolona-w-pythonie', '', '', '', 'Matematyka a programowanie. Kurs video. Od pojęcia liczby po płaszczyznę zespoloną w Pythonie', '', '', '', '');
 INSERT INTO `ps_product_lang` (`id_product`, `id_shop`, `id_lang`, `description`, `description_short`, `link_rewrite`, `meta_description`, `meta_keywords`, `meta_title`, `name`, `available_now`, `available_later`, `delivery_in_stock`, `delivery_out_stock`) VALUES
-(43, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <h3>Obierz kurs na... Javę!</h3><p>Może trudno w to uwierzyć, ale Java to język, którym informatycy posługują się już niemal ćwierć wieku. Od momentu powstania w 1995 roku pozwala na tworzenie wygodnych, doskonale działających aplikacji, a przemyślana składnia sprawia, że dziś jest jednym z najpopularniejszych języków programowania, wykorzystywanym w wielu technologiach: aplikacjach serwerowych, desktopowych oraz mobilnych. Siła tego języka drzemie w jego obiektowości i możliwości łatwego przenoszenia między różnymi platformami, a także architekturami. Jeśli chcesz być dobrym programistą, musisz świetnie opanować Javę — bez niej nie masz co marzyć o takiej karierze.</p><p>W tym szkoleniu <em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em>&nbsp;największy nacisk został położony na zrozumienie działania i konsekwencji wykorzystywania obiektowości Javy. Znajdziesz tu zagadnienia związane z klasami i obiektami, takie jak dziedziczenie i polimorfizm. Poznasz podstawy zarządzania pamięcią oraz wszystkie elementy języka niezbędne do pracy zgodnie z paradygmatem obiektowym. Nauczysz się stosować dobre praktyki pracy z kodem, takie jak zasady SOLID oraz metody dzielenia aplikacji na warstwy. To elementy często pomijane podczas innych kursów, a bardzo istotne w pracy programisty — od samego początku.</p><h4>Java — projektuj wygodnie i stabilnie!</h4><p>Czego nauczysz się podczas naszego profesjonalnego szkolenia?</p><ul><li>Poznasz składnię języka.</li><li>Zrozumiesz konwencje używanego nazewnictwa.</li><li>Zaczniesz operować stałymi, zmiennymi, a także operatorami arytmetycznymi i logicznymi.</li><li>Zobaczysz, do czego służą tablice jedno i wielowymiarowe.</li><li>Nauczysz się stosować instrukcje warunkowe oraz pętle.</li><li>Odkryjesz, jak używać metod, kolekcji i map.</li><li>Zrozumiesz, po co są konstruktory, klasy i interfejsy.</li><li>Dowiesz się, jak wykonywać operacje na obiektach.</li><li>Sprawdzisz, jak zarządzać pamięcią.</li></ul><p>Podczas szkolenia <em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em>&nbsp;składającego się z 57 lekcji nauczysz się podstaw programowania obiektowego. Po ukończeniu kursu będziesz potrafił pisać konsolowe aplikacje na poziomie podstawowym. Autor pomoże Ci odnaleźć się w środowisku IntelliJ, w którym prowadzone są zajęcia. Pozwoli Ci odkryć różne rodzaje klas (anonimowe, wewnętrzne) i wskaże, kiedy warto skorzystać z konkretnych rozwiązań w tym zakresie. Podpowie, jak stosować modyfikatory widoczności i do czego służy przeciążanie metod. Omówi też kwestię wyjątków i zasady dobrej pracy z kodem (SOLID).</p><p>W ramach nauki opracujesz pod jego kierunkiem kompletną aplikację, zorganizowaną na sposób obiektowy, z podziałem na warstwy. Dowiesz się, jak zorganizować wydajną aplikację i zapewnić jej stabilne działanie, jak tworzyć aplikacje na różne urządzenia. Zorientujesz się, co powinieneś wiedzieć o pojawiających się regularnie aktualizacjach samej Javy. Dodatkowym atutem są podpowiedzi dotyczące pytań często zadawanych na rozmowach kwalifikacyjnych.</p><h4>To nie sen, to Java!</h4><p>Java jest tak elastycznym językiem programowania, że można ją wykorzystać praktycznie w każdej sytuacji. Można w niej pisać małe aplikacje, które usprawnią codzienną pracę, uczynią ją znacznie wygodniejszą i oszczędzą sporo czasu. Można też za jej pomocą stworzyć aplikację mobilną albo ogromny serwis, w którym istotną cechą jest świetna skalowalność. Można napisać w niej doskonałe testy automatyczne do testowania programów komputerowych. Java przydaje się w każdej branży i w firmie każdej wielkości: od mikroprzedsiębiorstw po wielkie korporacje. Właśnie dlatego programiści używający tego języka należą do najlepiej opłacanych. Jeśli potrafią połączyć znajomość specyfiki branży z umiejętnościami programistycznymi, przyszłość należy do nich!</p><p>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy pozwoli Ci wstąpić na taką ścieżkę kariery. Jeśli krok po kroku prześledzisz wszystkie lekcje i wykonasz zadania programistyczne, bardzo szybko osiągniesz poziom, który umożliwi Ci samodzielną pracę nad aplikacjami.</p><h4>Kawa na dębie</h4><p>Gdy <strong>James Gosling</strong> pisał pierwszą wersję Javy, nazwał swój język Oak — podobno na cześć wielkiego dębu, który rósł przed siedzibą firmy Sun Microsystems. Z kolei ostateczna nazwa miała powstać w sklepie z kawą. Trudno dziś dociec, czy to prawda, czy legenda, ale jedno jest pewne: Java rozrasta się niczym solidne drzewo i pozwala tworzyć równie solidne programy. W centrum jej popularności i elastyczności zaś leży obiektowość. Obiektowe języki programowania są znacznie wygodniejsze w użyciu niż proceduralne, ale pod jednym warunkiem: programista musi bardzo dokładnie wiedzieć, co to są obiekty i co to są klasy, co oznacza stosowanie obiektów i jakie ma konsekwencje. Innymi słowy, musi dobrze rozumieć wszystkie mechanizmy, w tym kwestie dziedziczenia i polimorfizmu. Autor niniejszego szkolenia dołożył wszelkich starań, żeby wytłumaczyć te kwestie, pokazać, jak to wszystko działa i o co koniecznie trzeba zadbać. Jeśli zastosujesz się do jego wskazówek, programowanie od samego początku będzie dla Ciebie o wiele łatwiejsze.</p><h4>Tylko dla wtajemniczonych</h4><p><em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em> daje Ci szansę rozpocząć przygodę z nowym językiem programowania. Programowanie w Javie przyniesie Ci zapewne wiele satysfakcji i codziennych korzyści, a inspiracją niech będzie dla Ciebie historia pewnego dziesięciolatka, Ronila Shaha, który w 2016 roku zdał na 100 procent trudny międzynarodowy egzamin Oracle Certified Professional, Java SE 6 Programmer. I dokonał tego w 18 minut! Jeśli udało się temu chłopcu, z pewnością uda się i Tobie! Ruszaj na podbój Javy, ćwicz i programuj, słuchaj rzetelnych porad praktyka, z którego doświadczenia korzystają firmy na całym świecie.</p><blockquote><p>„Nie przewiduj przyszłości — twórz ją!”</p><p style=\"text-align:right\"><strong>Michał Szczepanik</strong></p></blockquote>    </div></div>', '', 'java-8-programowanie-obiektowe-kurs-video-poziom-pierwszy', '', '', '', 'Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy', '', '', '', ''),
+(43, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom: 20px;\">\r\n<div class=\"center-body-center\">\r\n<h3>Obierz kurs na... Javę!</h3>\r\n<p>Może trudno w to uwierzyć, ale Java to język, którym informatycy posługują się już niemal ćwierć wieku. Od momentu powstania w 1995 roku pozwala na tworzenie wygodnych, doskonale działających aplikacji, a przemyślana składnia sprawia, że dziś jest jednym z najpopularniejszych języków programowania, wykorzystywanym w wielu technologiach: aplikacjach serwerowych, desktopowych oraz mobilnych. Siła tego języka drzemie w jego obiektowości i możliwości łatwego przenoszenia między różnymi platformami, a także architekturami. Jeśli chcesz być dobrym programistą, musisz świetnie opanować Javę — bez niej nie masz co marzyć o takiej karierze.</p>\r\n<p>W tym szkoleniu <em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em> największy nacisk został położony na zrozumienie działania i konsekwencji wykorzystywania obiektowości Javy. Znajdziesz tu zagadnienia związane z klasami i obiektami, takie jak dziedziczenie i polimorfizm. Poznasz podstawy zarządzania pamięcią oraz wszystkie elementy języka niezbędne do pracy zgodnie z paradygmatem obiektowym. Nauczysz się stosować dobre praktyki pracy z kodem, takie jak zasady SOLID oraz metody dzielenia aplikacji na warstwy. To elementy często pomijane podczas innych kursów, a bardzo istotne w pracy programisty — od samego początku.</p>\r\n<h4>Java — projektuj wygodnie i stabilnie!</h4>\r\n<p>Czego nauczysz się podczas naszego profesjonalnego szkolenia?</p>\r\n<ul>\r\n<li>Poznasz składnię języka.</li>\r\n<li>Zrozumiesz konwencje używanego nazewnictwa.</li>\r\n<li>Zaczniesz operować stałymi, zmiennymi, a także operatorami arytmetycznymi i logicznymi.</li>\r\n<li>Zobaczysz, do czego służą tablice jedno i wielowymiarowe.</li>\r\n<li>Nauczysz się stosować instrukcje warunkowe oraz pętle.</li>\r\n<li>Odkryjesz, jak używać metod, kolekcji i map.</li>\r\n<li>Zrozumiesz, po co są konstruktory, klasy i interfejsy.</li>\r\n<li>Dowiesz się, jak wykonywać operacje na obiektach.</li>\r\n<li>Sprawdzisz, jak zarządzać pamięcią.</li>\r\n</ul>\r\n<p>Podczas szkolenia <em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em> składającego się z 57 lekcji nauczysz się podstaw programowania obiektowego. Po ukończeniu kursu będziesz potrafił pisać konsolowe aplikacje na poziomie podstawowym. Autor pomoże Ci odnaleźć się w środowisku IntelliJ, w którym prowadzone są zajęcia. Pozwoli Ci odkryć różne rodzaje klas (anonimowe, wewnętrzne) i wskaże, kiedy warto skorzystać z konkretnych rozwiązań w tym zakresie. Podpowie, jak stosować modyfikatory widoczności i do czego służy przeciążanie metod. Omówi też kwestię wyjątków i zasady dobrej pracy z kodem (SOLID).</p>\r\n<p>W ramach nauki opracujesz pod jego kierunkiem kompletną aplikację, zorganizowaną na sposób obiektowy, z podziałem na warstwy. Dowiesz się, jak zorganizować wydajną aplikację i zapewnić jej stabilne działanie, jak tworzyć aplikacje na różne urządzenia. Zorientujesz się, co powinieneś wiedzieć o pojawiających się regularnie aktualizacjach samej Javy. Dodatkowym atutem są podpowiedzi dotyczące pytań często zadawanych na rozmowach kwalifikacyjnych.</p>\r\n<h4>To nie sen, to Java!</h4>\r\n<p>Java jest tak elastycznym językiem programowania, że można ją wykorzystać praktycznie w każdej sytuacji. Można w niej pisać małe aplikacje, które usprawnią codzienną pracę, uczynią ją znacznie wygodniejszą i oszczędzą sporo czasu. Można też za jej pomocą stworzyć aplikację mobilną albo ogromny serwis, w którym istotną cechą jest świetna skalowalność. Można napisać w niej doskonałe testy automatyczne do testowania programów komputerowych. Java przydaje się w każdej branży i w firmie każdej wielkości: od mikroprzedsiębiorstw po wielkie korporacje. Właśnie dlatego programiści używający tego języka należą do najlepiej opłacanych. Jeśli potrafią połączyć znajomość specyfiki branży z umiejętnościami programistycznymi, przyszłość należy do nich!</p>\r\n<p>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy pozwoli Ci wstąpić na taką ścieżkę kariery. Jeśli krok po kroku prześledzisz wszystkie lekcje i wykonasz zadania programistyczne, bardzo szybko osiągniesz poziom, który umożliwi Ci samodzielną pracę nad aplikacjami.</p>\r\n<h4>Kawa na dębie</h4>\r\n<p>Gdy <strong>James Gosling</strong> pisał pierwszą wersję Javy, nazwał swój język Oak — podobno na cześć wielkiego dębu, który rósł przed siedzibą firmy Sun Microsystems. Z kolei ostateczna nazwa miała powstać w sklepie z kawą. Trudno dziś dociec, czy to prawda, czy legenda, ale jedno jest pewne: Java rozrasta się niczym solidne drzewo i pozwala tworzyć równie solidne programy. W centrum jej popularności i elastyczności zaś leży obiektowość. Obiektowe języki programowania są znacznie wygodniejsze w użyciu niż proceduralne, ale pod jednym warunkiem: programista musi bardzo dokładnie wiedzieć, co to są obiekty i co to są klasy, co oznacza stosowanie obiektów i jakie ma konsekwencje. Innymi słowy, musi dobrze rozumieć wszystkie mechanizmy, w tym kwestie dziedziczenia i polimorfizmu. Autor niniejszego szkolenia dołożył wszelkich starań, żeby wytłumaczyć te kwestie, pokazać, jak to wszystko działa i o co koniecznie trzeba zadbać. Jeśli zastosujesz się do jego wskazówek, programowanie od samego początku będzie dla Ciebie o wiele łatwiejsze.</p>\r\n<h4>Tylko dla wtajemniczonych</h4>\r\n<p><em>Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy</em> daje Ci szansę rozpocząć przygodę z nowym językiem programowania. Programowanie w Javie przyniesie Ci zapewne wiele satysfakcji i codziennych korzyści, a inspiracją niech będzie dla Ciebie historia pewnego dziesięciolatka, Ronila Shaha, który w 2016 roku zdał na 100 procent trudny międzynarodowy egzamin Oracle Certified Professional, Java SE 6 Programmer. I dokonał tego w 18 minut! Jeśli udało się temu chłopcu, z pewnością uda się i Tobie! Ruszaj na podbój Javy, ćwicz i programuj, słuchaj rzetelnych porad praktyka, z którego doświadczenia korzystają firmy na całym świecie.</p>\r\n<blockquote>\r\n<p>„Nie przewiduj przyszłości — twórz ją!”</p>\r\n<p style=\"text-align: right;\"><strong>Michał Szczepanik</strong></p>\r\n</blockquote>\r\n</div>\r\n</div>', '', 'java-8-programowanie-obiektowe-kurs-video-poziom-pierwszy', '', '', '', 'Java 8. Programowanie obiektowe. Kurs video. Poziom pierwszy', '', '', '', ''),
 (44, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <p>Zestaw wzorców projektowych zaproponowany przez Gang Czworga jest jednym z fundamentów wiedzy każdego informatyka. Zakres tematyczny niniejszego kursu obejmuje znaczną część tej wiedzy, ze szczególnym uwzględnieniem wzorców strukturalnych i operacyjnych. Nauka wzorców projektowych — po programowaniu proceduralnym i obiektowym — stanowi obowiązkowy element rozwoju każdego programisty.&nbsp;<br>Czy jesteś gotów wyjść poza zaklęty krąg powtarzających się błędów i przejść na wyższy poziom programowania w zgodzie z najlepszymi wzorcami? Jeśli tak, to usiądź wygodnie, bo zaczynamy!</p><h4>Co Cię czeka podczas szkolenia <em>Wzorce projektowe dla programistów C#. Kurs video</em>?</h4><p>W trakcie pracy z niniejszym kursem video opanujesz najważniejsze strukturalne i operacyjne wzorce projektowe. Zrozumiesz także, w jakich sytuacjach owe wzorce mogą być Ci pomocne, nauczysz się je implementować, będziesz je testować i modyfikować. Co więcej, poznasz kluczowe wzorce architektoniczne <strong>MVC</strong> i <strong>MVVM</strong> oraz przyswoisz teorię i praktykę pracy z nimi. Zatem do dzieła!</p>    </div></div>', '', 'wzorce-projektowe-dla-programistow-c-kurs-video', '', '', '', 'Wzorce projektowe dla programistów C#. Kurs video', '', '', '', ''),
 (45, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <h3>Konfiguracja Gita - odkrywamy karty</h3><p>Git to rozproszony system kontroli wersji. Rozproszony i kontrowersyjny, bo przez jednych kochany, a przez innych znienawidzony! Niezależnie od tego, jakie uczucia żywisz do Gita, jest to narzędzie wciąż zyskujące na popularności, a co za tym idzie - nie da się bez końca unikać zaznajomienia się z nim. W pewnym momencie trzeba zaprzyjaźnić się z Gitem. Może to właśnie ten moment? Jeśli uznajesz, że tak, zapraszamy na szkolenie!</p><p>Git to nie tylko zestaw komend i magicznych przełączników, Git to także konfiguracja. To całe morze, ba, ocean konfiguracji. Bo o ile zrobienie commitu to stosunkowo prosta sprawa, o tyle wpłynięcie na pewne aspekty jego tworzenia w sposób trwały to już zupełnie co innego. Dużo większy kaliber zadania. A przecież na pierwszy rzut oka mogłoby się wydawać, że w Gicie nie chodzi przede wszystkim o konfigurację... Tymczasem okazuje się, że praktycznie każda operacja, jaką w nim wykonujemy, opiera się właśnie na konfiguracji!</p><h4>Co Cię czeka podczas naszego profesjonalnego szkolenia?</h4><h4>W trakcie tego kursu video:</h4><ul><li>Dowiesz się, czym jest konfiguracja, i odpowiesz sobie sam, czego wolisz używać, żeby ją zmieniać.</li><li>Nauczysz się sprawnie lawirować między kolejnymi poziomami konfiguracji oraz dzielić ją na mniejsze elementy.</li><li>Zrozumiesz, że niepilnowany koniec linii może spowodować więcej szkód, niż by się mogło wydawać.</li><li>Zagłębisz się w temat końców linii, aby zobaczyć, że linia linii nierówna.</li><li>Poznasz hooki w Gicie i zrozumiesz, że nie potrzeba niczego więcej niż Gita, aby stworzyć własny system hooków.</li></ul><p>Co więcej...</p><ul><li>Opanujesz metodę wykorzystywania Gita na pierwszej linii obrony w drodze ku doskonałości kodu źródłowego.</li></ul><p><em>Git. Kurs video. Zaawansowane aspekty konfiguracji popularnego systemu kontroli wersji</em> kończy się na poziomie średnio zaawansowanym. Opanowanie wiedzy zawartej w szkoleniu otworzy przed Tobą wrota wspaniałego świata opcji konfiguracyjnych Gita i - kto wie - być może przemieni Cię w wielkiego entuzjastę tego systemu kontroli.</p><h4>Git zaawansowany - z czym i po co to się je?</h4><p>Git, wbrew temu, co twierdzi czasem jego twórca Linus Torvalds, nie jest ani głupi, ani tym bardziej prosty. Git jest bardzo złożoną maszynerią, zbudowaną z warstw, a każda z nich oferuje lepszy i prostszy interfejs. Początkujący użytkownik Gita opanowuje zwykle po pierwsze interfejs położony najwyżej, jakim jest git commit czy też git fetch, nie wiedząc, że w systemie istnieje drugie dno, którym jest jego konfiguracja. Warto spojrzeć na nią przychylnym okiem, ponieważ konfiguracja i słynne komendy `git config --global user.name` oraz `git config --global user.email` mogą być pierwszymi w życiu komendami - jak „Hello World” - które młody adept Gita zobaczy i wykona.</p><h4>Zaawansowana konfiguracja Gita w pigułce</h4><p>Usiądź wygodnie, uruchom nasz kurs - i zaczynamy. Na początek spojrzymy na to, czym jest konfiguracja w Gicie i jak możemy do niej bezpiecznie podejść. Krok ten będzie wstępem do krótkiej opowieści dotyczącej tego, że w Gicie systemowa konfiguracja nie jest tym samym, co konfiguracja użytkownika. Później udamy się do mało przyjemnego i pełnego pułapek świata końców linii, aby odkryć, że elastyczność Gita w tym zakresie może stanowić źródło wszelkiej maści problemów. Na szczęście wspólnie uda nam się ten problem przezwyciężyć i do omówienia pozostaną już tylko przyjemne tematy - jak to, że w automatyzacji pracy nie ma haczyków i że zawsze warto z nich korzystać.</p>    </div></div>', '', 'git-kurs-video-zaawansowane-aspekty-konfiguracji-popularnego-systemu-kontroli-wersji', '', '', '', 'Git. Kurs video. Zaawansowane aspekty konfiguracji popularnego systemu kontroli wersji', '', '', '', ''),
 (46, 1, 1, '<div id=\"center-body-opis\" class=\"center-body bookDescriptMobile\" style=\"padding-bottom:20px;\"><div class=\"center-body-center\">        <h3>Obierz kurs na... Javę dla nieco bardziej zaawansowanych</h3><p>Skoro interesujesz się tym szkoleniem, to pewnie znasz już podstawy języka Java. Może ukończyłeś nasz kurs dla początkujących programistów tego języka? A może zgłębiałeś jego tajniki samodzielnie? Tak czy inaczej, skoro opanowałeś bazową wiedzę dotyczącą Javy i wiesz, że chcesz w niej programować, czas sięgnąć głębiej i zaprzyjaźnić się na przykład z popularnym systemem kontroli kodu Git oraz narzędziami do budowy projektów, takimi jak Maven i Gradle. Warto poznać pełnię możliwości Javy - po to, by pracować w niej sprawniej, szybciej i efektywniej. Dobrze jest zaznajomić się z szerokim spektrum narzędzi, jakie ten język oferuje developerom.</p><h4>Co Cię czeka podczas naszego profesjonalnego szkolenia?</h4><h4>Umiejętności zdobyte w trakcie kursu pozwolą Ci:</h4><ul><li>szybciej i łatwiej budować projekty,</li><li>efektywniej pracować samemu,</li><li>sprawniej działać w zespole,</li><li>tworzyć kontrybucje w innych projektach otwartoźródłowych,</li><li>dekompilować kod, by dokładnie sprawdzać jego działanie,</li><li>zaciemniać kod, co potencjalnie utrudnia jego „kradzież”,</li><li>odciemniać kod, by później, po procesie dekompilacji, był bardziej czytelny,</li><li>skracać miejsca, gdzie porównuje się ciągi znaków, dzięki użyciu wyrażeń regularnych.</li></ul><p>Co więcej...</p><ul><li>wiedza, którą przyswoisz w ramach szkolenia, przyda Ci się podczas poszukiwania nowej, ciekawej pracy. W ofertach dla programistów Javy umiejętności korzystania z Gita, Mavena oraz Gradle’a wymieniane są na samej górze listy wymagań.</li></ul><p><em>Java dla średnio zaawansowanych. Kurs video. Tworzenie profesjonalnych projektów </em>kończy się na poziomie, na którym będziesz mógł powiedzieć, że jesteś już Java developerem. Odtąd będzie tak o Tobie mówić także Twój nowy pracodawca.</p><h4>Git, Maven, Gradle</h4><p><strong>Git</strong>, mimo że można go uznać za kluczowe narzędzie podczas pracy w zespole, dzięki swoim funkcjom jest równie przydatny, gdy nad projektem pracuje tylko jedna osoba. Został stworzony przez Linusa Torvaldsa w 2005 roku jako wolne oprogramowanie, by wesprzeć rozwój jądra Linuxa. Od tamtego czasu jest rozwijany i skutecznie wspomaga prace nawet nad naprawdę dużymi projektami. Ze wsparcia Gita korzystają między innymi Reddit, Digg, Facebook, Apache. Z kolei Maven służy do automatyzowania budowy oprogramowania na platformę Java. Jego poszczególne funkcje są realizowane dzięki wtyczkom, które pobiera się automatycznie podczas pierwszego wykorzystania. Z Mavena korzystają między innymi Google i Zalando. Na koncepcie Mavena - niejako w roli jego doskonalszego następcy - powstał Gradle. To narzędzie także służy do automatyzacji budowy oprogramowania, jednak, w przeciwieństwie do Mavena, który korzysta z XML, umożliwia używanie Kotlina DSL, co będziesz mógł zauważyć w trakcie naszego kursu. Gradle został zaprojektowany do budowania wielu projektów, nawet takich, które są naprawdę duże. Obsługuje kompilacje przyrostowe, inteligentnie określając, które części drzewa kompilacji są aktualne; każde zadanie zależne tylko od tych części nie musi być ponownie wykonywane. Korzystają z niego między innymi Netflix i Adobe.</p><h4>Zanurz się z nami w Javie</h4><p><em>Java dla średnio zaawansowanych. Kurs video. Tworzenie profesjonalnych projektów </em>nauczy Cię programować asynchronicznie przy użyciu klasy Thread, interfejsu Runnable oraz klasy Executors, przybliży Ci także podstawy i zastosowanie klas atomicznych. Podpowie, jak tworzyć i korzystać z algorytmów bubble sort (sortowania bąbelkowego), insertion sort (sortowania przez wstawianie) oraz selection sort (sortowania przez wybieranie). Opanujesz procesy kreowania i używania algorytmów linear search (wyszukiwania liniowego) oraz binary search (wyszukiwania binarnego). Ukończywszy szkolenie, będziesz swobodnie korzystać z wyrażeń regularnych, dekompilować kod oraz używać programu Bytecode Viewer, który oferuje wiele dekompilatorów w jednym programie. Dzięki zaznajomieniu się z programem ProGuard zaciemnisz swój kod, a za pomocą Java Deobfuscatora odciemnisz. Opanujesz oczywiście Gita: instalowanie, konfigurowanie, budowanie nowego repozytorium; będziesz tworzyć i publikować zmiany w kodzie, pobierać je, nadpisywać i cofać stan gałęzi, pracować na wielu gałęziach, ignorować pliki oraz foldery, a także korzystać z Gita w IntelliJ IDEA. Poznasz najpopularniejsze serwisy, które oferują umieszczanie projektów używających Gita, takie jak GitHub, GitLab, Bitbucket, nauczysz się w ramach nich przemieszczać. Zaprzyjaźnisz się z Mavenem - dowiesz się, jak tworzy się w nim projekty, jak zmienia się podstawowe informacje o projekcie, poznasz zasady jego budowania, system repozytoriów, system zależności oraz system wtyczek. Zapoznasz się z Gradle’em. Także w nim stworzysz projekt, zmienisz podstawowe informacje o nim, dowiesz się, jaki ma system repozytoriów, zależności i wtyczek, nauczysz się budować w nim projekt. Na koniec wszystkie zdobyte informacje wykorzystasz do stworzenia jednego, dużego projektu.</p>    </div></div>', '', 'java-dla-srednio-zaawansowanych-kurs-video-tworzenie-profesjonalnych-projektow', '', '', '', 'Java dla średnio zaawansowanych. Kurs video. Tworzenie profesjonalnych projektów', '', '', '', ''),
@@ -12371,7 +12425,7 @@ INSERT INTO `ps_product_shop` (`id_product`, `id_shop`, `id_category_default`, `
 (40, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:31', 3),
 (41, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '47.195122', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:28', 3),
 (42, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '57.804878', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:58', 3),
-(43, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 3),
+(43, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 1, 0, '2021-11-02 14:26:42', '2021-11-03 18:39:58', 0),
 (44, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:46:32', 3),
 (45, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:51', 3),
 (46, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 3),
@@ -12424,7 +12478,7 @@ INSERT INTO `ps_product_shop` (`id_product`, `id_shop`, `id_category_default`, `
 (93, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '13.943089', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:46:22', 3),
 (94, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 3),
 (95, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 3),
-(96, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:45:53', 3),
+(96, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-03 18:38:45', 0),
 (97, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '28.170732', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:56', '2021-11-02 14:46:03', 3),
 (98, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:27:01', '2021-11-02 14:46:23', 3),
 (99, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:27:01', '2021-11-02 14:46:23', 3),
@@ -24897,6 +24951,7 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (43, 1386, 1),
 (43, 1392, 1),
 (43, 1400, 1),
+(43, 1404, 1),
 (43, 1406, 1),
 (43, 1412, 1),
 (43, 1417, 1),
@@ -25196,7 +25251,6 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (43, 33045, 1),
 (43, 33046, 1),
 (43, 33047, 1),
-(43, 33048, 1),
 (43, 33049, 1),
 (43, 33050, 1),
 (43, 33051, 1),
@@ -25234,6 +25288,7 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (43, 33083, 1),
 (43, 33084, 1),
 (43, 33085, 1),
+(43, 81400, 1),
 (43, 6773, 4),
 (43, 6774, 4),
 (43, 628, 7),
@@ -28283,9 +28338,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (54, 1137, 1),
 (54, 1140, 1),
 (54, 1162, 1),
-(54, 1166, 1),
-(54, 1290, 1);
+(54, 1166, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(54, 1290, 1),
 (54, 1294, 1),
 (54, 1295, 1),
 (54, 1304, 1),
@@ -32064,9 +32119,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (68, 5469, 1),
 (68, 5507, 1),
 (68, 5552, 1),
-(68, 5568, 1),
-(68, 6363, 1);
+(68, 5568, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(68, 6363, 1),
 (68, 6635, 1),
 (68, 6663, 1),
 (68, 6726, 1),
@@ -35861,9 +35916,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (84, 9024, 1),
 (84, 9303, 1),
 (84, 9320, 1),
-(84, 9344, 1),
-(84, 9546, 1);
+(84, 9344, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(84, 9546, 1),
 (84, 9863, 1),
 (84, 10133, 1),
 (84, 10426, 1),
@@ -39595,9 +39650,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (102, 45954, 1),
 (102, 45955, 1),
 (102, 45956, 1),
-(102, 45957, 1),
-(102, 45958, 1);
+(102, 45957, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(102, 45958, 1),
 (102, 45959, 1),
 (102, 45960, 1),
 (102, 45961, 1),
@@ -43123,9 +43178,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (114, 3829, 1),
 (114, 3998, 1),
 (114, 4277, 1),
-(114, 4281, 1),
-(114, 4283, 1);
+(114, 4281, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(114, 4283, 1),
 (114, 4284, 1),
 (114, 4298, 1),
 (114, 4316, 1),
@@ -46650,9 +46705,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (126, 1404, 1),
 (126, 1418, 1),
 (126, 1423, 1),
-(126, 1434, 1),
-(126, 1446, 1);
+(126, 1434, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(126, 1446, 1),
 (126, 1457, 1),
 (126, 1481, 1),
 (126, 1485, 1),
@@ -50163,9 +50218,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (138, 68381, 1),
 (138, 68382, 1),
 (138, 68383, 1),
-(138, 2203, 3),
-(138, 6061, 3);
+(138, 2203, 3);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(138, 6061, 3),
 (138, 6107, 3),
 (138, 68384, 3),
 (138, 628, 7),
@@ -53675,9 +53730,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (152, 665, 1),
 (152, 675, 1),
 (152, 679, 1),
-(152, 692, 1),
-(152, 703, 1);
+(152, 692, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(152, 703, 1),
 (152, 709, 1),
 (152, 713, 1),
 (152, 714, 1),
@@ -57213,9 +57268,9 @@ INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
 (165, 3545, 1),
 (165, 3576, 1),
 (165, 3589, 1),
-(165, 3620, 1),
-(165, 3797, 1);
+(165, 3620, 1);
 INSERT INTO `ps_search_index` (`id_product`, `id_word`, `weight`) VALUES
+(165, 3797, 1),
 (165, 3908, 1),
 (165, 3935, 1),
 (165, 4254, 1),
@@ -94722,6 +94777,7 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (55707, 1, 1, 'dbania'),
 (63388, 1, 1, 'dcb'),
 (55223, 1, 1, 'deadlock'),
+(81400, 1, 1, 'debie'),
 (33048, 1, 1, 'debiegdy'),
 (33055, 1, 1, 'debu'),
 (68653, 1, 1, 'debuggera'),
@@ -94796,9 +94852,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (29140, 1, 1, 'denis'),
 (76193, 1, 1, 'dentysty'),
 (33502, 1, 1, 'deobfuscatora'),
-(7622, 1, 1, 'depency'),
-(50590, 1, 1, 'dependency');
+(7622, 1, 1, 'depency');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(50590, 1, 1, 'dependency'),
 (39608, 1, 1, 'deployment'),
 (39647, 1, 1, 'deploymentu'),
 (135, 1, 1, 'depth'),
@@ -96774,10 +96830,10 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (35033, 1, 1, 'hobby'),
 (3886, 1, 1, 'hobbystow'),
 (78322, 1, 1, 'hobbystycznie'),
-(12924, 1, 1, 'hobbystycznych'),
-(18200, 1, 1, 'hoc'),
-(57508, 1, 1, 'holdem');
+(12924, 1, 1, 'hobbystycznych');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(18200, 1, 1, 'hoc'),
+(57508, 1, 1, 'holdem'),
 (57111, 1, 1, 'holender'),
 (52655, 1, 1, 'holenderski'),
 (76949, 1, 1, 'holo'),
@@ -98740,10 +98796,10 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (29528, 1, 1, 'ludziach'),
 (4833, 1, 1, 'ludzie'),
 (4777, 1, 1, 'ludzki'),
-(7510, 1, 1, 'ludzkich'),
-(28805, 1, 1, 'ludzkie'),
-(29517, 1, 1, 'ludzkiego');
+(7510, 1, 1, 'ludzkich');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(28805, 1, 1, 'ludzkie'),
+(29517, 1, 1, 'ludzkiego'),
 (22794, 1, 1, 'ludzkiej'),
 (4760, 1, 1, 'ludzmi'),
 (48566, 1, 1, 'lufthansa'),
@@ -100681,9 +100737,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (10781, 1, 1, 'oczekiwac'),
 (13841, 1, 1, 'oczekiwan'),
 (64416, 1, 1, 'oczekiwane'),
-(32367, 1, 1, 'oczekiwanego'),
-(28463, 1, 1, 'oczekiwania');
+(32367, 1, 1, 'oczekiwanego');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(28463, 1, 1, 'oczekiwania'),
 (49788, 1, 1, 'oczekiwaniami'),
 (64433, 1, 1, 'oczekiwaniamipo'),
 (61892, 1, 1, 'oczekiwany'),
@@ -102645,9 +102701,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (56659, 1, 1, 'poruszana'),
 (18606, 1, 1, 'poruszane'),
 (1831, 1, 1, 'poruszania'),
-(41449, 1, 1, 'poruszanie'),
-(18581, 1, 1, 'poruszanych');
+(41449, 1, 1, 'poruszanie');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(18581, 1, 1, 'poruszanych'),
 (42714, 1, 1, 'poruszasz'),
 (11702, 1, 1, 'poruszone'),
 (10779, 1, 1, 'poruszonych'),
@@ -104510,9 +104566,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (61891, 1, 1, 'reagowanie'),
 (50611, 1, 1, 'reaguje'),
 (12888, 1, 1, 'reakcja'),
-(58572, 1, 1, 'reakcje'),
-(61877, 1, 1, 'reaktor');
+(58572, 1, 1, 'reakcje');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(61877, 1, 1, 'reaktor'),
 (7545, 1, 1, 'reaktywne'),
 (36602, 1, 1, 'reaktywnego'),
 (36629, 1, 1, 'reaktywnienasze'),
@@ -106469,9 +106525,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (77937, 1, 1, 'stawiajaca'),
 (70240, 1, 1, 'stawial'),
 (76674, 1, 1, 'stawiane'),
-(22770, 1, 1, 'stawiania'),
-(23874, 1, 1, 'stawianie');
+(22770, 1, 1, 'stawiania');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(23874, 1, 1, 'stawianie'),
 (57455, 1, 1, 'stawianych'),
 (12467, 1, 1, 'stawiasz'),
 (45550, 1, 1, 'stawka'),
@@ -108437,9 +108493,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (79055, 1, 1, 'vademecum'),
 (74716, 1, 1, 'valley'),
 (43213, 1, 1, 'valuable'),
-(52657, 1, 1, 'van'),
-(47602, 1, 1, 'var');
+(52657, 1, 1, 'van');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(47602, 1, 1, 'var'),
 (48576, 1, 1, 'varejo'),
 (12173, 1, 1, 'vba'),
 (26422, 1, 1, 'vbavisual'),
@@ -110372,9 +110428,9 @@ INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
 (18563, 1, 1, 'zajmiesz'),
 (3021, 1, 1, 'zajmij'),
 (6422, 1, 1, 'zajmowac'),
-(4418, 1, 1, 'zajmowal'),
-(21768, 1, 1, 'zajmowaly');
+(4418, 1, 1, 'zajmowal');
 INSERT INTO `ps_search_word` (`id_word`, `id_shop`, `id_lang`, `word`) VALUES
+(21768, 1, 1, 'zajmowaly'),
 (53622, 1, 1, 'zajmuja'),
 (58226, 1, 1, 'zajmujac'),
 (5233, 1, 1, 'zajmujaca'),
@@ -111803,7 +111859,9 @@ CREATE TABLE `ps_specific_price_priority` (
 --
 
 INSERT INTO `ps_specific_price_priority` (`id_specific_price_priority`, `id_product`, `priority`) VALUES
-(1, 109, 'id_shop;id_currency;id_country;id_group');
+(1, 109, 'id_shop;id_currency;id_country;id_group'),
+(3, 43, 'id_shop;id_currency;id_country;id_group'),
+(6, 96, 'id_shop;id_currency;id_country;id_group');
 
 -- --------------------------------------------------------
 
@@ -112293,7 +112351,7 @@ CREATE TABLE `ps_stock_available` (
 --
 
 INSERT INTO `ps_stock_available` (`id_stock_available`, `id_product`, `id_product_attribute`, `id_shop`, `id_shop_group`, `quantity`, `physical_quantity`, `reserved_quantity`, `depends_on_stock`, `out_of_stock`, `location`) VALUES
-(0, 109, 0, 1, 0, 636, 636, 0, 0, 0, '');
+(0, 43, 0, 1, 0, 636, 636, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -116135,13 +116193,13 @@ ALTER TABLE `ps_attachment_lang`
 -- AUTO_INCREMENT dla tabeli `ps_attribute`
 --
 ALTER TABLE `ps_attribute`
-  MODIFY `id_attribute` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_attribute` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_attribute_group`
 --
 ALTER TABLE `ps_attribute_group`
-  MODIFY `id_attribute_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_attribute_group` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_attribute_impact`
@@ -116243,7 +116301,7 @@ ALTER TABLE `ps_configuration_kpi`
 -- AUTO_INCREMENT dla tabeli `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections_source`
@@ -116333,7 +116391,7 @@ ALTER TABLE `ps_employee`
 -- AUTO_INCREMENT dla tabeli `ps_employee_session`
 --
 ALTER TABLE `ps_employee_session`
-  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_feature`
@@ -116465,7 +116523,7 @@ ALTER TABLE `ps_link_block_shop`
 -- AUTO_INCREMENT dla tabeli `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=568;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_mail`
@@ -116621,7 +116679,7 @@ ALTER TABLE `ps_product`
 -- AUTO_INCREMENT dla tabeli `ps_product_attribute`
 --
 ALTER TABLE `ps_product_attribute`
-  MODIFY `id_product_attribute` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_product_attribute` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_product_comment`
@@ -116735,7 +116793,7 @@ ALTER TABLE `ps_search_engine`
 -- AUTO_INCREMENT dla tabeli `ps_search_word`
 --
 ALTER TABLE `ps_search_word`
-  MODIFY `id_word` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80530;
+  MODIFY `id_word` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82817;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_sekeyword`
@@ -116771,7 +116829,7 @@ ALTER TABLE `ps_specific_price`
 -- AUTO_INCREMENT dla tabeli `ps_specific_price_priority`
 --
 ALTER TABLE `ps_specific_price_priority`
-  MODIFY `id_specific_price_priority` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_specific_price_priority` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_specific_price_rule`
