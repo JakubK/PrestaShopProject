@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 06 Lis 2021, 17:02
+-- Czas generowania: 06 Lis 2021, 18:38
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -2671,7 +2671,8 @@ INSERT INTO `ps_cart` (`id_cart`, `id_shop_group`, `id_shop`, `id_carrier`, `del
 (6, 1, 1, 1, '{\"6\":\"1,\"}', 1, 6, 6, 1, 3, 5, 'c65a65af59e5f99b18162b50a585c535', 0, 0, '', 0, 0, '2021-10-31 11:01:57', '2021-10-31 11:02:19', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5d4ee55c5ef54441b050df5fee7123243e84336c\"}'),
 (7, 1, 1, 11, '{\"7\":\"11,\"}', 1, 7, 7, 1, 4, 4, '62f5b2598668348b91aa68de68d7577c', 0, 0, '', 0, 0, '2021-10-31 16:03:07', '2021-11-03 19:11:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"d1bb5e8d4429469999f0acc8a974e44fed319846\"}'),
 (8, 1, 1, 1, '{\"8\":\"1,\"}', 1, 8, 8, 1, 5, 0, '64717bd11786636ebb33117e73911659', 0, 0, '', 0, 0, '2021-11-03 12:52:14', '2021-11-03 12:52:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5288dd62159660008856811fff89fa6a1080f701\"}'),
-(9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}');
+(9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}'),
+(10, 1, 1, 0, '', 1, 0, 0, 1, 0, 5, '', 0, 0, '', 0, 0, '2021-11-06 18:36:49', '2021-11-06 18:36:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -2710,7 +2711,8 @@ INSERT INTO `ps_cart_product` (`id_cart`, `id_product`, `id_address_delivery`, `
 (7, 11, 7, 1, 0, 0, 11, '2021-11-03 19:11:07'),
 (7, 193, 7, 1, 0, 0, 1, '2021-11-03 17:03:55'),
 (8, 30, 8, 1, 0, 0, 2, '2021-11-03 12:52:14'),
-(9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25');
+(9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25'),
+(10, 73, 0, 1, 0, 0, 1, '2021-11-06 18:36:49');
 
 -- --------------------------------------------------------
 
@@ -4252,9 +4254,9 @@ INSERT INTO `ps_configuration_lang` (`id_configuration`, `id_lang`, `value`, `da
 (282, 1, '', '2021-11-03 12:00:57'),
 (283, 1, '', '2021-11-03 12:00:57'),
 (284, 1, 'Obecnie brak na stanie', NULL),
-(309, 1, '03bc9fe704ca9669dd435c3d5f9044ed.png', '2021-11-06 15:53:18'),
-(310, 1, '', '2021-11-06 15:52:10'),
-(311, 1, 'HELION 30 LAT', '2021-11-06 15:52:10'),
+(309, 1, '53b2ea5fe3c62beff7707db213f07382.png', '2021-11-06 17:47:00'),
+(310, 1, 'https://localhost/index.php?id_category=4&controller=category', '2021-11-06 17:47:00'),
+(311, 1, 'Kursy video w kategorii programowanie', '2021-11-06 17:47:14'),
 (320, 1, 'Udostępnione przez Ciebie dane osobowe są wykorzystywane w celu udzielania odpowiedzi na zapytania, przetwarzania zamówień lub umożliwiania dostępu do konkretnych informacji. Przysługuje Ci prawo do modyfikowania oraz usuwania wszelkich danych osobowych zamieszczonych na stronie „Moje konto”.', '2021-10-27 21:21:22'),
 (322, 1, 'Możesz zrezygnować w każdej chwili. W tym celu należy odnaleźć szczegóły w naszej informacji prawnej.', '2021-10-27 21:21:22'),
 (358, 1, 'Akceptuję ogólne warunki użytkowania i politykę prywatności', '2021-10-27 21:21:58'),
@@ -4310,7 +4312,9 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (23, 1, 1, 5, 1, 2886860801, '2021-11-06 15:58:10', ''),
 (24, 1, 1, 5, 1, 2886860801, '2021-11-06 16:39:47', ''),
 (25, 1, 1, 5, 4, 2886860801, '2021-11-06 17:12:08', ''),
-(26, 1, 1, 5, 1, 2886860801, '2021-11-06 17:44:39', '');
+(26, 1, 1, 5, 1, 2886860801, '2021-11-06 17:44:39', ''),
+(27, 1, 1, 5, 1, 2886860801, '2021-11-06 18:30:47', ''),
+(28, 1, 1, 5, 1, 2886860801, '2021-11-06 19:34:22', '');
 
 -- --------------------------------------------------------
 
@@ -5627,7 +5631,8 @@ INSERT INTO `ps_employee_session` (`id_employee_session`, `id_employee`, `token`
 (5, 1, '87485db5e7baa74d9b9248eed50a6732496300bc'),
 (6, 1, '351bd592f487dacf0cb52a1da11745f95c7f75b4'),
 (9, 1, 'c3566ffecfdad20dc7ef1e34868c85d2c5f51ade'),
-(11, 1, 'df5c17648d07b4e6fae807f7fceba5f375fdc3a7');
+(11, 1, 'df5c17648d07b4e6fae807f7fceba5f375fdc3a7'),
+(13, 1, '2fed390331e7a55fdc7e55ca2bbae0d3683e2261');
 
 -- --------------------------------------------------------
 
@@ -9351,7 +9356,9 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (586, 1, 0, 'usunięcie Store', 'Store', 5, 1, '2021-11-06 16:56:41', '2021-11-06 16:56:41'),
 (587, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:00:25', '2021-11-06 17:00:25'),
 (588, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:15:35', '2021-11-06 17:15:35'),
-(589, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:17:28', '2021-11-06 17:17:28');
+(589, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:17:28', '2021-11-06 17:17:28'),
+(590, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-06 18:36:03', '2021-11-06 18:36:03'),
+(591, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-06 19:34:14', '2021-11-06 19:34:14');
 
 -- --------------------------------------------------------
 
@@ -12919,9 +12926,9 @@ CREATE TABLE `ps_psreassurance` (
 --
 
 INSERT INTO `ps_psreassurance` (`id_psreassurance`, `icon`, `custom_icon`, `status`, `position`, `id_shop`, `type_link`, `id_cms`, `date_add`, `date_upd`) VALUES
-(1, '/modules/blockreassurance/views/img/reassurance/pack2/security.svg', NULL, 1, 1, 1, NULL, NULL, '2021-10-27 19:22:06', NULL),
-(2, '/modules/blockreassurance/views/img/reassurance/pack2/carrier.svg', NULL, 1, 2, 1, NULL, NULL, '2021-10-27 19:22:06', NULL),
-(3, '/modules/blockreassurance/views/img/reassurance/pack2/parcel.svg', NULL, 1, 3, 1, NULL, NULL, '2021-10-27 19:22:06', NULL);
+(1, '/modules/blockreassurance/views/img/reassurance/pack2/security.svg', NULL, 0, 1, 1, NULL, NULL, '2021-10-27 19:22:06', '2021-11-06 18:37:48'),
+(2, '/modules/blockreassurance/views/img/reassurance/pack2/carrier.svg', NULL, 0, 2, 1, NULL, NULL, '2021-10-27 19:22:06', '2021-11-06 18:37:50'),
+(3, '/modules/blockreassurance/views/img/reassurance/pack2/parcel.svg', NULL, 0, 3, 1, NULL, NULL, '2021-10-27 19:22:06', '2021-11-06 18:37:51');
 
 -- --------------------------------------------------------
 
@@ -116315,7 +116322,7 @@ ALTER TABLE `ps_carrier`
 -- AUTO_INCREMENT dla tabeli `ps_cart`
 --
 ALTER TABLE `ps_cart`
-  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_cart_rule`
@@ -116387,7 +116394,7 @@ ALTER TABLE `ps_configuration_kpi`
 -- AUTO_INCREMENT dla tabeli `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections_source`
@@ -116477,7 +116484,7 @@ ALTER TABLE `ps_employee`
 -- AUTO_INCREMENT dla tabeli `ps_employee_session`
 --
 ALTER TABLE `ps_employee_session`
-  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_feature`
@@ -116609,7 +116616,7 @@ ALTER TABLE `ps_link_block_shop`
 -- AUTO_INCREMENT dla tabeli `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=590;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_mail`
