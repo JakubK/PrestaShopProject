@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 05 Lis 2021, 22:47
+-- Czas generowania: 06 Lis 2021, 17:02
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -905,8 +905,6 @@ CREATE TABLE `ps_address` (
 INSERT INTO `ps_address` (`id_address`, `id_country`, `id_state`, `id_customer`, `id_manufacturer`, `id_supplier`, `id_warehouse`, `alias`, `company`, `lastname`, `firstname`, `address1`, `address2`, `postcode`, `city`, `other`, `phone`, `phone_mobile`, `vat_number`, `dni`, `date_add`, `date_upd`, `active`, `deleted`) VALUES
 (1, 14, 0, 1, 0, 0, 0, 'Anonymous', 'Anonymous', 'Anonymous', 'Anonymous', 'Anonymous', '', '00000', 'Anonymous', '', '0000000000', '0000000000', '0000', '0000', '2021-10-27 21:21:58', '2021-10-27 21:21:58', 1, 0),
 (2, 8, 0, 2, 0, 0, 0, 'Mon adresse', 'My Company', 'DOE', 'John', '16, Main street', '2nd floor', '75002', 'Paris ', '', '0102030405', '', '', '', '2021-10-27 21:22:14', '2021-10-27 21:22:14', 1, 0),
-(3, 21, 35, 0, 0, 0, 0, 'supplier', 'Fashion', 'supplier', 'supplier', '767 Fifth Ave.', '', '10153', 'New York', '', '(212) 336-1440', '', '', '', '2021-10-27 21:22:14', '2021-10-27 21:22:14', 1, 0),
-(4, 21, 35, 0, 1, 0, 0, 'manufacturer', 'Fashion', 'manufacturer', 'manufacturer', '767 Fifth Ave.', '', '10154', 'New York', '', '(212) 336-1666', '', '', '', '2021-10-27 21:22:14', '2021-10-27 21:22:14', 1, 0),
 (5, 21, 12, 2, 0, 0, 0, 'My address', 'My Company', 'DOE', 'John', '16, Main street', '2nd floor', '33133', 'Miami', '', '0102030405', '', '', '', '2021-10-27 21:22:14', '2021-10-27 21:22:14', 1, 0),
 (6, 14, 0, 3, 0, 0, 0, 'Mój adres', '', 'hgfshgfddf', 'fgdsdf', 'fdsgsdfgsfdgfsd', '', '12-135', 'dfgfdsgsfdgfds', '', '', '', '', '', '2021-10-31 11:02:18', '2021-10-31 11:02:18', 1, 0),
 (7, 14, 0, 4, 0, 0, 0, 'Mój adres', '', 'fgdh', 'ghdfgh', 'sdfgsfdgsdfgsdf', '', '12-352', 'dsgsdfg', '', '', '', '', '', '2021-10-31 16:03:31', '2021-10-31 16:03:31', 1, 0),
@@ -1210,7 +1208,9 @@ INSERT INTO `ps_admin_filter` (`id`, `employee`, `shop`, `controller`, `action`,
 (14, 1, 1, '', '', '{\"limit\":10,\"orderBy\":\"name\",\"sortOrder\":\"asc\",\"filters\":[]}', 'manufacturer'),
 (15, 1, 1, '', '', '{\"limit\":10,\"orderBy\":\"id_address\",\"sortOrder\":\"desc\",\"filters\":[]}', 'manufacturer_address'),
 (16, 1, 1, '', '', '{\"limit\":50,\"orderBy\":\"id_attachment\",\"sortOrder\":\"asc\",\"filters\":[]}', 'attachment'),
-(17, 1, 1, '', '', '{\"orderBy\":\"position\",\"sortOrder\":\"asc\",\"limit\":50,\"filters\":{\"id_category_parent\":\"2\"}}', 'category');
+(17, 1, 1, '', '', '{\"orderBy\":\"position\",\"sortOrder\":\"asc\",\"limit\":50,\"filters\":{\"id_category_parent\":\"2\"}}', 'category'),
+(18, 1, 1, '', '', '{\"limit\":50,\"orderBy\":\"date_add\",\"sortOrder\":\"DESC\",\"filters\":[]}', 'customer'),
+(19, 1, 1, 'contacts', 'index', '{\"limit\":10,\"orderBy\":\"id_contact\",\"sortOrder\":\"asc\",\"filters\":[]}', '');
 
 -- --------------------------------------------------------
 
@@ -1647,10 +1647,6 @@ INSERT INTO `ps_authorization_role` (`id_authorization_role`, `slug`) VALUES
 (584, 'ROLE_MOD_MODULE_PS_FEATUREDPRODUCTS_DELETE'),
 (582, 'ROLE_MOD_MODULE_PS_FEATUREDPRODUCTS_READ'),
 (583, 'ROLE_MOD_MODULE_PS_FEATUREDPRODUCTS_UPDATE'),
-(853, 'ROLE_MOD_MODULE_PS_GOOGLEANALYTICS_CREATE'),
-(856, 'ROLE_MOD_MODULE_PS_GOOGLEANALYTICS_DELETE'),
-(854, 'ROLE_MOD_MODULE_PS_GOOGLEANALYTICS_READ'),
-(855, 'ROLE_MOD_MODULE_PS_GOOGLEANALYTICS_UPDATE'),
 (585, 'ROLE_MOD_MODULE_PS_IMAGESLIDER_CREATE'),
 (588, 'ROLE_MOD_MODULE_PS_IMAGESLIDER_DELETE'),
 (586, 'ROLE_MOD_MODULE_PS_IMAGESLIDER_READ'),
@@ -2675,8 +2671,7 @@ INSERT INTO `ps_cart` (`id_cart`, `id_shop_group`, `id_shop`, `id_carrier`, `del
 (6, 1, 1, 1, '{\"6\":\"1,\"}', 1, 6, 6, 1, 3, 5, 'c65a65af59e5f99b18162b50a585c535', 0, 0, '', 0, 0, '2021-10-31 11:01:57', '2021-10-31 11:02:19', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5d4ee55c5ef54441b050df5fee7123243e84336c\"}'),
 (7, 1, 1, 11, '{\"7\":\"11,\"}', 1, 7, 7, 1, 4, 4, '62f5b2598668348b91aa68de68d7577c', 0, 0, '', 0, 0, '2021-10-31 16:03:07', '2021-11-03 19:11:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"d1bb5e8d4429469999f0acc8a974e44fed319846\"}'),
 (8, 1, 1, 1, '{\"8\":\"1,\"}', 1, 8, 8, 1, 5, 0, '64717bd11786636ebb33117e73911659', 0, 0, '', 0, 0, '2021-11-03 12:52:14', '2021-11-03 12:52:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5288dd62159660008856811fff89fa6a1080f701\"}'),
-(9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}'),
-(10, 1, 1, 0, '', 1, 0, 0, 1, 0, 0, '', 0, 0, '', 0, 0, '2021-11-05 23:17:49', '2021-11-05 23:33:08', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}');
+(9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}');
 
 -- --------------------------------------------------------
 
@@ -2715,8 +2710,7 @@ INSERT INTO `ps_cart_product` (`id_cart`, `id_product`, `id_address_delivery`, `
 (7, 11, 7, 1, 0, 0, 11, '2021-11-03 19:11:07'),
 (7, 193, 7, 1, 0, 0, 1, '2021-11-03 17:03:55'),
 (8, 30, 8, 1, 0, 0, 2, '2021-11-03 12:52:14'),
-(9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25'),
-(10, 153, 0, 1, 0, 0, 1, '2021-11-05 23:32:56');
+(9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25');
 
 -- --------------------------------------------------------
 
@@ -3501,11 +3495,9 @@ CREATE TABLE `ps_cms` (
 --
 
 INSERT INTO `ps_cms` (`id_cms`, `id_cms_category`, `position`, `active`, `indexation`) VALUES
-(1, 1, 0, 1, 0),
-(2, 1, 1, 1, 0),
-(3, 1, 2, 1, 0),
-(4, 1, 3, 1, 0),
-(5, 1, 4, 1, 0);
+(3, 1, 0, 1, 0),
+(4, 1, 1, 1, 0),
+(5, 1, 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -3596,11 +3588,9 @@ CREATE TABLE `ps_cms_lang` (
 --
 
 INSERT INTO `ps_cms_lang` (`id_cms`, `id_lang`, `id_shop`, `meta_title`, `head_seo_title`, `meta_description`, `meta_keywords`, `content`, `link_rewrite`) VALUES
-(1, 1, 1, 'Delivery', '', 'Our terms and conditions of delivery', 'conditions, delivery, delay, shipment, pack', '<h2>Shipments and returns</h2><h3>Your pack shipment</h3><p>Packages are generally dispatched within 2 days after receipt of payment and are shipped via UPS with tracking and drop-off without signature. If you prefer delivery by UPS Extra with required signature, an additional cost will be applied, so please contact us before choosing this method. Whichever shipment choice you make, we will provide you with a link to track your package online.</p><p>Shipping fees include handling and packing fees as well as postage costs. Handling fees are fixed, whereas transport fees vary according to total weight of the shipment. We advise you to group your items in one order. We cannot group two distinct orders placed separately, and shipping fees will apply to each of them. Your package will be dispatched at your own risk, but special care is taken to protect fragile objects.<br /><br />Boxes are amply sized and your items are well-protected.</p>', 'delivery'),
-(2, 1, 1, 'Legal Notice', '', 'Legal notice', 'notice, legal, credits', '<h2>Legal</h2><h3>Credits</h3><p>Concept and production:</p><p>This Web site was created using <a href=\"http://www.prestashop.com\">PrestaShop</a>&trade; open-source software.</p>', 'legal-notice'),
-(3, 1, 1, 'Terms and conditions of use', '', 'Our terms and conditions of use', 'conditions, terms, use, sell', '<h2>Your terms and conditions of use</h2><h3>Rule 1</h3><p>Here is the rule 1 content</p>\r\n<h3>Rule 2</h3><p>Here is the rule 2 content</p>\r\n<h3>Rule 3</h3><p>Here is the rule 3 content</p>', 'terms-and-conditions-of-use'),
-(4, 1, 1, 'About us', '', 'Learn more about us', 'about us, informations', '<h2>About us</h2>\r\n<h3>Our company</h3><p>Our company</p>\r\n<h3>Our team</h3><p>Our team</p>\r\n<h3>Informations</h3><p>Informations</p>', 'about-us'),
-(5, 1, 1, 'Secure payment', '', 'Our secure payment mean', 'secure payment, ssl, visa, mastercard, paypal', '<h2>Secure payment</h2>\r\n<h3>Our secure payment</h3><p>With SSL</p>\r\n<h3>Using Visa/Mastercard/Paypal</h3><p>About this services</p>', 'secure-payment');
+(3, 1, 1, 'Regulamin zakupów', '', 'Regulamin zakupów w Helion.pl', 'conditions, terms, use, sell', '<h1 id=\"titleHeader\">Regulamin zakupów w helion.pl</h1>\n<h4>I. INFORMACJE OGÓLNE</h4>\n<p><b>Administrator („Helion”)</b> - Helion.pl Spółka z ograniczoną odpowiedzialnością z siedzibą w Gliwicach, przy ul. Kościuszki 1c, wpisana do rejestru przedsiębiorstw prowadzonego przez Sąd Rejonowy w Gliwicach, Wydział X Gospodarczy Krajowego Rejestru Sądowego pod numerem 0000389545, NIP 631-263-62-54, Regon 241989027 telefon: 32 2309863.</p>\n<p><b>Sklep</b> – prowadzona przez Helion platforma teleinformatyczna, umożliwiającą Użytkownikom wyposażonym w odpowiednie urządzenie końcowe do zapoznawania się z Produktami i Usługami Sprzedającego, oraz zawieranie umów sprzedaży oraz umów o świadczenie usług.</p>\n<p><b>Produkt</b> – videokursy utrwalone na nośniku materialnym oferowane przez Helion za pośrednictwem Sklepu.</p>\n<p><b>Plik</b> – niezapisane na nośniku materialnym treści cyfrowe, oferowane przez Helion za pośrednictwem Sklepu, w ramach świadczenia usług.</p>\n<p><b>Użytkownik</b> – osoba fizyczna, osoba prawna, jednostka organizacyjna nie posiadająca osobowości prawnej, która korzysta ze Sklepu.</p>\n<p><b>Konsument</b> – Użytkownik, będący osobą fizyczną dokonującą ze Sklepem czynności prawnej niezwiązanej bezpośrednio z jej działalnością gospodarczą lub zawodową.</p>\n<p><b>RODO</b> – Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE.</p>\n<h4>II. WYMAGANIA TECHNICZNE</h4>\n<p>2.1. Użytkownik może korzystać ze Sklepu pod warunkiem spełnienia przez system teleinformatyczny Użytkownika następujących minimalnych wymagań technicznych: Internet Explorer w wersji 7.0 lub nowszej z włączoną obsługą ActiveX, JavaScript i cookies lub Mozilla Firefox w wersji 3.0 lub nowszej z włączoną obsługą appletów Java, JavaScript i cookies, Google Chrome z włączoną obsługą ActiveX, JavaScript i cookies, Apple Safari z włączoną obsługą ActiveX, JavaScript i cookies. Minimalna rozdzielczość ekranu 1024x768 pikseli.</p>\n<p>2.2. Użytkownik, który dokonuje w Sklepie zakupów Plików, może korzystać z nich pod warunkiem spełnienia przez urządzenia końcowe Użytkownika następujących wymagań technicznych:</p>\n<p>a. Pliki Mp3 i Mp4 – komputer klasy PC lub Mac z monitorem o rozdzielczości minimalnej 800x600 pikseli z zainstalowaną kartą dźwiękową i wyposażony w słuchawki. Głośniki lub inne urządzenie reprodukujące dźwięk i obraz.</p>\n<p>2.3. Dla Produktów dystrybuowanych na trwałych nośnikach typu CD/DVD/BD, pendrive, karta flash – urządzenie końcowe dodatkowo wyposażone w czytnik CD/DVD/BD, pendrive, karta flash.</p>\n<h4>III. SPOSÓB REALIZACJI ZAMÓWIEŃ</h4>\n<p>3.1. W ramach prowadzonego Serwisu, Helion oferuje sprzedaż produktów oraz treści cyfrowych Użytkownikom, po wcześniejszym dokonaniu zamówienia przez Użytkownika.</p>\n<p>3.2. Zawarcie umowy następuje po złożeniu przez Użytkownika zamówienia z obowiązkiem zapłaty lub poprzez kliknięcie na klawisz „Zamawiam i zapłacę”. Użytkownik w ramach dostępnej opcji tzw. „multikoszyka” może nabywać towary, usługi i treści cyfrowe oferowane przez pozostałe Serwisy prowadzone przez Helion. Użytkownik może również nabywać towary, usługi i treści cyfrowe poprzez aktywację odpowiedniego kodu na produkty.</p>\n<p>3.3. Użytkownik może składać zamówienia 24 godziny na dobę, 7 dni w tygodniu przez cały rok.</p>\n<p>3.4. Użytkownik jest zobowiązany do pełnego oraz zgodnego ze stanem faktycznym wypełnienia \"formularza zamówienia\".</p>\n<p>3.5. Po złożeniu przez Użytkownika zamówienia, otrzyma on na podany wcześniej adres email wiadomość potwierdzającą treść złożonego zamówienia, oraz pouczenie o przysługującym mu prawie do odstąpienia od umowy lub potwierdzenie o utracie prawa do odstąpienia, w związku ze złożonym przez Konsumenta żądaniem rozpoczęcie świadczenia usługi przed upływem 14-dniowego terminu do odstąpienia od umowy. Helion zastrzega sobie możliwość telefonicznego potwierdzenia złożenia zamówienia. Brak potwierdzenia przyjęcia zamówienia oznacza, iż zamówienie to mogło nie zostać przyjęte do realizacji.</p>\n<p>3.6. Helion w każdym wypadku zastrzega sobie prawo weryfikacji dokonanego zamówienia oraz jego anulowania w przypadkach uzasadnionych wątpliwości co do rzetelności takiego zamówienia (w tym tożsamości Użytkownika).</p>\n<p>3.7. Realizacja zamówienia dla produktów rozpocznie się w najbliższy dzień pracujący następujący bezpośrednio po dniu, w którym zamówienie zostało złożone. W przypadku konieczności weryfikacji zamówienia, zostanie ono przekazane do realizacji w najbliższy dzień pracujący następujący bezpośrednio po dniu, w którym zostało ono zweryfikowane.</p>\n<p>3.8. Użytkownik może zamówić produkty oznaczone etykietą „w przedsprzedaży”. Termin realizacji takiego zamówienia zostaje wydłużony do czasu, kiedy produkt trafi do regularnej sprzedaży. Konsument każdorazowo będzie informowany o terminie realizacji zamówienia, poprzez stosowną informację, umieszczoną na karcie produktu.</p>\n<p>3.9. Ceny towarów znajdujących się w ofercie Sklepu wyrażone są w złotych polskich i zawierają podatek VAT. Podane ceny nie obejmują zryczałtowanych kosztów przesyłki, z którymi Konsument będzie mógł się zapoznać najpóźniej w chwili wyrażenia przez Konsumenta woli związania się z umową.</p>\n<p>3.10. Wartość zamówienia zawierająca opusty i rabaty może zostać dodatkowo pomniejszona ze względu na zaokrąglenie wartości zamówienia, które związane jest z przeliczeniem ceny stosowanej w rozliczeniach detalicznych do ceny netto.</p>\n<p>3.11. Sklep zastrzega sobie prawo do zmiany cen produktów i usług znajdujących się w ofercie bez wcześniejszego uprzedzenia. Zmiana cen nie dotyczy zamówień przyjętych do realizacji.</p>\n<p>3.12. Sklep zastrzega sobie prawo do wycofania poszczególnych towarów z oferty bez uprzedzenia.</p>\n<p>3.13. Maksymalny czas realizacji zamówienia (do wysłania przesyłki do Użytkownika) w przypadku produktów wynosi 7 dni. Do czasu realizacji należy doliczyć czas dostawy realizowanej przez Pocztę Polską oraz inne firmy kurierskie (do 10 dni). W przypadku przedsprzedaży zamówienie zostanie zrealizowane z chwilą kompletacji wszystkich zamawianych książek. Datą realizacji zamówienia jest wówczas data określona „w realizacji od (dd.mm.rr)” przy konkretnym tytule. Data ta może ulec zmianie.</p>\n<p>3.14. Realizacja zamówień treści cyfrowych nastąpi natychmiast po zaksięgowaniu przez Sklep wpłaty. Zamówiony ebook/audiobook pojawi się w <a href=\"https://helion.pl/users/konto/biblioteka\">Bibliotece</a> na koncie Użytkownika. Proces ten w zależności od wybranego modelu płatności może trwać od kilku sekund (BLIK) do kilku dni (zwykły przelew).</p>\n<p>3.15. Helion nie ponosi odpowiedzialności za niedostarczenie towaru lub opóźnienie w dostawie spowodowane błędnym lub niedokładnym adresem podanym przez Użytkownika.</p>\n<p>3.16. Dla zakupów powyżej 300,00zł, zawierających przynajmniej jedną książkę drukowaną wydaną przez GW Helion, przy wyborze dowolnej formy płatności, przesyłka kurierska jest darmowa.</p>\n<p>3.17. Inne formy i koszty przesyłki Użytkownik może śledzić pod adresem: <a href=\"https://helion.pl/info/przewodnik/kosztywysylki.htm\">https://helion.pl/info/przewodnik/kosztywysylki.htm</a>.</p>\n<p>3.18. Sklep może w ramach promocji zawiesić pobieranie zryczałtowanej opłaty, umieszczając stosowną informację na stronach Sklepu.</p>\n<p>3.19. Promocje dostępne w Sklepie nie łączą się ze sobą, chyba że Helion przewidział możliwość łączenia promocji, o czym Użytkownik zostanie poinformowany na stronach Sklepu, przed złożeniem zamówienia.</p>\n<p>3.20. Koszt przesyłki, o którym mowa w pkt. 3.17, wliczony jest w kwotę pobrania.</p>\n<p>3.21. Każda transakcja potwierdzana jest dowodem zakupu (eparagon) lub fakturą VAT. Użytkownik, dokonując zakupu wyraża zgodę na przesłanie faktury drogą elektroniczną. Zgoda ta może zostać cofnięta w każdym czasie. Chęć otrzymania duplikatu faktury w wersji papierowej należy zgłosić na adres mailowy <a href=\"mailto:sklep@helion.pl\">[wyświetl email]@helion.pl</a> wraz z informacją o adresie, na który faktura ma zostać wysłana. Koszt wysyłki duplikatu faktury w wersji papierowej określa cennik dostaw zawarty w pkt 3.17.</p>\n<p>3.22. W zależności od rodzaju dokonanego zamówienia płatność za zamówiony towar może nastąpić za pobraniem przy odbiorze towaru, kartą płatniczą, przelewem na konto Sklepu. W przypadku dokonania zamówień w przedsprzedaży płatność następuję wyłącznie kartą płatniczą lub przelewem na konto Helion.pl. Bieżące formy płatności określone są na stronie <a href=\"https://helion.pl/info/przewodnik/platnosci.htm\">https://helion.pl/info/przewodnik/platnosci.htm</a>. W przypadku zamówień obejmujących książki w przedsprzedaży nie można wybrać formy płatności za pobraniem.</p>\n<p>3.23. W przypadku zamówień składających się z kilku towarów, które mają zostać dostarczone w jednej przesyłce, termin realizacji będzie uzależniony od terminu skompletowania przez Sklep ostatniego elementu danego zamówienia, chyba że Konsument wybierze inny sposób dostawy, o czym poinformuje Helion. Rozdzielenie jednego zamówienia na kilka dostaw może wiązać się z naliczeniem dodatkowych kosztów wysyłki, o których mowa w pkt. 3.17.</p>\n<p>3.24. Wszystkie produkty, teksty, grafiki, logotypy i oprogramowanie znajdujące się na stronie internetowej Sklepu są własnością Helion lub Helion posiada stosowne uprawnienia do korzystania z nich. Są chronione na podstawie obowiązujących przepisów prawa, w tym prawa autorskiego i praw pokrewnych (tekst jednolity: Dz. U. z 2018r., poz. 1191 z poźn. zm.) oraz prawa własności przemysłowej z 30 czerwca 2000r. (tekst jednolity Dz. U. z 2017r., poz. 776 z poźn. zm.). Użytkownik zobowiązuje się do korzystania ze strony internetowej i zakupionych produktów wyłącznie w sposób zgodny z niniejszym Regulaminem oraz obowiązującymi przepisami prawa.</p>\n<p>3.25. Helion dla ochrony przed nieautoryzowaną dystrybucją plików w formacie epub, MOBI, PDF, MP3, MP4 stosuje zabezpieczenie w postaci „znaku wodnego” (waterkmark). Każdy z tak zabezpieczonych plików posiada informację o Użytkowniku, który zakupił plik.</p>\n<p>3.26. Użytkownik, który nabył produkty lub pliki w Sklepie, może użytkować je zgodnie z obowiązującymi przepisami prawa, w tym zgodnie z Ustawą o prawach autorskich i prawach pokrewnych. Niedozwolone jest powielanie produktu, rozpowszechnianie, dystrybuowanie, kopiowanie, wypożyczanie, udostępnianie lub odtwarzanie publiczne (w tym udostępnianie w Internecie) i wykorzystywanie w sposób niedozwolony prawem jego treści w całości lub w części albo jakiekolwiek modyfikowanie produktu (np. poprzez zmianę formatu pliku lub usuwanie zabezpieczeń czy oznaczeń), bez względu na cel i formę tych działań, o ile co innego nie zostanie uzgodnione w formie pisemnej ze Sklepem.</p>\n<p>3.27. Wszelkie Produkty i Pliki dostępne w Sklepie - odpłatnie lub nieodpłatnie - podlegają ochronie przewidzianej w ustawie o prawie autorskim i prawach pokrewnych, chyba że co innego wynika z licencji, o czym Helion poinformuje w karcie produktu (np. Open source).</p>\n<h4>IV. POSTĘPOWANIE REKLAMACYJNE</h4>\n<p>4.1. Jeżeli sprzedana rzecz ma wadę, Użytkownik może:</p>\n<p>a. złożyć oświadczenie o obniżeniu ceny albo odstąpieniu od umowy, chyba że Helion niezwłocznie i bez nadmiernych niedogodności dla Użytkownika wymieni wadliwą rzecz na wolną od wad albo wadę taką usunie. Obniżona cena powinna pozostawać w takiej proporcji do ceny wynikającej z umowy, w jakiej wartość rzeczy z wadą pozostaje do wartości rzeczy bez wady. Użytkownik nie może odstąpić od umowy jeżeli wada jest nieistotna;</p>\n<p>b. żądać wymiany rzeczy na wolne od wad albo usunięcia wady. Sklep jest zobowiązany wymienić wadliwą rzecz na wolną od wad albo usunąć wadę w rozsądnym czasie bez nadmiernych niedogodności dla Użytkownika.</p>\n<p>4.2. Jeżeli Użytkownik jest Konsumentem, może zamiast zaproponowanego przez Helion usunięcia wady żądać wymiany rzeczy na wolną od wad albo zamiast wymiany rzeczy żądać usunięcia wady, chyba że doprowadzenie rzeczy do zgodności z umową w sposób wybrany przez Konsumenta jest niemożliwe albo wymagałoby nadmiernych kosztów w porównaniu ze sposobem proponowanym przez Helion. Przy ocenie nadmierności kosztów uwzględnia się wartość rzeczy wolnej od wad, rodzaj i znaczenie stwierdzonej wady, a także bierze się pod uwagę niedogodności, na jakie narażałby Konsumenta inny sposób zaspokojenia.</p>\n<p>4.3. Użytkownik może zgłaszać reklamacje za pomocą szybkiego <a href=\"https://helion.pl/formularzkontaktu.phtml\">formularza kontaktowego</a>, drogą elektroniczną, telefoniczną lub też listownie adres: Helion.pl Sp. z o.o. ul. Kościuszki 1c, 44-100 Gliwice, z dopiskiem „reklamacja”.</p>\n<p>4.4. Zgłoszenie reklamacyjne powinno zawierać opis reklamacji oraz dokument potwierdzający nabycie reklamowanej rzeczy w Sklepie (np. kopia paragonu, potwierdzenie przelewu z rachunku bankowego, numer transakcji, etc.). Jednocześnie w przypadku reklamacji Produktów należy je przesłać na adres Helion. Sklep w ciągu 14 (czternastu) dni ustosunkuje się do reklamacji Nabywcy i powiadomi go o dalszym postępowaniu.</p>\n<h4>V. ODSTĄPIENIE OD UMOWY</h4>\n<p>5.1. Z zastrzeżeniem pkt 5.2-5.3, zgodnie z \"Ustawą o prawach konsumenta\" (Dz. U. 2014.827), Konsumentowi przysługuje prawo odstąpienia od umowy w ciągu 14 dni od daty objęcia produktów w posiadanie przez Konsumenta lub wskazaną przez niego osobę trzecią inną niż przewoźnik. Składając oświadczenie o odstąpieniu od umowy Konsument nie musi podawać przyczyny.</p>\n<p>5.2. Prawo odstąpienia od umowy nie przysługuje Konsumentowi jeżeli przedmiotem świadczenia są nagrania dźwiękowe lub wizualne albo programy komputerowe dostarczane w zapieczętowanym opakowaniu, jeżeli opakowanie zostało otwarte po dostarczeniu. Prawo odstąpienia od umowy nie przysługuje również Konsumentowi w odniesieniu do umów o dostarczanie dzienników periodyków lub czasopism, z wyjątkiem umowy o prenumeratę.</p>\n<p>5.3. W przypadku wyrażania przez Konsumenta zgody na rozpoczęcia świadczenia usługi dostarczania treści cyfrowych, które nie są zapisane na nośniku materialnym przed upływem terminu do odstąpienia od umowy i poinformowania go przez Helion o utracie prawa do odstępowania od umowy, prawo do odstąpienia wygasa z chwilą rozpoczęcia pobierania Pliku lub użycia przycisku Czytaj. Jeżeli Konsument wyraził zgodę na automatyczne wysyłanie plików po ich zakupie na urządzenia mobilne lub Dropbox, traci on swoje uprawnienie do odstąpienia od umowy z chwilą dokonania i opłacenia zakupu.</p>\n<p>5.4. Oświadczenie o odstąpieniu od umowy Konsument może przesłać emailem na adres: <a href=\"mailto:sklep@helion.pl\">[wyświetl email]@helion.pl</a>, lub listownie na adres: Helion.pl Sp. z o.o. ul. Kościuszki 1c, 44-100 Gliwice, z dopiskiem „zwrot”.</p>\n<p>5.5. Dla ułatwienia prawa realizacji uprawnienia do odstąpienia od umowy, Konsument może skorzystać z formularza lub z oświadczenia, które stanowi załącznik do Regulaminu.</p>\n<p>5.6. W przypadku odstąpienia od umowy, uważa się umowę za niezawartą. Helion nie później niż w terminie 14 dni zwróci Konsumentowi wszystkie dokonane przez niego płatności. Helion dokonuje zwrotu płatności przy użyciu takiego samego sposobu zapłaty, jakiego użył Konsument, chyba że Konsument wyraźnie zgodził się na inny sposób zwrotu, który nie wiąże się dla niego z żadnymi kosztami.</p>\n<p>5.7. Konsument ma obowiązek zwrócić rzecz Administratora lub przekazać ją osobie upoważnionej przez Administratora do odbioru niezwłocznie, jednak nie później niż 14 dni od dnia, w którym odstąpił od umowy, chyba że Administrator zaproponował, że sam odbierze rzecz. Do zachowania terminu wystarczy odesłanie rzeczy przed jego upływem.</p>\n<p>5.8. Konsument ponosi tylko bezpośrednie koszty zwrotu rzeczy. Konsument ponosi odpowiedzialność za zmniejszenie wartości rzeczy będące wynikiem korzystania z niej w sposób wykraczający poza konieczny do stwierdzenia charakteru, cech i funkcjonowania rzeczy.</p>\n<h4>VI. DANE OSOBOWE I POLITYKA PRYWATNOŚCI</h4>\n<p>6.1. Użytkownik składając zamówienie w Sklepie internetowym podaje samodzielnie i dobrowolnie dane osobowe w zakresie: imię i nazwisko, e-mail, telefon, data urodzenia, dane IP w formularzu rejestracyjnym Sklepu lub też udostępnia swoje dane przy użyciu konta w serwisie Facebook.com lub Google.com. Podanie danych osobowych przez Użytkownika jest dobrowolne, jednak brak danych uniemożliwi realizację zamówienia. Podstawą prawną przetwarzania przez Administratora jest niezbędność przetwarzania do wykonania umowy (art. 6 ust. 1 lit. b) RODO), a w zakresie danych podanych fakultatywnie – podstawą prawną przetwarzania jest zgoda (art. 6 ust. 1 lit. a) RODO) .</p>\n<p>6.2. Sklep przetwarza również dane Użytkowników:</p>\n<p>a. w celach analitycznych i statystycznych – podstawą prawną przetwarzania jest uzasadniony interes Administratora (art. 6 ust. 1 lit. f) RODO), polegający na prowadzeniu analiz aktywności Użytkowników w Serwisie i sposobu korzystania z konta, a także ich preferencji, w celu poprawy stosowanych funkcjonalności;</p>\n<p>b. w celu potencjalnego ustalenia, dochodzenia lub obrony przed roszczeniami – podstawą prawną przetwarzania jest uzasadniony interes Administratora (art. 6 ust. 1 lit. f) RODO) polegający na ochronie swoich praw;</p>\n<p>c. w celach marketingowych Administratora oraz innych podmiotów – podstawą prawną przetwarzania jest uzasadniony interes Administratora (art. 6 ust. 1 lit. f) RODO) polegający na ochronie swoich praw;</p>\n<p>6.3. W przypadku rejestracji lub logowania się do Konta w Serwisie za pośrednictwem portalu społecznościowego Facebook lub Google, Użytkownik wybierze tę formę logowania, a Serwis, po uprzednim wyrażeniu zgody przez Użytkownika, pobierze z konta Użytkownika w ramach portalu społecznościowego jedynie dane niezbędne do rejestracji i obsługi konta.</p>\n<p>6.4. Celem realizacji zamówienia Sklep może przekazać dane osobowe Użytkownika w zakresie: imię i nazwisko, e-mail, telefon osobom trzecim, w celu niezbędnym do prawidłowej realizacji umowy. Niniejsza zgoda obejmuje w szczególności przekazywanie danych firmie pośredniczącej w zamawianiu usług kurierskich, operatorom pocztowym i firmom kurierskim w celu nadania przesyłki oraz przekazywanie danych do serwisów obsługujących płatności internetowe w celu dokonania autoryzacji płatności w celu i na zasadach określonych w regulaminach korzystania z usług tych serwisów.</p>\n<p>6.5. Administratorem danych osobowych jest Administrator (zgodnie z definicją w komparycji). Dane osobowe są chronione zgodnie z obowiązującymi przepisami prawa, a od dnia wejścia w życie zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. i aktów prawnych, które zostaną wydane w jego wykonaniu.</p>\n<p>6.6. Użytkownik ma prawo wglądu do swoich danych osobowych, poprawiania ich oraz żądania ich ograniczenia lub usunięcia. Użytkownik ma ponadto prawo do wniesienia sprzeciwu wobec przetwarzania danych, a także prawo do żądania przeniesienia swoich danych.</p>\n<p>6.7. Użytkownik może w każdym czasie wycofać zgodę na dalsze przetwarzanie swoich danych osobowych. Wycofanie zgody pozostaje bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>\n<p>6.8. Użytkownik ma prawo wnieść skargę na przetwarzanie jego danych przez Administratora do Prezesa Urzędu Ochrony Danych Osobowych.</p>\n<p>6.9. Użytkownik może wyrazić dodatkową zgodę na przetwarzanie jego danych osobowych w zakresie: adres e-mail, imię i nazwisko, numer telefonu oraz data urodzenia dla celów marketingowych przez Administratora oraz inne podmioty powiązane, w celu informowania go o nowych towarach, promocjach i usługach dostępnych w Sklepie, w tym zwłaszcza w formie Newslettera. Użytkownik w każdym czasie może wycofać tę zgodę. Wycofanie zgody pozostaje bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>\n<p>6.10. Użytkownik może wyrazić odrębną zgodę na przesłanie przez Sklep wiadomości na podany adres e-mail z prośbą o recenzję zakupionych Towarów. Użytkownik w każdej chwili zgodę tę może wycofać. Wycofanie zgody pozostaje bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>\n<p>6.11. Aby ułatwić korzystanie z serwisu, mechanizm nim zarządzający wykorzystuje technologię znaną jako cookies – informacje zapisywane przez serwer Sklepu na komputerze użytkownika. Przedmiotowe informacje dotyczą rozliczeń finansowych, takich jak wartość i przedmiot zamówienia oraz poufne dane dotyczące karty kredytowej. Technologia cookies nie służy pozyskiwaniu jakichkolwiek danych o osobach odwiedzających serwis ani śledzenia ich nawigacji. Użytkownik może w każdej chwili wyłączyć w swojej przeglądarce internetowej opcję przyjmowania cookies. Może to jednak spowodować pewne utrudnienia w korzystaniu ze Sklepu. Szczegółowe zasady funkcjonowania cookies można znaleźć w naszej <a href=\"https://helion.pl/przewodnik/politykaprywatnosci.phtml\">Polityce prywatności</a>.</p>\n<p>6.12. Administrator będzie przechowywać dane osobowe Użytkownika:</p>\n<p>a. w przypadku, gdy Administrator przetwarza dane osobowe na podstawie zgody, okres przetwarzania trwa do momentu wycofania tej zgody przez Użytkownika;</p>\n<p>b. w przypadku, gdy Administrator przetwarza dane osobowe na podstawie uzasadnionego interesu administratora danych, okres przetwarzania trwa do momentu ustania ww. interesu (np. okres przedawnienia roszczeń cywilnoprawnych) lub do momentu sprzeciwienia się osoby, której dane dotyczą, dalszemu takiemu przetwarzaniu – w sytuacjach, gdy sprzeciw taki zgodnie z przepisami prawa przysługuje; przypadku, gdy Administrator przetwarza dane osobowe, z uwagi na obowiązujące przepisy prawa, okresy przetwarzania danych w tym celu, określają stosowne przepisy.</p>\n<p>6.13. Szczegóły ochrony danych Użytkownika znajdują się w <a href=\"https://helion.pl/przewodnik/politykaprywatnosci.phtml\">Polityce prywatności</a>. Wszelkie pytania lub wnioski dotyczące danych osobowych prosimy kierować bezpośrednio na adres <a href=\"mailto:ido@helion.pl\">[wyświetl email]@helion.pl</a>.</p>\n<h4>VII. POSTANOWIENIA DOTYCZĄCE PRZEDSIĘBIORCÓW NA PRAWACH KONSUMENTÓW</h4>\n<p>1. Przedsiębiorca prowadzący jednoosobową działalność gospodarczą (niniejszy paragraf nie dotyczy spółek handlowych) jest objęty ochroną przewidzianą Ustawą o prawach konsumenta, pod warunkiem, że Umowa Sprzedaży, którą zawiera ze Sprzedawcą, nie ma charakteru zawodowego.</p>\n<p>2. Osoba prowadząca działalność gospodarczą, o której mowa w pkt 1 niniejszego paragrafu jest objęta ochroną wyłącznie w zakresie:</p>\n<p>- niedozwolonych postanowień umownych — tzw. klauzul abuzywnych,<br /> - odpowiedzialności z tytułu rękojmi za wady fizyczne i prawne Produktu, <br /> - prawa odstąpienie od umowy zawartej na odległość, zgodnie z pkt V Regulaminu.</p>\n<p>3. Przedsiębiorca, o którym mowa w pkt 1 niniejszego paragrafu traci uprawnienia z tytułu ochrony konsumenckiej w przypadku, gdy Umowa Sprzedaży, którą zawarł ze Sprzedawcą posiada charakter zawodowy, który jest weryfikowany na podstawie wpisu tego przedsiębiorcy w Centralnej Ewidencji i Informacji o Działalności Gospodarczej Rzeczypospolitej Polskiej, w szczególności wskazanych tam kodów Polskiej Klasyfikacji Działalności.</p>\n<p>4. Przedsiębiorcy, o których mowa w pkt 1 niniejszego paragrafu nie są objęci ochroną instytucjonalną zapewnioną dla Konsumentów przez powiatowych rzeczników praw konsumenta jak również Prezesa UOKiK.</p>\n<h4>VIII. POSTANOWIENIA KOŃCOWE</h4>\n<p>7.1. W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają przepisy Ustawy o prawach konsumenta, Kodeksu Cywilnego, Ustawie o prawach autorskich i prawach pokrewnych.</p>\n<p>7.2. Prawem właściwym dla umowy pomiędzy Użytkownikiem a Administratorem jest prawo polskie. Wszelkie spory związane z realizacją umowy będą rozstrzygane przez właściwe polskie sądy powszechne. Konsument ma możliwość skorzystania z pozasądowego sposobu rozpatrywania reklamacji i dochodzenia roszczeń przed Stałym Polubownym Sądem Konsumenckim w Katowicach, ul. Brata Alberta 4, 40-951 Katowice. Więcej informacji znajduje się na stronie <a href=\"http://uokik.gov.pl\">http://uokik.gov.pl</a>.</p>\n<p>7.3. Sklep zastrzega sobie prawo do zmiany Regulaminu. Zamówienia złożone przed datą wprowadzenia zmian Regulaminu będą realizowane na podstawie dotychczasowych zasad.</p>\n<p>7.4. Użytkownik w każdej chwili może usunąć swoje konto w Sklepie wysyłając wniosek emailem na adres <a href=\"mailto:usun@helion.pl\">[wyświetl email]@helion.pl</a>. Email musi być wysłany z skrzynki pocztowej użytej do zarejestrowania konta. W temacie maila użytkownik wpisuje \"Usuwam konto\". O usunięciu konta użytkownik zostanie poinformowany drogą mailową. UWAGA! Usunięcie konta oznacza utratę dostępu do wszystkich zakupionych pozycji elektronicznych znajdujących się w Bibliotece Użytkownika.</p>\n<p>7.5. Użytkownik, rejestrując konto w Sklepie internetowym, będzie miał możliwość logowania, przy użyciu tego samego loginu i hasła, do pozostałych portali internetowych prowadzonych przez Helion.</p>\n<p>Załącznik nr 1 do Regulaminu</p>\n<p><a href=\"https://static01.helion.com.pl/helion/img/rozne/rozne/FORMULARZ_ODSTAPIENIA_OD_UMOWY.pdf\">Wzór formularza odstąpienia od umowy (pobierz PDF)</a> (formularz ten należy wypełnić i odesłać tylko w przypadku chęci odstąpienia od umowy).</p>\n<p>- Adresat: Helion.pl Sp. z o.o., ul. Kościuszki 1c, 44-100 Gliwice; adres e-mail: <a href=\"mailto:sklep@helion.pl\">[wyświetl email]@helion.pl</a><br /> - Ja/My(*) niniejszym informuję/informujemy(*) o moim/naszym odstąpieniu od umowy sprzedaży następujących rzeczy(*) umowy dostawy następujących rzeczy(*) umowy o dzieło polegającej na wykonaniu następujących rzeczy(*)/o świadczenie następującej usługi(*)<br /> - Data zawarcia umowy(*)/odbioru(*)<br /> - Imię i nazwisko konsumenta(-ów)<br /> - Adres konsumenta(-ów)<br /> - Podpis konsumenta(-ów) (tylko jeżeli formularz jest przesyłany w wersji papierowej)<br /> - Data</p>\n<p style=\"border-bottom:1px solid #eeeeee;padding-bottom:10px;\"><b>Regulamin obowiązuje od dnia 01.01.2021.</b></p>', 'regulamin'),
+(4, 1, 1, 'O grupie Helion SA', '', 'Learn more about us', 'about us, informations', '<h2 style=\"text-align:justify;\"></h2>\n<p style=\"text-align:justify;\"><strong>Helion Szkolenia</strong> - marka specjalizująca się w szkoleniach IT i biznesowych innowacyjną metodą blended learning. Czerpie z wieloletniego doświadczenia Grupy Helion S.A. i najnowszych technologii służących idei lifelong learning. <br /><br /></p>\n<h3 style=\"text-align:justify;\">KOMPLEKSOWO SZKOLIMY NOWOCZESNY BIZNES</h3>\n<p style=\"text-align:justify;\">Grupa Helion od blisko trzech dekad wspiera w rozwoju specjalistów IT i managerów.<br /> Na bazie wielu lat doświadczeń i znajomości potrzeb naszych Klientów stworzyliśmy Helion Szkolenia – Akademię IT &amp; Biznes. <br /><br /> Stosując nowoczesne metody dostarczania wiedzy, w pełni wykorzystujemy możliwości blended learning — zintegrowanej metody kształcenia, łączącej tradycyjne formy nauki ze zdigitalizowanym środowiskiem kształcenia i weryfikacji wiedzy. <br /><br /> Stawiamy na umiejętności praktyczne i kształcenie fachowców. Dlatego nasza kadra to praktycy z wieloletnim stażem, często autorzy cenionych publikacji</p>\n<p style=\"text-align:center;\"><b>HELION S.A.</b><br /> Ul. Kościuszki 1c, 44-100 Gliwice,<br /> KRS 0000121256<br /> Sąd Rejonowy w Gliwicach, X Wydział Gospodarczy Krajowego Rejestru Sądowego.<br /> NIP 6310200268, REGON: 271070648<br /> Kapitał zakładowy: 523500 zł w całości wpłacony</p>', 'grupahelion'),
+(5, 1, 1, 'Formy płatności', '', 'Formy płatności', 'secure payment, ssl, visa, mastercard, paypal', '<h1 id=\"titleHeader\">Formy płatności</h1>\n<h2 class=\"pomocPlacPayu\">Płatności elektroniczne poprzez <a rel=\"nofollow\" href=\"http://www.payu.pl/\">PayU</a></h2>\n<p></p>\n<p>Usługę tę realizujemy dla klientów banków:</p>\n<p></p>\n<ul>\n<li><b>BPH</b>, za pomocą usługi<a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/bph1.phtml\"> Przelew z BPH</a>,</li>\n<li><b>Inteligo</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/inteligo.phtml\">Płacę z Inteligo</a>,</li>\n<li><b>PKO BP</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/ipko.phtml\">iPKO</a>,</li>\n<li><b>mBanku</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" href=\"https://helion.pl/mbank.phtml\" target=\"_blank\">mTransfer</a>,</li>\n<li><b>BZWBK</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" href=\"https://helion.pl/bzwbk.phtml\" target=\"_blank\">Przelew24</a>,</li>\n<li><b>ING Bank Śląski</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/ing.phtml\">ING BankOnLine</a>,</li>\n<li><b>Pekao S.A.</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/pekao.phtml\">PEKAO 24 Przelew</a>,</li>\n<li><b>Credit Agricole Bank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/agricole.phtml\">Przelew z Credit Agricole Bank</a>,</li>\n<li><b>Citibanku</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/Citibank.phtml\">Citibank Online</a>,</li>\n<li><b>Banku Millennium</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/Millennium.phtml\">Millenet</a>,</li>\n<li><b>Deutsche Banku</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/Deutsche_Bank.phtml\">db easyNet</a>,</li>\n<li><b>Alior Banku</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/AliorBank.phtml\">Płacę z Alior Bankiem</a>,</li>\n<li><b>Alior Sync</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/AliorSync.phtml\">Płacę z Alior Sync</a>,</li>\n<li><b>BNP Paribas Bank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/BNP-Paribas.phtml\">Płacę z BNP Paribas</a>,</li>\n<li><b>GetinBank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://helion.pl/BNP-Paribas.phtml\">Płacę z Getin Bank</a>,</li>\n<li><b>BOŚ Bank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://bosbank.pl\">Płać z BOŚ</a>,</li>\n<li><b>PBS Bank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"https://www.pbsbank.pl\">Płacę z PBS</a>,</li>\n<li><b>Orange</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"http://www.orange.pl/place_z_orange.phtml\">Płacę z Orange</a>,</li>\n<li><b>Eurobank</b>, za pomocą usługi <a rel=\"nofollow noreferrer noopener\" target=\"_blank\" href=\"http://www.eurobank.pl/produkty,bankowosc-elektroniczna,e-platnosci,98,229.html\">EuroBank Płatność Online</a>,</li>\n</ul>\n<h2 class=\"pomocPlacKarta\">Płatność kartą kredytową</h2>\n<p></p>\n<p>Transakcje dokonywane z użyciem kart kredytowych obsługiwane są przez <a rel=\"nofollow\" href=\"http://www.payu.pl/\">PayU</a> przy współpracy z centrum autoryzacyjno-rozliczeniowym PolCard.</p>\n<p></p>\n<p>W helion.pl zapłacisz kartami wypukłymi (oznaczenia poniżej) oraz innymi kartami płatniczymi, dla których bank wystawca dopuszcza dokonywanie zakupów internetowych.</p>\n<p style=\"text-align:center;\"></p>\n<table style=\"height:180px;width:633px;font-weight:bold;text-align:center;margin-left:auto;margin-right:auto;\">\n<tbody>\n<tr style=\"text-align:center;\">\n<td>Visa Classic</td>\n<td>MasterCard</td>\n<td>Diners Club</td>\n</tr>\n<tr style=\"text-align:center;\">\n<td><img src=\"https://helion.pl/img/info/ico_visa.jpg\" alt=\"ico_visa.jpg\" /></td>\n<td><img src=\"https://helion.pl/img/info/ico_mastercard.jpg\" alt=\"ico_mastercard.jpg\" /></td>\n<td><img src=\"https://helion.pl/img/info/ico_diners.jpg\" alt=\"ico_diners.jpg\" /></td>\n</tr>\n<tr style=\"text-align:center;\">\n<td>JCB</td>\n<td>POLCARD</td>\n<td>PBK Styl</td>\n</tr>\n<tr>\n<td style=\"text-align:center;\"><img src=\"https://helion.pl/img/info/ico_jcb.jpg\" alt=\"ico_jcb.jpg\" /></td>\n<td style=\"text-align:center;\"><img src=\"https://helion.pl/img/info/ico_polcard.jpg\" alt=\"ico_polcard.jpg\" /></td>\n<td><img src=\"https://helion.pl/img/info/ico_pbk.jpg\" alt=\"ico_pbk.jpg\" style=\"margin-left:auto;margin-right:auto;\" /></td>\n</tr>\n</tbody>\n</table>\n<p></p>\n<h2 class=\"pomocPlacProforma\"></h2>\n<h2 class=\"pomocPlacProforma\">Przedpłata przelewem (proforma)</h2>\n<p>Możesz także zapłacić za książki przedpłatą na konto. Po wybraniu tej opcji będziesz mógł zarejestrować swoje zamówienie i wydrukować dokument proforma. Poznasz także numer naszego konta i numer przedpłaty, na który będziesz się mógł powołać wysyłając pieniądze.</p>\n<h2 class=\"pomocPlacPaypal\">Płatności z <a rel=\"nofollow\" href=\"https://www.paypal.com/pl/home\">PayPal</a>:</h2>\n<div align=\"center\"><img src=\"https://www.paypalobjects.com/webstatic/mktg/logo-center/banner_pl_just_pp_319x110.jpg\" alt=\"banner_pl_just_pp_319x110.jpg\" /></div>\n<p><b>PayPal to bezpieczeństwo i ochrona</b></p>\n<p>Twoje informacje osobowe i finansowe są u nas bezpieczne. Aby je chronić i tym samym zredukować do minimum ryzyko oszustw online, PayPal stosuje najnowocześniejsze technologie kodowania danych oraz ochrony przed nadużyciami i nieautoryzowanymi transakcjami.</p>\n<p><b>Jak skorzystać z PayPal?</b></p>\n<p>Aby opłacić zamówienie przy użyciu serwisu PayPal, <b>niezbędne jest zaznaczenie opcji \"Chcę fakturę VAT na dane osobowe\"</b>. Wówczas w zakładce \"Szybki przelew\" aktywowana zostanie ikona umożliwiająca płatność PayPal. W przypadku produktów cyfrowych (ebooki, audiobooki, kursy) z opcji PayPal możesz również skorzystać klikając na karcie produktu przycisk \"Kup 1-kliknięciem\". W tej sytuacji <b>konieczne jest uzupełnienie danych osobowych na koncie użytkownika</b>.</p>\n<p></p>', 'platnosci');
 
 -- --------------------------------------------------------
 
@@ -3651,8 +3641,6 @@ CREATE TABLE `ps_cms_shop` (
 --
 
 INSERT INTO `ps_cms_shop` (`id_cms`, `id_shop`) VALUES
-(1, 1),
-(2, 1),
 (3, 1),
 (4, 1),
 (5, 1);
@@ -3811,8 +3799,8 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (87, NULL, NULL, 'PS_SMARTY_FORCE_COMPILE', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (88, NULL, NULL, 'PS_DISTANCE_UNIT', 'km', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (89, NULL, NULL, 'PS_STORES_DISPLAY_CMS', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(90, NULL, NULL, 'SHOP_LOGO_WIDTH', '100', '0000-00-00 00:00:00', '2021-10-27 21:21:18'),
-(91, NULL, NULL, 'SHOP_LOGO_HEIGHT', '28', '0000-00-00 00:00:00', '2021-10-27 21:21:18'),
+(90, NULL, NULL, 'SHOP_LOGO_WIDTH', '1024', '0000-00-00 00:00:00', '2021-11-04 14:37:32'),
+(91, NULL, NULL, 'SHOP_LOGO_HEIGHT', '340', '0000-00-00 00:00:00', '2021-11-04 14:37:32'),
 (92, NULL, NULL, 'EDITORIAL_IMAGE_WIDTH', '530', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (93, NULL, NULL, 'EDITORIAL_IMAGE_HEIGHT', '228', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (94, NULL, NULL, 'PS_STATSDATA_CUSTOMER_PAGESVIEWS', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3836,7 +3824,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (112, NULL, NULL, 'PS_COOKIE_CHECKIP', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (113, NULL, NULL, 'PS_USE_ECOTAX', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (114, NULL, NULL, 'PS_CANONICAL_REDIRECT', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(115, NULL, NULL, 'PS_IMG_UPDATE_TIME', '1324977642', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(115, NULL, NULL, 'PS_IMG_UPDATE_TIME', '1636033052', '0000-00-00 00:00:00', '2021-11-04 14:37:32'),
 (116, NULL, NULL, 'PS_BACKUP_DROP_TABLE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (117, NULL, NULL, 'PS_OS_CHEQUE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (118, NULL, NULL, 'PS_OS_PAYMENT', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3868,7 +3856,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (144, NULL, NULL, 'PS_VIRTUAL_PROD_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '2021-10-27 21:22:15'),
 (145, NULL, NULL, 'PS_CUSTOMIZATION_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (146, NULL, NULL, 'PS_CART_RULE_FEATURE_ACTIVE', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(147, NULL, NULL, 'PS_PACK_FEATURE_ACTIVE', NULL, '0000-00-00 00:00:00', '2021-11-05 19:11:54'),
+(147, NULL, NULL, 'PS_PACK_FEATURE_ACTIVE', NULL, '0000-00-00 00:00:00', '2021-11-03 18:39:58'),
 (148, NULL, NULL, 'PS_ALIAS_FEATURE_ACTIVE', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (149, NULL, NULL, 'PS_TAX_ADDRESS_TYPE', 'id_address_delivery', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (150, NULL, NULL, 'PS_SHOP_DEFAULT', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -3931,7 +3919,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (207, NULL, NULL, 'BLOCKADVERT_LINK', 'http://www.prestashop.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (208, NULL, NULL, 'BLOCKSTORE_IMG', 'store.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (209, NULL, NULL, 'BLOCKADVERT_IMG_EXT', 'jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(210, NULL, NULL, 'MOD_BLOCKTOPMENU_ITEMS', 'CAT3,CAT4,CAT5,CAT6,CAT7,CAT8,CAT9,CAT10,CAT11,CAT12,CAT13,CAT14,CAT15,CAT16,CAT17,CAT18,CAT19,CAT20,CAT21,CAT22,CAT23,CAT24,CAT25,CAT26,CAT27', '0000-00-00 00:00:00', '2021-11-03 19:44:15'),
+(210, NULL, NULL, 'MOD_BLOCKTOPMENU_ITEMS', 'CAT3,CAT4,CAT5,CAT6,CAT7,CAT8,CAT9,CAT10,CAT11,CAT12,CAT13,CAT14,CAT15,CAT16,CAT17,CAT18,CAT19,CAT20,CAT21,CAT22,CAT23,CAT24,CAT25,CAT26,CAT27', '0000-00-00 00:00:00', '2021-11-06 17:44:35'),
 (211, NULL, NULL, 'MOD_BLOCKTOPMENU_SEARCH', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (212, NULL, NULL, 'BLOCKSOCIAL_FACEBOOK', NULL, '0000-00-00 00:00:00', '2021-10-27 21:21:24'),
 (213, NULL, NULL, 'BLOCKSOCIAL_TWITTER', NULL, '0000-00-00 00:00:00', '2021-10-27 21:21:24'),
@@ -3956,12 +3944,12 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (232, NULL, NULL, 'PS_BASE_DISTANCE_UNIT', 'm', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (233, NULL, NULL, 'PS_SHOP_DOMAIN', 'localhost', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (234, NULL, NULL, 'PS_SHOP_DOMAIN_SSL', 'localhost', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(235, NULL, NULL, 'PS_SHOP_NAME', 'CourseShop', '0000-00-00 00:00:00', '2021-10-27 21:21:18'),
-(236, NULL, NULL, 'PS_SHOP_EMAIL', 'example@example.com', '0000-00-00 00:00:00', '2021-10-27 21:21:19'),
+(235, NULL, NULL, 'PS_SHOP_NAME', 'Helion', '0000-00-00 00:00:00', '2021-11-06 16:55:50'),
+(236, NULL, NULL, 'PS_SHOP_EMAIL', 'prestakursy@gmail.com', '0000-00-00 00:00:00', '2021-11-06 17:15:42'),
 (237, NULL, NULL, 'PS_MAIL_METHOD', '2', '0000-00-00 00:00:00', '2021-10-31 10:49:28'),
 (238, NULL, NULL, 'PS_SHOP_ACTIVITY', '8', '0000-00-00 00:00:00', '2021-10-27 21:21:18'),
-(239, NULL, NULL, 'PS_LOGO', 'logo.png', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(240, NULL, NULL, 'PS_FAVICON', 'favicon.ico', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(239, NULL, NULL, 'PS_LOGO', 'courseshop-logo-1636033052.jpg', '0000-00-00 00:00:00', '2021-11-04 14:37:32'),
+(240, NULL, NULL, 'PS_FAVICON', 'favicon.ico', '0000-00-00 00:00:00', '2021-11-04 14:37:14'),
 (241, NULL, NULL, 'PS_STORES_ICON', 'logo_stores.png', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (242, NULL, NULL, 'PS_ROOT_CATEGORY', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (243, NULL, NULL, 'PS_HOME_CATEGORY', '2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -4049,7 +4037,7 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (334, NULL, NULL, 'CHECKBOX_MESSAGE', '1', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
 (335, NULL, NULL, 'BACKGROUND_COLOR_FAVICONBO', '#DF0067', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
 (336, NULL, NULL, 'TEXT_COLOR_FAVICONBO', '#FFFFFF', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
-(337, NULL, NULL, 'HOME_FEATURED_CAT', '2', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
+(337, NULL, NULL, 'HOME_FEATURED_CAT', '4', '2021-10-27 21:21:23', '2021-11-06 16:44:47'),
 (338, NULL, NULL, 'HOMESLIDER_PAUSE_ON_HOVER', '1', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
 (339, NULL, NULL, 'HOMESLIDER_WRAP', '1', '2021-10-27 21:21:23', '2021-10-27 21:21:23'),
 (340, NULL, NULL, 'PS_SC_TWITTER', '1', '2021-10-27 21:21:24', '2021-10-27 21:21:24'),
@@ -4127,12 +4115,16 @@ INSERT INTO `ps_configuration` (`id_configuration`, `id_shop_group`, `id_shop`, 
 (412, NULL, NULL, 'PS_CCCCSS_VERSION', '2', '2021-11-03 12:56:19', '2021-11-03 13:00:58'),
 (413, NULL, NULL, 'BLOCK_CATEG_SORT_WAY', '0', '2021-11-03 18:51:55', '2021-11-03 18:51:55'),
 (414, NULL, NULL, 'BLOCK_CATEG_SORT', '1', '2021-11-03 18:51:55', '2021-11-03 18:51:55'),
-(415, NULL, NULL, 'GA_CANCELLED_STATES', '[\"6\"]', '2021-11-05 23:11:14', '2021-11-05 23:11:14'),
-(416, NULL, NULL, 'GA_ACCOUNT_ID', 'G-XQ62JR920D', '2021-11-05 23:15:52', '2021-11-05 23:28:14'),
-(417, NULL, NULL, 'GANALYTICS_CONFIGURATION_OK', '1', '2021-11-05 23:15:52', '2021-11-05 23:32:43'),
-(418, NULL, NULL, 'GA_USERID_ENABLED', '1', '2021-11-05 23:15:52', '2021-11-05 23:32:43'),
-(419, NULL, NULL, 'GA_ANONYMIZE_ENABLED', NULL, '2021-11-05 23:32:41', '2021-11-05 23:32:43'),
-(420, NULL, NULL, 'GA_TRACK_BACKOFFICE_ENABLED', '1', '2021-11-05 23:32:41', '2021-11-05 23:32:43');
+(415, NULL, NULL, 'HOME_FEATURED_RANDOMIZE', '1', '2021-11-06 16:44:47', '2021-11-06 16:44:47'),
+(416, NULL, NULL, 'PS_SHOP_DETAILS', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(417, NULL, NULL, 'PS_SHOP_ADDR1', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(418, NULL, NULL, 'PS_SHOP_ADDR2', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(419, NULL, NULL, 'PS_SHOP_CODE', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(420, NULL, NULL, 'PS_SHOP_CITY', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(421, NULL, NULL, 'PS_SHOP_COUNTRY_ID', '14', '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(422, NULL, NULL, 'PS_SHOP_COUNTRY', 'Poland', '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(423, NULL, NULL, 'PS_SHOP_PHONE', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50'),
+(424, NULL, NULL, 'PS_SHOP_FAX', NULL, '2021-11-06 16:55:50', '2021-11-06 16:55:50');
 
 -- --------------------------------------------------------
 
@@ -4198,7 +4190,15 @@ INSERT INTO `ps_configuration_kpi` (`id_configuration_kpi`, `id_shop_group`, `id
 (41, NULL, NULL, 'DISABLED_CATEGORIES', '0', '2021-11-03 17:07:49', '2021-11-03 17:07:49'),
 (42, NULL, NULL, 'DISABLED_CATEGORIES_EXPIRE', '1635962869', '2021-11-03 17:07:49', '2021-11-03 17:07:49'),
 (43, NULL, NULL, 'PRODUCTS_PER_CATEGORY', '11', '2021-11-03 17:07:50', '2021-11-03 17:07:50'),
-(44, NULL, NULL, 'PRODUCTS_PER_CATEGORY_EXPIRE', '1635959270', '2021-11-03 17:07:50', '2021-11-03 17:07:50');
+(44, NULL, NULL, 'PRODUCTS_PER_CATEGORY_EXPIRE', '1635959270', '2021-11-03 17:07:50', '2021-11-03 17:07:50'),
+(45, NULL, NULL, 'CUSTOMER_MAIN_GENDER', NULL, '2021-11-04 14:36:41', '2021-11-04 14:36:41'),
+(46, NULL, NULL, 'CUSTOMER_MAIN_GENDER_EXPIRE', NULL, '2021-11-04 14:36:41', '2021-11-04 14:36:41'),
+(47, NULL, NULL, 'AVG_CUSTOMER_AGE', NULL, '2021-11-04 14:36:42', '2021-11-04 14:36:42'),
+(48, NULL, NULL, 'AVG_CUSTOMER_AGE_EXPIRE', NULL, '2021-11-04 14:36:42', '2021-11-04 14:36:42'),
+(49, NULL, NULL, 'NEWSLETTER_REGISTRATIONS', '1', '2021-11-04 14:36:43', '2021-11-04 14:36:43'),
+(50, NULL, NULL, 'NEWSLETTER_REGISTRATIONS_EXPIRE', '1636054603', '2021-11-04 14:36:43', '2021-11-04 14:36:43'),
+(51, NULL, NULL, 'ORDERS_PER_CUSTOMER', '0', '2021-11-04 14:36:44', '2021-11-04 14:36:44'),
+(52, NULL, NULL, 'ORDERS_PER_CUSTOMER_EXPIRE', '1636119404', '2021-11-04 14:36:44', '2021-11-04 14:36:44');
 
 -- --------------------------------------------------------
 
@@ -4219,7 +4219,11 @@ CREATE TABLE `ps_configuration_kpi_lang` (
 
 INSERT INTO `ps_configuration_kpi_lang` (`id_configuration_kpi`, `id_lang`, `value`, `date_upd`) VALUES
 (37, 1, 'Technologie webowe', '2021-11-03 17:07:48'),
-(38, 1, '1636042068', '2021-11-03 17:07:48');
+(38, 1, '1636042068', '2021-11-03 17:07:48'),
+(45, 1, '100% Klientów Mężczyzn', '2021-11-04 14:36:41'),
+(46, 1, '1636119401', '2021-11-04 14:36:41'),
+(47, 1, '52 lat', '2021-11-04 14:36:42'),
+(48, 1, '1636119402', '2021-11-04 14:36:42');
 
 -- --------------------------------------------------------
 
@@ -4248,9 +4252,9 @@ INSERT INTO `ps_configuration_lang` (`id_configuration`, `id_lang`, `value`, `da
 (282, 1, '', '2021-11-03 12:00:57'),
 (283, 1, '', '2021-11-03 12:00:57'),
 (284, 1, 'Obecnie brak na stanie', NULL),
-(309, 1, '6ae81c0e96dd9d3f843c0c7f79577301.png', '2021-11-03 16:23:49'),
-(310, 1, 'https://localhost/index.php?id_product=109&rewrite=frontend-developer-kurs-video-javascript-poziom-srednio-zaawansowany&controller=product', '2021-11-03 16:19:20'),
-(311, 1, 'SPECJALNA PROMOCJA -10 % NA KURS JAVASCRIPT', '2021-11-03 16:19:20'),
+(309, 1, '03bc9fe704ca9669dd435c3d5f9044ed.png', '2021-11-06 15:53:18'),
+(310, 1, '', '2021-11-06 15:52:10'),
+(311, 1, 'HELION 30 LAT', '2021-11-06 15:52:10'),
 (320, 1, 'Udostępnione przez Ciebie dane osobowe są wykorzystywane w celu udzielania odpowiedzi na zapytania, przetwarzania zamówień lub umożliwiania dostępu do konkretnych informacji. Przysługuje Ci prawo do modyfikowania oraz usuwania wszelkich danych osobowych zamieszczonych na stronie „Moje konto”.', '2021-10-27 21:21:22'),
 (322, 1, 'Możesz zrezygnować w każdej chwili. W tym celu należy odnaleźć szczegóły w naszej informacji prawnej.', '2021-10-27 21:21:22'),
 (358, 1, 'Akceptuję ogólne warunki użytkowania i politykę prywatności', '2021-10-27 21:21:58'),
@@ -4298,7 +4302,15 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (15, 1, 1, 4, 1, 2887188481, '2021-11-03 17:41:14', ''),
 (16, 1, 1, 4, 1, 2887188481, '2021-11-03 18:37:54', ''),
 (17, 1, 1, 4, 1, 2887188481, '2021-11-03 19:11:01', ''),
-(18, 1, 1, 4, 1, 2887188481, '2021-11-03 19:44:22', '');
+(18, 1, 1, 4, 1, 2887188481, '2021-11-03 19:44:22', ''),
+(19, 1, 1, 5, 1, 2886860801, '2021-11-04 14:36:45', ''),
+(20, 1, 1, 5, 3, 2886860801, '2021-11-04 15:12:15', ''),
+(21, 1, 1, 5, 1, 2886860801, '2021-11-06 15:24:04', ''),
+(22, 1, 1, 8, 1, 2886860801, '2021-11-06 15:58:04', ''),
+(23, 1, 1, 5, 1, 2886860801, '2021-11-06 15:58:10', ''),
+(24, 1, 1, 5, 1, 2886860801, '2021-11-06 16:39:47', ''),
+(25, 1, 1, 5, 4, 2886860801, '2021-11-06 17:12:08', ''),
+(26, 1, 1, 5, 1, 2886860801, '2021-11-06 17:44:39', '');
 
 -- --------------------------------------------------------
 
@@ -5591,7 +5603,7 @@ CREATE TABLE `ps_employee` (
 --
 
 INSERT INTO `ps_employee` (`id_employee`, `id_profile`, `id_lang`, `lastname`, `firstname`, `email`, `passwd`, `last_passwd_gen`, `stats_date_from`, `stats_date_to`, `stats_compare_from`, `stats_compare_to`, `stats_compare_option`, `preselect_date_range`, `bo_color`, `bo_theme`, `bo_css`, `default_tab`, `bo_width`, `bo_menu`, `active`, `optin`, `id_last_order`, `id_last_customer_message`, `id_last_customer`, `last_connection_date`, `reset_password_token`, `reset_password_validity`) VALUES
-(1, 1, 1, 'Kowalski', 'Jan', 'example@example.com', '$2y$10$RyKTbyi4D8PStqLdU0A1DONWlvWD.6wURurEVZaPT1eqD3zstcaaq', '2021-10-27 15:21:19', '2021-09-27', '2021-10-27', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'theme.css', 1, 0, 1, 1, NULL, 7, 0, 0, '2021-11-05', NULL, '0000-00-00 00:00:00');
+(1, 1, 1, 'Kowalski', 'Jan', 'example@example.com', '$2y$10$RyKTbyi4D8PStqLdU0A1DONWlvWD.6wURurEVZaPT1eqD3zstcaaq', '2021-10-27 15:21:19', '2021-09-27', '2021-10-27', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'theme.css', 1, 0, 1, 1, NULL, 7, 0, 5, '2021-11-06', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5615,7 +5627,7 @@ INSERT INTO `ps_employee_session` (`id_employee_session`, `id_employee`, `token`
 (5, 1, '87485db5e7baa74d9b9248eed50a6732496300bc'),
 (6, 1, '351bd592f487dacf0cb52a1da11745f95c7f75b4'),
 (9, 1, 'c3566ffecfdad20dc7ef1e34868c85d2c5f51ade'),
-(13, 1, '74f10023a422e2fdcfc9f6ee57895fac8fed6a6f');
+(11, 1, 'df5c17648d07b4e6fae807f7fceba5f375fdc3a7');
 
 -- --------------------------------------------------------
 
@@ -5776,34 +5788,6 @@ INSERT INTO `ps_feature_value_lang` (`id_feature_value`, `id_lang`, `value`) VAL
 (8, 1, 'Short sleeves'),
 (9, 1, 'Removable cover'),
 (10, 1, '120 pages');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `ps_ganalytics`
---
-
-CREATE TABLE `ps_ganalytics` (
-  `id_google_analytics` int(11) NOT NULL,
-  `id_order` int(11) NOT NULL,
-  `id_customer` int(10) NOT NULL,
-  `id_shop` int(11) NOT NULL,
-  `sent` tinyint(1) DEFAULT NULL,
-  `refund_sent` tinyint(1) DEFAULT NULL,
-  `date_add` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `ps_ganalytics_data`
---
-
-CREATE TABLE `ps_ganalytics_data` (
-  `id_cart` int(11) NOT NULL,
-  `id_shop` int(11) NOT NULL,
-  `data` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -5969,7 +5953,8 @@ INSERT INTO `ps_guest` (`id_guest`, `id_operating_system`, `id_web_browser`, `id
 (4, 6, 11, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
 (5, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
 (6, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
-(7, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0);
+(7, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
+(8, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0);
 
 -- --------------------------------------------------------
 
@@ -6008,9 +5993,9 @@ CREATE TABLE `ps_homeslider_slides` (
 --
 
 INSERT INTO `ps_homeslider_slides` (`id_homeslider_slides`, `position`, `active`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 1);
+(1, 2, 1),
+(2, 0, 1),
+(3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -6033,9 +6018,9 @@ CREATE TABLE `ps_homeslider_slides_lang` (
 --
 
 INSERT INTO `ps_homeslider_slides_lang` (`id_homeslider_slides`, `id_lang`, `title`, `description`, `legend`, `url`, `image`) VALUES
-(1, 1, 'Sample 1', '<h3>EXCEPTEUR OCCAECAT</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p>', 'sample-1', 'http://www.prestashop.com/?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download', 'sample-1.jpg'),
-(2, 1, 'Sample 2', '<h3>EXCEPTEUR OCCAECAT</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p>', 'sample-2', 'http://www.prestashop.com/?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download', 'sample-2.jpg'),
-(3, 1, 'Sample 3', '<h3>EXCEPTEUR OCCAECAT</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p>', 'sample-3', 'http://www.prestashop.com/?utm_source=back-office&utm_medium=v17_homeslider&utm_campaign=back-office-PL&utm_content=download', 'sample-3.jpg');
+(1, 1, '', '', '', 'https://localhost/index.php?id_category=24&controller=category', '459bd4d6125d101f6aa0be2ff45ddccba830ca01_ZOSTAŃ MŁODYM PROGRAMISTĄ(2).jpg'),
+(2, 1, '', '', '', 'https://localhost/index.php?id_product=205&rewrite=e-biznes-do-kwadratu&controller=product', 'dc12f5b4ca62120d3ca3dc7313b9fbf25b85e44a_Zdobądź praktyczną wiedzę i zwiększ swoją sprzedaż.jpg'),
+(3, 1, '', '', '', 'https://localhost/index.php?id_product=109&rewrite=frontend-developer-kurs-video-javascript-poziom-srednio-zaawansowany&controller=product', '48714eaaf0d30728bde7101a3017949a806ef49a_promocja.jpg');
 
 -- --------------------------------------------------------
 
@@ -6890,9 +6875,6 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (66, 1, 556, 1),
 (66, 1, 557, 1),
 (66, 1, 558, 1),
-(68, 1, 30, 1),
-(68, 1, 56, 1),
-(68, 1, 70, 1),
 (2, 1, 523, 2),
 (3, 1, 524, 2),
 (3, 1, 530, 2),
@@ -6924,8 +6906,6 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (66, 1, 12, 2),
 (67, 1, 543, 2),
 (67, 1, 544, 2),
-(68, 1, 15, 2),
-(68, 1, 40, 2),
 (4, 1, 524, 3),
 (5, 1, 530, 3),
 (5, 1, 531, 3),
@@ -6943,9 +6923,6 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (64, 1, 41, 3),
 (64, 1, 532, 3),
 (65, 1, 552, 3),
-(68, 1, 14, 3),
-(68, 1, 27, 3),
-(68, 1, 63, 3),
 (5, 1, 524, 4),
 (6, 1, 530, 4),
 (19, 1, 13, 4),
@@ -6953,11 +6930,8 @@ INSERT INTO `ps_hook_module` (`id_module`, `id_shop`, `id_hook`, `position`) VAL
 (37, 1, 537, 4),
 (60, 1, 522, 4),
 (64, 1, 65, 4),
-(68, 1, 35, 4),
 (38, 1, 537, 5),
 (58, 1, 530, 5),
-(68, 1, 13, 5),
-(68, 1, 65, 5),
 (39, 1, 537, 6),
 (60, 1, 530, 6),
 (40, 1, 537, 7),
@@ -7998,7 +7972,7 @@ CREATE TABLE `ps_info_lang` (
 --
 
 INSERT INTO `ps_info_lang` (`id_info`, `id_shop`, `id_lang`, `text`) VALUES
-(1, 1, 1, '<h2>Custom Text Block</h2>\n<p><strong class=\"dark\">Lorem ipsum dolor sit amet conse ctetu</strong></p>\n<p>Sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>');
+(1, 1, 1, '<h2 style=\"text-align:center;\">KOMPLEKSOWO SZKOLIMY NOWOCZESNY BIZNES</h2>\n<p></p>\n<p>Grupa Helion od blisko trzech dekad wspiera w rozwoju specjalistów IT i managerów.<br /> Na bazie wielu lat doświadczeń i znajomości potrzeb naszych Klientów stworzyliśmy Helion Szkolenia – Akademię IT &amp; Biznes. <br /><br /> Stosując nowoczesne metody dostarczania wiedzy, w pełni wykorzystujemy możliwości blended learning — zintegrowanej metody kształcenia, łączącej tradycyjne formy nauki ze zdigitalizowanym środowiskiem kształcenia i weryfikacji wiedzy. <br /><br /> Stawiamy na umiejętności praktyczne i kształcenie fachowców. Dlatego nasza kadra to praktycy z wieloletnim stażem, często autorzy cenionych publikacji</p>\n<p></p>');
 
 -- --------------------------------------------------------
 
@@ -8206,20 +8180,21 @@ CREATE TABLE `ps_layered_filter_block` (
 
 INSERT INTO `ps_layered_filter_block` (`hash`, `data`) VALUES
 ('048dfb3296fe18a3d673230c44f2c6f6', 'a:1:{s:7:\"filters\";a:0:{}}'),
-('26317fbedceac39413bcc23434c639f9', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('329438549f1b548ebb8ac2f36d141d32', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('3c89e4d2fe714839734a43c9245e4117', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:57:{i:4;a:2:{s:4:\"name\";s:13:\"Artur Kulesza\";s:3:\"nbr\";s:1:\"1\";}i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:6;a:2:{s:4:\"name\";s:11:\"Karol Kurek\";s:3:\"nbr\";s:1:\"8\";}i:7;a:2:{s:4:\"name\";s:17:\"Zofia Matusiewicz\";s:3:\"nbr\";s:1:\"2\";}i:8;a:2:{s:4:\"name\";s:10:\"Anna Kempa\";s:3:\"nbr\";s:1:\"1\";}i:9;a:2:{s:4:\"name\";s:15:\"Tomasz Kaniecki\";s:3:\"nbr\";s:1:\"2\";}i:10;a:2:{s:4:\"name\";s:14:\"Piotr Tenyszyn\";s:3:\"nbr\";s:1:\"3\";}i:11;a:2:{s:4:\"name\";s:15:\"Marcin Biegała\";s:3:\"nbr\";s:1:\"1\";}i:12;a:2:{s:4:\"name\";s:14:\"Marcin Szeliga\";s:3:\"nbr\";s:1:\"1\";}i:13;a:2:{s:4:\"name\";s:15:\"Piotr Szajowski\";s:3:\"nbr\";s:1:\"1\";}i:14;a:2:{s:4:\"name\";s:16:\"Kacper Łukawski\";s:3:\"nbr\";s:1:\"1\";}i:15;a:2:{s:4:\"name\";s:12:\"Dawid Perdek\";s:3:\"nbr\";s:1:\"1\";}i:16;a:2:{s:4:\"name\";s:13:\"Adam Bobowski\";s:3:\"nbr\";s:1:\"2\";}i:17;a:2:{s:4:\"name\";s:15:\"Joanna Zatorska\";s:3:\"nbr\";s:1:\"1\";}i:18;a:2:{s:4:\"name\";s:14:\"Jakub Wasielak\";s:3:\"nbr\";s:1:\"1\";}i:19;a:2:{s:4:\"name\";s:14:\"Marcin Gomulak\";s:3:\"nbr\";s:1:\"1\";}i:20;a:2:{s:4:\"name\";s:18:\"Arkadiusz Brzegowy\";s:3:\"nbr\";s:1:\"1\";}i:21;a:2:{s:4:\"name\";s:17:\"Jarosław Porwoł\";s:3:\"nbr\";s:1:\"2\";}i:22;a:2:{s:4:\"name\";s:21:\"Radosław Słowiński\";s:3:\"nbr\";s:1:\"1\";}i:23;a:2:{s:4:\"name\";s:18:\"Bartosz Zaczyński\";s:3:\"nbr\";s:1:\"1\";}i:24;a:2:{s:4:\"name\";s:14:\"Marcin Berendt\";s:3:\"nbr\";s:1:\"1\";}i:25;a:2:{s:4:\"name\";s:12:\"Jakub Kozera\";s:3:\"nbr\";s:1:\"2\";}i:26;a:2:{s:4:\"name\";s:12:\"Piotr Kośka\";s:3:\"nbr\";s:1:\"3\";}i:27;a:2:{s:4:\"name\";s:18:\"Michał Szczepanik\";s:3:\"nbr\";s:1:\"6\";}i:28;a:2:{s:4:\"name\";s:16:\"Jacek Matulewski\";s:3:\"nbr\";s:1:\"1\";}i:29;a:2:{s:4:\"name\";s:15:\"Tomasz Trębski\";s:3:\"nbr\";s:1:\"2\";}i:30;a:2:{s:4:\"name\";s:15:\"Jakub Zagórski\";s:3:\"nbr\";s:1:\"2\";}i:31;a:2:{s:4:\"name\";s:16:\"Paweł Choniawko\";s:3:\"nbr\";s:1:\"1\";}i:32;a:2:{s:4:\"name\";s:17:\"Radosław Madecki\";s:3:\"nbr\";s:1:\"1\";}i:33;a:2:{s:4:\"name\";s:12:\"Paweł Pluta\";s:3:\"nbr\";s:1:\"1\";}i:34;a:2:{s:4:\"name\";s:17:\"Roman Kierzkowski\";s:3:\"nbr\";s:1:\"1\";}i:35;a:2:{s:4:\"name\";s:16:\"Mariusz Postół\";s:3:\"nbr\";s:1:\"1\";}i:36;a:2:{s:4:\"name\";s:21:\"Alicja Wolny-Dominiak\";s:3:\"nbr\";s:1:\"1\";}i:37;a:2:{s:4:\"name\";s:20:\"Przemysław Starosta\";s:3:\"nbr\";s:1:\"4\";}i:38;a:2:{s:4:\"name\";s:15:\"Marcin Albiniak\";s:3:\"nbr\";s:1:\"1\";}i:39;a:2:{s:4:\"name\";s:23:\"Sebastian Opałczyński\";s:3:\"nbr\";s:1:\"1\";}i:40;a:2:{s:4:\"name\";s:14:\"Jarosław Baca\";s:3:\"nbr\";s:1:\"3\";}i:41;a:2:{s:4:\"name\";s:16:\"Adam Raźniewski\";s:3:\"nbr\";s:1:\"2\";}i:42;a:2:{s:4:\"name\";s:14:\"Marcin Szyszka\";s:3:\"nbr\";s:1:\"1\";}i:43;a:2:{s:4:\"name\";s:15:\"Tomasz Gilewski\";s:3:\"nbr\";s:1:\"1\";}i:44;a:2:{s:4:\"name\";s:15:\"Jacek Galanciak\";s:3:\"nbr\";s:1:\"4\";}i:45;a:2:{s:4:\"name\";s:15:\"Arkadiusz Wrzos\";s:3:\"nbr\";s:1:\"1\";}i:46;a:2:{s:4:\"name\";s:14:\"Urszula Wiejak\";s:3:\"nbr\";s:1:\"1\";}i:47;a:2:{s:4:\"name\";s:15:\"Krzysztof Komar\";s:3:\"nbr\";s:1:\"1\";}i:48;a:2:{s:4:\"name\";s:15:\"Mateusz Staniak\";s:3:\"nbr\";s:1:\"1\";}i:49;a:2:{s:4:\"name\";s:19:\"Agnieszka Borkowska\";s:3:\"nbr\";s:1:\"2\";}i:50;a:2:{s:4:\"name\";s:13:\"Dawid Borycki\";s:3:\"nbr\";s:1:\"2\";}i:51;a:2:{s:4:\"name\";s:12:\"Marek Stabla\";s:3:\"nbr\";s:1:\"1\";}i:52;a:2:{s:4:\"name\";s:19:\"Daniel Krzyczkowski\";s:3:\"nbr\";s:1:\"2\";}i:53;a:2:{s:4:\"name\";s:20:\"Dobromir Matusiewicz\";s:3:\"nbr\";s:1:\"3\";}i:54;a:2:{s:4:\"name\";s:18:\"Jarosław Ratajski\";s:3:\"nbr\";s:1:\"2\";}i:55;a:2:{s:4:\"name\";s:13:\"Łukasz Dusza\";s:3:\"nbr\";s:1:\"1\";}i:56;a:2:{s:4:\"name\";s:14:\"Iwona Kubowicz\";s:3:\"nbr\";s:1:\"1\";}i:57;a:2:{s:4:\"name\";s:13:\"Paweł Wimmer\";s:3:\"nbr\";s:1:\"1\";}i:58;a:2:{s:4:\"name\";s:14:\"Cezary Kaszuba\";s:3:\"nbr\";s:1:\"1\";}i:59;a:2:{s:4:\"name\";s:14:\"Łukasz Bownik\";s:3:\"nbr\";s:1:\"1\";}i:60;a:2:{s:4:\"name\";s:20:\"Sebastian Dąbrowski\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"96\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:0;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:96;s:5:\"value\";N;}}}'),
 ('47df7a62af881f706bd23770acd95e45', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('4acfb2f3e2939e23ab3d6611fe0c1a17', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:5:{i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:36;a:2:{s:4:\"name\";s:21:\"Alicja Wolny-Dominiak\";s:3:\"nbr\";s:1:\"1\";}i:92;a:2:{s:4:\"name\";s:11:\"Adam Kopeć\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:94;a:2:{s:4:\"name\";s:15:\"Daniel Brzózka\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"6\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:6;s:5:\"value\";N;}}}'),
-('50772bbe5bce4644dc661177c8833b03', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('586af24a62796f53515d60d1e9f733c5', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:46:{i:4;a:2:{s:4:\"name\";s:13:\"Artur Kulesza\";s:3:\"nbr\";s:1:\"1\";}i:15;a:2:{s:4:\"name\";s:12:\"Dawid Perdek\";s:3:\"nbr\";s:1:\"1\";}i:25;a:2:{s:4:\"name\";s:12:\"Jakub Kozera\";s:3:\"nbr\";s:1:\"2\";}i:26;a:2:{s:4:\"name\";s:12:\"Piotr Kośka\";s:3:\"nbr\";s:1:\"1\";}i:31;a:2:{s:4:\"name\";s:16:\"Paweł Choniawko\";s:3:\"nbr\";s:1:\"1\";}i:32;a:2:{s:4:\"name\";s:17:\"Radosław Madecki\";s:3:\"nbr\";s:1:\"6\";}i:34;a:2:{s:4:\"name\";s:17:\"Roman Kierzkowski\";s:3:\"nbr\";s:1:\"1\";}i:38;a:2:{s:4:\"name\";s:15:\"Marcin Albiniak\";s:3:\"nbr\";s:1:\"1\";}i:39;a:2:{s:4:\"name\";s:23:\"Sebastian Opałczyński\";s:3:\"nbr\";s:1:\"1\";}i:40;a:2:{s:4:\"name\";s:14:\"Jarosław Baca\";s:3:\"nbr\";s:1:\"8\";}i:47;a:2:{s:4:\"name\";s:15:\"Krzysztof Komar\";s:3:\"nbr\";s:1:\"1\";}i:50;a:2:{s:4:\"name\";s:13:\"Dawid Borycki\";s:3:\"nbr\";s:1:\"2\";}i:51;a:2:{s:4:\"name\";s:12:\"Marek Stabla\";s:3:\"nbr\";s:1:\"1\";}i:52;a:2:{s:4:\"name\";s:19:\"Daniel Krzyczkowski\";s:3:\"nbr\";s:1:\"1\";}i:54;a:2:{s:4:\"name\";s:18:\"Jarosław Ratajski\";s:3:\"nbr\";s:1:\"1\";}i:61;a:2:{s:4:\"name\";s:19:\"Sebastian Domagała\";s:3:\"nbr\";s:1:\"1\";}i:62;a:2:{s:4:\"name\";s:13:\"Rafał Słuja\";s:3:\"nbr\";s:1:\"2\";}i:63;a:2:{s:4:\"name\";s:17:\"Michał Grząśko\";s:3:\"nbr\";s:1:\"1\";}i:64;a:2:{s:4:\"name\";s:17:\"Paweł Zagrobelny\";s:3:\"nbr\";s:1:\"1\";}i:65;a:2:{s:4:\"name\";s:13:\"Jakub Kukuryk\";s:3:\"nbr\";s:1:\"1\";}i:66;a:2:{s:4:\"name\";s:19:\"Krzysztof Wołowski\";s:3:\"nbr\";s:1:\"2\";}i:67;a:2:{s:4:\"name\";s:15:\"Wojciech Bielak\";s:3:\"nbr\";s:1:\"2\";}i:68;a:2:{s:4:\"name\";s:15:\"Michał Segieta\";s:3:\"nbr\";s:1:\"1\";}i:69;a:2:{s:4:\"name\";s:17:\"Jakub Ciosłowski\";s:3:\"nbr\";s:1:\"1\";}i:70;a:2:{s:4:\"name\";s:13:\"Bartosz Szmit\";s:3:\"nbr\";s:1:\"2\";}i:71;a:2:{s:4:\"name\";s:16:\"Paweł Kamiński\";s:3:\"nbr\";s:1:\"1\";}i:72;a:2:{s:4:\"name\";s:20:\"Sebastian Mysakowski\";s:3:\"nbr\";s:1:\"1\";}i:73;a:2:{s:4:\"name\";s:12:\"Adam Zaręba\";s:3:\"nbr\";s:1:\"1\";}i:74;a:2:{s:4:\"name\";s:12:\"Łukasz Ogan\";s:3:\"nbr\";s:1:\"2\";}i:75;a:2:{s:4:\"name\";s:14:\"Piotr Brzózka\";s:3:\"nbr\";s:1:\"1\";}i:76;a:2:{s:4:\"name\";s:18:\"Leszek Pomianowski\";s:3:\"nbr\";s:1:\"1\";}i:77;a:2:{s:4:\"name\";s:15:\"Piotr Łużecki\";s:3:\"nbr\";s:1:\"1\";}i:78;a:2:{s:4:\"name\";s:18:\"Kamil Kozaczyński\";s:3:\"nbr\";s:1:\"1\";}i:79;a:2:{s:4:\"name\";s:15:\"Krzysztof Szenk\";s:3:\"nbr\";s:1:\"1\";}i:80;a:2:{s:4:\"name\";s:21:\"Maksymilian Olszewski\";s:3:\"nbr\";s:1:\"1\";}i:81;a:2:{s:4:\"name\";s:21:\"Dominik Piestrzyński\";s:3:\"nbr\";s:1:\"2\";}i:82;a:2:{s:4:\"name\";s:13:\"Paweł Bensel\";s:3:\"nbr\";s:1:\"1\";}i:83;a:2:{s:4:\"name\";s:21:\"Sławomir Szulczewski\";s:3:\"nbr\";s:1:\"2\";}i:84;a:2:{s:4:\"name\";s:12:\"Piotr Jasiun\";s:3:\"nbr\";s:1:\"1\";}i:85;a:2:{s:4:\"name\";s:12:\"Kamil Monicz\";s:3:\"nbr\";s:1:\"1\";}i:86;a:2:{s:4:\"name\";s:16:\"Szymon Pendolski\";s:3:\"nbr\";s:1:\"1\";}i:87;a:2:{s:4:\"name\";s:15:\"Tomasz Kowalski\";s:3:\"nbr\";s:1:\"1\";}i:88;a:2:{s:4:\"name\";s:17:\"Miłosz Piechocki\";s:3:\"nbr\";s:1:\"1\";}i:89;a:2:{s:4:\"name\";s:14:\"Karol Rogowski\";s:3:\"nbr\";s:1:\"1\";}i:90;a:2:{s:4:\"name\";s:18:\"Dariusz Kalbarczyk\";s:3:\"nbr\";s:1:\"2\";}i:91;a:2:{s:4:\"name\";s:17:\"Elżbieta Szejgis\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"68\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:15;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:68;s:5:\"value\";N;}}}'),
+('624352309b7e0484de018d8a2f505058', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('669ca3b14fe2235d92fa8a14764674cb', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:10:{i:26;a:2:{s:4:\"name\";s:12:\"Piotr Kośka\";s:3:\"nbr\";s:1:\"1\";}i:97;a:2:{s:4:\"name\";s:20:\"Sebastian Wilczewski\";s:3:\"nbr\";s:1:\"1\";}i:103;a:2:{s:4:\"name\";s:23:\"Sylwester Wieczorkowski\";s:3:\"nbr\";s:1:\"1\";}i:104;a:2:{s:4:\"name\";s:10:\"Anna Lewoc\";s:3:\"nbr\";s:1:\"4\";}i:105;a:2:{s:4:\"name\";s:14:\"Rafał Tondera\";s:3:\"nbr\";s:1:\"3\";}i:106;a:2:{s:4:\"name\";s:13:\"Anna Brzegowa\";s:3:\"nbr\";s:1:\"1\";}i:107;a:2:{s:4:\"name\";s:21:\"Monika Popiołkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:108;a:2:{s:4:\"name\";s:15:\"Tomasz Waszczyk\";s:3:\"nbr\";s:1:\"1\";}i:109;a:2:{s:4:\"name\";s:12:\"Maciej Dutko\";s:3:\"nbr\";s:1:\"1\";}i:110;a:2:{s:4:\"name\";s:13:\"Michał Zawer\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"15\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:997;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:15;s:5:\"value\";N;}}}'),
 ('8237d8b7c86e48b36773e011f45f0958', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('99a8b59891d6832eefba67582517293d', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:1:{i:3;a:2:{s:4:\"name\";s:12:\"Denis Aleksa\";s:3:\"nbr\";s:1:\"9\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:1:\"9\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:49;s:3:\"min\";d:9;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:9;s:5:\"value\";N;}}}'),
+('abdbfa4e4dd81ee373ae726b2c693a30', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('ae3e1b351f2d704e2ba6b9bac118a438', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:13:{i:5;a:2:{s:4:\"name\";s:10:\"Oleg Żero\";s:3:\"nbr\";s:1:\"2\";}i:10;a:2:{s:4:\"name\";s:14:\"Piotr Tenyszyn\";s:3:\"nbr\";s:1:\"1\";}i:12;a:2:{s:4:\"name\";s:14:\"Marcin Szeliga\";s:3:\"nbr\";s:1:\"3\";}i:37;a:2:{s:4:\"name\";s:20:\"Przemysław Starosta\";s:3:\"nbr\";s:1:\"6\";}i:38;a:2:{s:4:\"name\";s:15:\"Marcin Albiniak\";s:3:\"nbr\";s:1:\"1\";}i:41;a:2:{s:4:\"name\";s:16:\"Adam Raźniewski\";s:3:\"nbr\";s:1:\"1\";}i:54;a:2:{s:4:\"name\";s:18:\"Jarosław Ratajski\";s:3:\"nbr\";s:1:\"1\";}i:70;a:2:{s:4:\"name\";s:13:\"Bartosz Szmit\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:99;a:2:{s:4:\"name\";s:13:\"Piotr Chudzik\";s:3:\"nbr\";s:1:\"1\";}i:100;a:2:{s:4:\"name\";s:18:\"Krzysztof Piaskowy\";s:3:\"nbr\";s:1:\"1\";}i:101;a:2:{s:4:\"name\";s:12:\"Piotr Wrotny\";s:3:\"nbr\";s:1:\"1\";}i:102;a:2:{s:4:\"name\";s:13:\"Kamil Józwik\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"21\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:21;s:5:\"value\";N;}}}'),
 ('b6ef76568b6854f006835140ada721db', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('bf570d7fcbc0cc514e3d589a5661a801', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('c66337838c00827f013a87345d7c130c', 'a:1:{s:7:\"filters\";a:0:{}}'),
+('cd026ba3627dfe921ddef03e68992e09', 'a:1:{s:7:\"filters\";a:0:{}}'),
 ('d1bf5310738075f7ea41596e0cc502c5', 'a:1:{s:7:\"filters\";a:6:{i:0;a:7:{s:9:\"type_lite\";s:8:\"category\";s:4:\"type\";s:8:\"category\";s:6:\"id_key\";i:0;s:4:\"name\";s:9:\"Kategorie\";s:6:\"values\";a:0:{}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:1;a:7:{s:9:\"type_lite\";s:8:\"quantity\";s:4:\"type\";s:8:\"quantity\";s:6:\"id_key\";i:0;s:4:\"name\";s:13:\"Dostępność\";s:6:\"values\";a:2:{i:0;a:2:{s:4:\"name\";s:12:\"Niedostępne\";s:3:\"nbr\";i:0;}i:1;a:2:{s:4:\"name\";s:11:\"W magazynie\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:2;a:7:{s:9:\"type_lite\";s:12:\"manufacturer\";s:4:\"type\";s:12:\"manufacturer\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Marka\";s:6:\"values\";a:8:{i:40;a:2:{s:4:\"name\";s:14:\"Jarosław Baca\";s:3:\"nbr\";s:1:\"3\";}i:92;a:2:{s:4:\"name\";s:11:\"Adam Kopeć\";s:3:\"nbr\";s:1:\"1\";}i:93;a:2:{s:4:\"name\";s:20:\"Marcin Paluszkiewicz\";s:3:\"nbr\";s:1:\"1\";}i:94;a:2:{s:4:\"name\";s:15:\"Daniel Brzózka\";s:3:\"nbr\";s:1:\"6\";}i:95;a:2:{s:4:\"name\";s:15:\"Marcin Cichocki\";s:3:\"nbr\";s:1:\"1\";}i:96;a:2:{s:4:\"name\";s:22:\"Aleksandra Tomaszewska\";s:3:\"nbr\";s:1:\"1\";}i:97;a:2:{s:4:\"name\";s:20:\"Sebastian Wilczewski\";s:3:\"nbr\";s:1:\"2\";}i:98;a:2:{s:4:\"name\";s:16:\"Bartosz Danowski\";s:3:\"nbr\";s:1:\"1\";}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:3;a:7:{s:9:\"type_lite\";s:9:\"condition\";s:4:\"type\";s:9:\"condition\";s:6:\"id_key\";i:0;s:4:\"name\";s:5:\"Stan:\";s:6:\"values\";a:3:{s:3:\"new\";a:2:{s:4:\"name\";s:4:\"Nowy\";s:3:\"nbr\";s:2:\"16\";}s:4:\"used\";a:2:{s:4:\"name\";s:8:\"Używane\";s:3:\"nbr\";i:0;}s:11:\"refurbished\";a:2:{s:4:\"name\";s:9:\"Odnowione\";s:3:\"nbr\";i:0;}}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";s:1:\"0\";}i:4;a:0:{}i:5;a:12:{s:9:\"type_lite\";s:5:\"price\";s:4:\"type\";s:5:\"price\";s:6:\"id_key\";i:0;s:4:\"name\";s:4:\"Cena\";s:3:\"max\";d:129;s:3:\"min\";d:19;s:4:\"unit\";s:3:\"zł\";s:14:\"specifications\";a:11:{s:6:\"symbol\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:12:\"currencyCode\";s:3:\"PLN\";s:14:\"currencySymbol\";s:3:\"zł\";s:13:\"numberSymbols\";a:11:{i:0;s:1:\",\";i:1;s:2:\" \";i:2;s:1:\";\";i:3;s:1:\"%\";i:4;s:1:\"-\";i:5;s:1:\"+\";i:6;s:1:\"E\";i:7;s:2:\"×\";i:8;s:3:\"‰\";i:9;s:3:\"∞\";i:10;s:3:\"NaN\";}s:15:\"positivePattern\";s:12:\"#,##0.00 ¤\";s:15:\"negativePattern\";s:13:\"-#,##0.00 ¤\";s:17:\"maxFractionDigits\";i:2;s:17:\"minFractionDigits\";i:2;s:12:\"groupingUsed\";b:1;s:16:\"primaryGroupSize\";i:3;s:18:\"secondaryGroupSize\";i:3;}s:17:\"filter_show_limit\";i:0;s:11:\"filter_type\";i:3;s:3:\"nbr\";i:16;s:5:\"value\";N;}}}'),
 ('ee06dee88b5c2623d21df115b3494e93', 'a:1:{s:7:\"filters\";a:0:{}}');
 
@@ -8729,8 +8704,8 @@ CREATE TABLE `ps_link_block` (
 --
 
 INSERT INTO `ps_link_block` (`id_link_block`, `id_hook`, `position`, `content`) VALUES
-(1, 35, 0, '{\"cms\":[false],\"product\":[\"prices-drop\",\"new-products\",\"best-sales\"],\"static\":[false],\"category\":[false]}'),
-(2, 35, 1, '{\"cms\":[\"1\",\"2\",\"3\",\"4\",\"5\"],\"product\":[false],\"static\":[\"contact\",\"sitemap\",\"stores\"],\"category\":[false]}');
+(1, 35, 0, '{\"cms\":[false],\"static\":[false],\"product\":[\"prices-drop\",\"new-products\",\"best-sales\"],\"category\":[false]}'),
+(2, 35, 1, '{\"cms\":{\"0\":\"1\",\"2\":\"3\",\"3\":\"4\",\"4\":\"5\"},\"static\":[\"contact\",\"sitemap\",\"stores\"],\"product\":[false],\"category\":[false]}');
 
 -- --------------------------------------------------------
 
@@ -9368,13 +9343,15 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (578, 1, 0, 'dodanie AttributeGroup', 'AttributeGroup', 6, 1, '2021-11-03 18:57:02', '2021-11-03 18:57:02'),
 (579, 1, 0, 'usunięcie AttributeGroup', 'AttributeGroup', 6, 1, '2021-11-03 18:57:17', '2021-11-03 18:57:17'),
 (580, 1, 0, 'Połączenie z panelem administracyjnym z 172.23.0.1', '', 0, 1, '2021-11-03 19:43:15', '2021-11-03 19:43:15'),
-(581, 1, 0, 'Połączenie z panelem administracyjnym z 192.168.0.1', '', 0, 1, '2021-11-05 19:00:04', '2021-11-05 19:00:04'),
-(582, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-05 19:11:46', '2021-11-05 19:11:46'),
-(583, 1, 0, 'Product modification', 'Product', 43, 1, '2021-11-05 19:11:54', '2021-11-05 19:11:54'),
-(584, 1, 0, 'Połączenie z panelem administracyjnym z 192.168.0.1', '', 0, 1, '2021-11-05 20:16:32', '2021-11-05 20:16:32'),
-(585, 1, 0, 'Połączenie z panelem administracyjnym z 192.168.0.1', '', 0, 1, '2021-11-05 20:17:19', '2021-11-05 20:17:19'),
-(586, 1, 0, 'Połączenie z panelem administracyjnym z 192.168.0.1', '', 0, 1, '2021-11-05 23:02:11', '2021-11-05 23:02:11'),
-(587, 1, 0, 'Protect vendor folder in module ps_googleanalytics', '', 0, 1, '2021-11-05 23:11:14', '2021-11-05 23:11:14');
+(581, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-04 14:36:27', '2021-11-04 14:36:27'),
+(582, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-05 16:06:30', '2021-11-05 16:06:30'),
+(583, 1, 0, 'usunięcie Store', 'Store', 2, 1, '2021-11-06 16:56:41', '2021-11-06 16:56:41'),
+(584, 1, 0, 'usunięcie Store', 'Store', 3, 1, '2021-11-06 16:56:41', '2021-11-06 16:56:41'),
+(585, 1, 0, 'usunięcie Store', 'Store', 4, 1, '2021-11-06 16:56:41', '2021-11-06 16:56:41'),
+(586, 1, 0, 'usunięcie Store', 'Store', 5, 1, '2021-11-06 16:56:41', '2021-11-06 16:56:41'),
+(587, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:00:25', '2021-11-06 17:00:25'),
+(588, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:15:35', '2021-11-06 17:15:35'),
+(589, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:17:28', '2021-11-06 17:17:28');
 
 -- --------------------------------------------------------
 
@@ -10112,8 +10089,7 @@ INSERT INTO `ps_module` (`id_module`, `name`, `active`, `version`) VALUES
 (64, 'ps_facebook', 1, '1.14.0'),
 (65, 'blockreassurance', 1, '5.0.0'),
 (66, 'ps_facetedsearch', 1, '3.7.1'),
-(67, 'ps_cashondelivery', 1, '1.0.6'),
-(68, 'ps_googleanalytics', 1, '4.1.0');
+(67, 'ps_cashondelivery', 1, '1.0.6');
 
 -- --------------------------------------------------------
 
@@ -10390,11 +10366,7 @@ INSERT INTO `ps_module_access` (`id_profile`, `id_authorization_role`) VALUES
 (1, 849),
 (1, 850),
 (1, 851),
-(1, 852),
-(1, 853),
-(1, 854),
-(1, 855),
-(1, 856);
+(1, 852);
 
 -- --------------------------------------------------------
 
@@ -10675,10 +10647,7 @@ INSERT INTO `ps_module_group` (`id_module`, `id_shop`, `id_group`) VALUES
 (66, 1, 3),
 (67, 1, 1),
 (67, 1, 2),
-(67, 1, 3),
-(68, 1, 1),
-(68, 1, 2),
-(68, 1, 3);
+(67, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -10700,8 +10669,7 @@ CREATE TABLE `ps_module_history` (
 
 INSERT INTO `ps_module_history` (`id`, `id_employee`, `id_module`, `date_add`, `date_upd`) VALUES
 (1, 1, 34, '2021-10-31 10:47:23', '2021-10-31 10:47:23'),
-(2, 1, 11, '2021-11-03 17:19:01', '2021-11-03 18:54:43'),
-(3, 1, 68, '2021-11-05 23:11:21', '2021-11-05 23:33:46');
+(2, 1, 11, '2021-11-03 17:19:01', '2021-11-03 18:54:43');
 
 -- --------------------------------------------------------
 
@@ -10798,8 +10766,7 @@ INSERT INTO `ps_module_shop` (`id_module`, `id_shop`, `enable_device`) VALUES
 (64, 1, 7),
 (65, 1, 7),
 (66, 1, 7),
-(67, 1, 7),
-(68, 1, 7);
+(67, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -11413,7 +11380,9 @@ CREATE TABLE `ps_page` (
 
 INSERT INTO `ps_page` (`id_page`, `id_page_type`, `id_object`) VALUES
 (1, 1, NULL),
-(2, 2, NULL);
+(2, 2, NULL),
+(3, 3, NULL),
+(4, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -11438,7 +11407,8 @@ INSERT INTO `ps_pagenotfound` (`id_pagenotfound`, `id_shop`, `id_shop_group`, `r
 (1, 1, 1, '/index.php?controller=404', 'https://localhost/index.php', '2021-11-03 18:00:11'),
 (2, 1, 1, '/index.php?controller=404', 'https://localhost/index.php', '2021-11-03 18:00:29'),
 (3, 1, 1, '/index.php?controller=404', '', '2021-11-03 18:01:33'),
-(4, 1, 1, '/index.php?controller=404', '', '2021-11-03 18:01:42');
+(4, 1, 1, '/index.php?controller=404', '', '2021-11-03 18:01:42'),
+(5, 1, 1, '/index.php?controller=404', 'https://localhost/index.php?id_cms=1&controller=cms', '2021-11-06 16:01:50');
 
 -- --------------------------------------------------------
 
@@ -11456,6 +11426,8 @@ CREATE TABLE `ps_page_type` (
 --
 
 INSERT INTO `ps_page_type` (`id_page_type`, `name`) VALUES
+(3, 'authentication'),
+(4, 'cms'),
 (1, 'index'),
 (2, 'orderconfirmation');
 
@@ -11583,7 +11555,7 @@ INSERT INTO `ps_product` (`id_product`, `id_supplier`, `id_manufacturer`, `id_ca
 (40, 0, 6, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:31', 0, 3, 1),
 (41, 0, 26, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '47.195122', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:28', 0, 3, 1),
 (42, 0, 6, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '57.804878', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:58', 0, 3, 1),
-(43, 0, 27, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 1, '2021-11-02 14:26:42', '2021-11-05 19:11:54', 0, 0, 1),
+(43, 0, 27, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 1, '2021-11-02 14:26:42', '2021-11-03 18:39:58', 0, 0, 1),
 (44, 0, 28, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:46:32', 0, 3, 1),
 (45, 0, 29, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:51', 0, 3, 1),
 (46, 0, 30, 4, 1, 1, 0, 0, '', '', '', '', '0.000000', 0, 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 2, 1, 0, 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 0, 3, 1),
@@ -11876,7 +11848,7 @@ CREATE TABLE `ps_product_attribute` (
 
 INSERT INTO `ps_product_attribute` (`id_product_attribute`, `id_product`, `reference`, `supplier_reference`, `location`, `ean13`, `isbn`, `upc`, `mpn`, `wholesale_price`, `price`, `ecotax`, `quantity`, `weight`, `unit_price_impact`, `default_on`, `minimal_quantity`, `low_stock_threshold`, `low_stock_alert`, `available_date`) VALUES
 (1, 43, '', '', '', '', '', '', '', '0.000000', '0.000000', '0.000000', 0, '0.000000', '0.000000', 1, 1, NULL, 0, '0000-00-00'),
-(2, 43, '', '', '', '', '', '', '', '0.000000', '15.000000', '0.000000', 0, '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
+(2, 43, '', '', '', '', '', '', '', '0.000000', '0.000000', '0.000000', 0, '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -11936,7 +11908,7 @@ CREATE TABLE `ps_product_attribute_shop` (
 
 INSERT INTO `ps_product_attribute_shop` (`id_product`, `id_product_attribute`, `id_shop`, `wholesale_price`, `price`, `ecotax`, `weight`, `unit_price_impact`, `default_on`, `minimal_quantity`, `low_stock_threshold`, `low_stock_alert`, `available_date`) VALUES
 (43, 1, 1, '0.000000', '0.000000', '0.000000', '0.000000', '0.000000', 1, 1, NULL, 0, '0000-00-00'),
-(43, 2, 1, '0.000000', '15.000000', '0.000000', '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
+(43, 2, 1, '0.000000', '0.000000', '0.000000', '0.000000', '0.000000', NULL, 1, NULL, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -12551,7 +12523,7 @@ INSERT INTO `ps_product_shop` (`id_product`, `id_shop`, `id_category_default`, `
 (40, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '39.837398', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:31', 3),
 (41, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '47.195122', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:28', 3),
 (42, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '57.804878', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:58', 3),
-(43, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 1, 0, '2021-11-02 14:26:42', '2021-11-05 19:11:54', 0),
+(43, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '23.577236', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '301-category', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 1, 0, '2021-11-02 14:26:42', '2021-11-03 18:39:58', 0),
 (44, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '50.487805', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:46:32', 3),
 (45, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:51', 3),
 (46, 1, 4, 1, 0, 0, '0.000000', 1, NULL, 0, '72.357724', '0.000000', '', '0.000000', '0.000000', 0, 0, 0, 1, '', 0, 1, '0000-00-00', 0, 'new', 1, 1, 'both', 0, 0, '2021-11-02 14:26:42', '2021-11-02 14:45:52', 3),
@@ -112592,11 +112564,7 @@ CREATE TABLE `ps_store` (
 --
 
 INSERT INTO `ps_store` (`id_store`, `id_country`, `id_state`, `city`, `postcode`, `latitude`, `longitude`, `phone`, `fax`, `email`, `active`, `date_add`, `date_upd`) VALUES
-(1, 21, 12, 'Miami', '33135', '25.76500500', '-80.24379700', '', '', '', 1, '2021-10-27 21:22:17', '2021-10-27 21:22:17'),
-(2, 21, 12, 'Miami', '33304', '26.13793600', '-80.13943500', '', '', '', 1, '2021-10-27 21:22:17', '2021-10-27 21:22:17'),
-(3, 21, 12, 'Miami', '33026', '26.00998700', '-80.29447200', '', '', '', 1, '2021-10-27 21:22:17', '2021-10-27 21:22:17'),
-(4, 21, 12, 'Miami', '33133', '25.73629600', '-80.24479700', '', '', '', 1, '2021-10-27 21:22:17', '2021-10-27 21:22:17'),
-(5, 21, 12, 'Miami', '33181', '25.88674000', '-80.16329200', '', '', '', 1, '2021-10-27 21:22:17', '2021-10-27 21:22:17');
+(1, 14, 12, 'Gliwice', '44-100', '50.28885930', '18.65963660', '32 230 98 63', '', 'prestakursy@gmail.com', 0, '2021-10-27 21:22:17', '2021-11-06 17:17:28');
 
 -- --------------------------------------------------------
 
@@ -112619,11 +112587,7 @@ CREATE TABLE `ps_store_lang` (
 --
 
 INSERT INTO `ps_store_lang` (`id_store`, `id_lang`, `name`, `address1`, `address2`, `hours`, `note`) VALUES
-(1, 1, 'Dade County', '3030 SW 8th St Miami', '', ' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]', ''),
-(2, 1, 'E Fort Lauderdale', '1000 Northeast 4th Ave Fort Lauderdale', '', ' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]', ''),
-(3, 1, 'Pembroke Pines', '11001 Pines Blvd Pembroke Pines', '', ' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]', ''),
-(4, 1, 'Coconut Grove', '2999 SW 32nd Avenue', '', ' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]', ''),
-(5, 1, 'N Miami/Biscayne', '12055 Biscayne Blvd', '', ' [[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"09:00AM - 07:00PM\"],[\"10:00AM - 04:00PM\"],[\"10:00AM - 04:00PM\"]]', '');
+(1, 1, 'Helion SA', 'Tadeusza Kościuszki 1C', '', '[[\"\"],[\"\"],[\"\"],[\"\"],[\"\"],[\"\"],[\"\"]]', '');
 
 -- --------------------------------------------------------
 
@@ -112641,11 +112605,7 @@ CREATE TABLE `ps_store_shop` (
 --
 
 INSERT INTO `ps_store_shop` (`id_store`, `id_shop`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -114972,20 +114932,6 @@ ALTER TABLE `ps_feature_value_lang`
   ADD PRIMARY KEY (`id_feature_value`,`id_lang`);
 
 --
--- Indeksy dla tabeli `ps_ganalytics`
---
-ALTER TABLE `ps_ganalytics`
-  ADD PRIMARY KEY (`id_google_analytics`),
-  ADD KEY `id_order` (`id_order`),
-  ADD KEY `sent` (`sent`);
-
---
--- Indeksy dla tabeli `ps_ganalytics_data`
---
-ALTER TABLE `ps_ganalytics_data`
-  ADD PRIMARY KEY (`id_cart`);
-
---
 -- Indeksy dla tabeli `ps_gender`
 --
 ALTER TABLE `ps_gender`
@@ -116303,7 +116249,7 @@ ALTER TABLE `ps_address`
 -- AUTO_INCREMENT dla tabeli `ps_admin_filter`
 --
 ALTER TABLE `ps_admin_filter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_advice`
@@ -116351,7 +116297,7 @@ ALTER TABLE `ps_attribute_impact`
 -- AUTO_INCREMENT dla tabeli `ps_authorization_role`
 --
 ALTER TABLE `ps_authorization_role`
-  MODIFY `id_authorization_role` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=857;
+  MODIFY `id_authorization_role` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=853;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_badge`
@@ -116369,7 +116315,7 @@ ALTER TABLE `ps_carrier`
 -- AUTO_INCREMENT dla tabeli `ps_cart`
 --
 ALTER TABLE `ps_cart`
-  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cart` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_cart_rule`
@@ -116429,19 +116375,19 @@ ALTER TABLE `ps_condition`
 -- AUTO_INCREMENT dla tabeli `ps_configuration`
 --
 ALTER TABLE `ps_configuration`
-  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
+  MODIFY `id_configuration` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=425;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_configuration_kpi`
 --
 ALTER TABLE `ps_configuration_kpi`
-  MODIFY `id_configuration_kpi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_configuration_kpi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections_source`
@@ -116531,7 +116477,7 @@ ALTER TABLE `ps_employee`
 -- AUTO_INCREMENT dla tabeli `ps_employee_session`
 --
 ALTER TABLE `ps_employee_session`
-  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_feature`
@@ -116544,12 +116490,6 @@ ALTER TABLE `ps_feature`
 --
 ALTER TABLE `ps_feature_value`
   MODIFY `id_feature_value` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT dla tabeli `ps_ganalytics`
---
-ALTER TABLE `ps_ganalytics`
-  MODIFY `id_google_analytics` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_gender`
@@ -116573,7 +116513,7 @@ ALTER TABLE `ps_group_reduction`
 -- AUTO_INCREMENT dla tabeli `ps_guest`
 --
 ALTER TABLE `ps_guest`
-  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_homeslider`
@@ -116669,7 +116609,7 @@ ALTER TABLE `ps_link_block_shop`
 -- AUTO_INCREMENT dla tabeli `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=588;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=590;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_mail`
@@ -116705,13 +116645,13 @@ ALTER TABLE `ps_meta`
 -- AUTO_INCREMENT dla tabeli `ps_module`
 --
 ALTER TABLE `ps_module`
-  MODIFY `id_module` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_module` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_module_history`
 --
 ALTER TABLE `ps_module_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_module_preference`
@@ -116801,19 +116741,19 @@ ALTER TABLE `ps_order_state`
 -- AUTO_INCREMENT dla tabeli `ps_page`
 --
 ALTER TABLE `ps_page`
-  MODIFY `id_page` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_page` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_pagenotfound`
 --
 ALTER TABLE `ps_pagenotfound`
-  MODIFY `id_pagenotfound` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pagenotfound` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_page_type`
 --
 ALTER TABLE `ps_page_type`
-  MODIFY `id_page_type` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_page_type` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_product`
