@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Czas generowania: 06 Lis 2021, 18:38
+-- Czas generowania: 17 Lis 2021, 19:12
 -- Wersja serwera: 5.7.36
 -- Wersja PHP: 7.4.20
 
@@ -908,7 +908,8 @@ INSERT INTO `ps_address` (`id_address`, `id_country`, `id_state`, `id_customer`,
 (5, 21, 12, 2, 0, 0, 0, 'My address', 'My Company', 'DOE', 'John', '16, Main street', '2nd floor', '33133', 'Miami', '', '0102030405', '', '', '', '2021-10-27 21:22:14', '2021-10-27 21:22:14', 1, 0),
 (6, 14, 0, 3, 0, 0, 0, 'Mój adres', '', 'hgfshgfddf', 'fgdsdf', 'fdsgsdfgsfdgfsd', '', '12-135', 'dfgfdsgsfdgfds', '', '', '', '', '', '2021-10-31 11:02:18', '2021-10-31 11:02:18', 1, 0),
 (7, 14, 0, 4, 0, 0, 0, 'Mój adres', '', 'fgdh', 'ghdfgh', 'sdfgsfdgsdfgsdf', '', '12-352', 'dsgsdfg', '', '', '', '', '', '2021-10-31 16:03:31', '2021-10-31 16:03:31', 1, 0),
-(8, 14, 0, 5, 0, 0, 0, 'Mój adres', '', 'fdsgfdsgdsfgfsd', 'dfsgdfsgsddsfgsdfgsd', 'gfdsgsd', '', '12-534', 'sdfgsfd', '', '', '', '', '', '2021-11-03 12:52:36', '2021-11-03 12:52:36', 1, 0);
+(8, 14, 0, 5, 0, 0, 0, 'Mój adres', '', 'fdsgfdsgdsfgfsd', 'dfsgdfsgsddsfgsdfgsd', 'gfdsgsd', '', '12-534', 'sdfgsfd', '', '', '', '', '', '2021-11-03 12:52:36', '2021-11-03 12:52:36', 1, 0),
+(9, 14, 0, 6, 0, 0, 0, 'Mój adres', '', 'ert', 'er', 'rtr', '', '54-504', 'rt', '', '', '', '', '', '2021-11-11 17:57:50', '2021-11-11 17:57:50', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2672,7 +2673,7 @@ INSERT INTO `ps_cart` (`id_cart`, `id_shop_group`, `id_shop`, `id_carrier`, `del
 (7, 1, 1, 11, '{\"7\":\"11,\"}', 1, 7, 7, 1, 4, 4, '62f5b2598668348b91aa68de68d7577c', 0, 0, '', 0, 0, '2021-10-31 16:03:07', '2021-11-03 19:11:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"d1bb5e8d4429469999f0acc8a974e44fed319846\"}'),
 (8, 1, 1, 1, '{\"8\":\"1,\"}', 1, 8, 8, 1, 5, 0, '64717bd11786636ebb33117e73911659', 0, 0, '', 0, 0, '2021-11-03 12:52:14', '2021-11-03 12:52:39', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"5288dd62159660008856811fff89fa6a1080f701\"}'),
 (9, 1, 1, 0, '', 1, 0, 0, 1, 0, 7, '', 0, 0, '', 0, 0, '2021-11-03 12:56:25', '2021-11-03 12:56:25', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checkout-addresses-step\":{\"step_is_reachable\":false,\"step_is_complete\":false,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checkout-payment-step\":{\"step_is_reachable\":false,\"step_is_complete\":false},\"checksum\":null}'),
-(10, 1, 1, 0, '', 1, 0, 0, 1, 0, 5, '', 0, 0, '', 0, 0, '2021-11-06 18:36:49', '2021-11-06 18:36:49', NULL);
+(10, 1, 1, 12, '{\"9\":\"12,\"}', 1, 9, 9, 1, 6, 5, 'da55285f2028bf33957882bee4fd6828', 0, 0, '', 0, 0, '2021-11-06 18:36:49', '2021-11-11 17:57:56', '{\"checkout-personal-information-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-addresses-step\":{\"step_is_reachable\":true,\"step_is_complete\":true,\"use_same_address\":true},\"checkout-delivery-step\":{\"step_is_reachable\":true,\"step_is_complete\":true},\"checkout-payment-step\":{\"step_is_reachable\":true,\"step_is_complete\":false},\"checksum\":\"79b3c85e18490eca9ff5f0bae53a83adf330f984\"}');
 
 -- --------------------------------------------------------
 
@@ -2712,7 +2713,7 @@ INSERT INTO `ps_cart_product` (`id_cart`, `id_product`, `id_address_delivery`, `
 (7, 193, 7, 1, 0, 0, 1, '2021-11-03 17:03:55'),
 (8, 30, 8, 1, 0, 0, 2, '2021-11-03 12:52:14'),
 (9, 3, 0, 1, 0, 0, 1, '2021-11-03 12:56:25'),
-(10, 73, 0, 1, 0, 0, 1, '2021-11-06 18:36:49');
+(10, 73, 9, 1, 0, 0, 1, '2021-11-06 18:36:49');
 
 -- --------------------------------------------------------
 
@@ -4314,7 +4315,14 @@ INSERT INTO `ps_connections` (`id_connections`, `id_shop_group`, `id_shop`, `id_
 (25, 1, 1, 5, 4, 2886860801, '2021-11-06 17:12:08', ''),
 (26, 1, 1, 5, 1, 2886860801, '2021-11-06 17:44:39', ''),
 (27, 1, 1, 5, 1, 2886860801, '2021-11-06 18:30:47', ''),
-(28, 1, 1, 5, 1, 2886860801, '2021-11-06 19:34:22', '');
+(28, 1, 1, 5, 1, 2886860801, '2021-11-06 19:34:22', ''),
+(29, 1, 1, 5, 1, 2886860801, '2021-11-11 17:56:56', ''),
+(30, 1, 1, 9, 2, 2886860801, '2021-11-11 18:07:56', ''),
+(31, 1, 1, 9, 1, 2886860801, '2021-11-11 22:53:29', ''),
+(32, 1, 1, 10, 1, 2886860801, '2021-11-11 22:55:56', ''),
+(33, 1, 1, 9, 1, 2886860801, '2021-11-17 19:35:03', ''),
+(34, 1, 1, 11, 5, 2886860801, '2021-11-17 19:46:07', ''),
+(35, 1, 1, 9, 5, 2886860801, '2021-11-17 20:09:01', '');
 
 -- --------------------------------------------------------
 
@@ -5315,7 +5323,8 @@ INSERT INTO `ps_customer` (`id_customer`, `id_shop_group`, `id_shop`, `id_gender
 (2, 1, 1, 1, 3, 1, 0, '', '', '', 'John', 'DOE', 'pub@prestashop.com', '0ae18d72361214d6ff26bbafde8468a4', '2021-10-27 15:22:14', '1970-01-15', 1, '', '2013-12-13 08:19:15', 1, '', '0.000000', 0, 0, 'e2f95bf7916b92a59cf5ca86bd1c1fed', '', 1, 0, 0, '2021-10-27 21:22:14', '2021-10-27 21:22:14', '', '0000-00-00 00:00:00'),
 (3, 1, 1, 0, 2, 1, 0, '', '', '', 'fgdsdf', 'hgfshgfddf', 'kciuk2020@gmail.com', '$2y$10$8aPBJc1F5CgvHXChPRyhWOCT2j9VQRnN7ZIUvRRkhED8oNxNieXu6', '2021-10-31 05:02:09', '0000-00-00', 0, '', '0000-00-00 00:00:00', 0, '', '0.000000', 0, 0, 'c65a65af59e5f99b18162b50a585c535', '', 1, 1, 0, '2021-10-31 11:02:09', '2021-10-31 11:02:09', '', '0000-00-00 00:00:00'),
 (4, 1, 1, 0, 2, 1, 0, NULL, NULL, NULL, 'ghdfgh', 'fgdh', 'kciuk2020@gmail.com', '$2y$10$XZtioyVtLULF7.qPyfE9p.r5QGRYHGPuwkmiSJEGlt8LgfjvuS4g.', '2021-10-31 10:03:21', '0000-00-00', 0, NULL, '0000-00-00 00:00:00', 0, NULL, '0.000000', 0, 0, '62f5b2598668348b91aa68de68d7577c', NULL, 1, 1, 0, '2021-10-31 16:03:21', '2021-11-03 17:04:05', NULL, '0000-00-00 00:00:00'),
-(5, 1, 1, 0, 2, 1, 0, '', '', '', 'dfsgdfsgsd', 'fdsgfdsg', 'kciuk2020@gmail.com', '$2y$10$8acGNZdZ35GmNwZZClYfKO9tEETU6UlVMcx9mplNRrrvqNFDcJtn.', '2021-11-03 06:52:29', '0000-00-00', 0, '', '0000-00-00 00:00:00', 0, '', '0.000000', 0, 0, '64717bd11786636ebb33117e73911659', '', 1, 1, 0, '2021-11-03 12:52:29', '2021-11-03 12:52:29', '', '0000-00-00 00:00:00');
+(5, 1, 1, 0, 2, 1, 0, '', '', '', 'dfsgdfsgsd', 'fdsgfdsg', 'kciuk2020@gmail.com', '$2y$10$8acGNZdZ35GmNwZZClYfKO9tEETU6UlVMcx9mplNRrrvqNFDcJtn.', '2021-11-03 06:52:29', '0000-00-00', 0, '', '0000-00-00 00:00:00', 0, '', '0.000000', 0, 0, '64717bd11786636ebb33117e73911659', '', 1, 1, 0, '2021-11-03 12:52:29', '2021-11-03 12:52:29', '', '0000-00-00 00:00:00'),
+(6, 1, 1, 0, 2, 1, 0, '', '', '', 'er', 'ert', 'example@example.com', '$2y$10$zMzYl2OsahkrieEwbOFLjO2ZSfgMncmkjoMt3i.DE6VRYVvBz0Q.W', '2021-11-11 11:57:34', '0000-00-00', 0, '', '0000-00-00 00:00:00', 0, '', '0.000000', 0, 0, 'da55285f2028bf33957882bee4fd6828', '', 1, 1, 0, '2021-11-11 17:57:34', '2021-11-11 17:57:34', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5336,6 +5345,7 @@ INSERT INTO `ps_customer_group` (`id_customer`, `id_group`) VALUES
 (3, 2),
 (4, 2),
 (5, 2),
+(6, 2),
 (1, 3),
 (2, 3);
 
@@ -5607,7 +5617,7 @@ CREATE TABLE `ps_employee` (
 --
 
 INSERT INTO `ps_employee` (`id_employee`, `id_profile`, `id_lang`, `lastname`, `firstname`, `email`, `passwd`, `last_passwd_gen`, `stats_date_from`, `stats_date_to`, `stats_compare_from`, `stats_compare_to`, `stats_compare_option`, `preselect_date_range`, `bo_color`, `bo_theme`, `bo_css`, `default_tab`, `bo_width`, `bo_menu`, `active`, `optin`, `id_last_order`, `id_last_customer_message`, `id_last_customer`, `last_connection_date`, `reset_password_token`, `reset_password_validity`) VALUES
-(1, 1, 1, 'Kowalski', 'Jan', 'example@example.com', '$2y$10$RyKTbyi4D8PStqLdU0A1DONWlvWD.6wURurEVZaPT1eqD3zstcaaq', '2021-10-27 15:21:19', '2021-09-27', '2021-10-27', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'theme.css', 1, 0, 1, 1, NULL, 7, 0, 5, '2021-11-06', NULL, '0000-00-00 00:00:00');
+(1, 1, 1, 'Kowalski', 'Jan', 'example@example.com', '$2y$10$RyKTbyi4D8PStqLdU0A1DONWlvWD.6wURurEVZaPT1eqD3zstcaaq', '2021-10-27 15:21:19', '2021-09-27', '2021-10-27', '0000-00-00', '0000-00-00', 1, NULL, NULL, 'default', 'theme.css', 1, 0, 1, 1, NULL, 7, 0, 5, '2021-11-17', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -5632,7 +5642,8 @@ INSERT INTO `ps_employee_session` (`id_employee_session`, `id_employee`, `token`
 (6, 1, '351bd592f487dacf0cb52a1da11745f95c7f75b4'),
 (9, 1, 'c3566ffecfdad20dc7ef1e34868c85d2c5f51ade'),
 (11, 1, 'df5c17648d07b4e6fae807f7fceba5f375fdc3a7'),
-(13, 1, '2fed390331e7a55fdc7e55ca2bbae0d3683e2261');
+(13, 1, '2fed390331e7a55fdc7e55ca2bbae0d3683e2261'),
+(14, 1, 'd06fb48365137019099a4e9f663b7cd833e7959e');
 
 -- --------------------------------------------------------
 
@@ -5956,10 +5967,13 @@ INSERT INTO `ps_guest` (`id_guest`, `id_operating_system`, `id_web_browser`, `id
 (2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
 (3, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
 (4, 6, 11, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
-(5, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
+(5, 6, 11, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
 (6, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
 (7, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
-(8, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0);
+(8, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
+(9, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
+(10, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0),
+(11, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'pl', 0);
 
 -- --------------------------------------------------------
 
@@ -9358,7 +9372,12 @@ INSERT INTO `ps_log` (`id_log`, `severity`, `error_code`, `message`, `object_typ
 (588, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:15:35', '2021-11-06 17:15:35'),
 (589, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-06 17:17:28', '2021-11-06 17:17:28'),
 (590, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-06 18:36:03', '2021-11-06 18:36:03'),
-(591, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-06 19:34:14', '2021-11-06 19:34:14');
+(591, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-06 19:34:14', '2021-11-06 19:34:14'),
+(592, 1, 0, 'Frontcontroller::init - Cart cannot be loaded or an order has already been placed using this cart', 'Cart', 10, 0, '2021-11-11 18:07:56', '2021-11-11 18:07:56'),
+(593, 1, 0, 'Połączenie z panelem administracyjnym z 172.18.0.1', '', 0, 1, '2021-11-17 19:34:48', '2021-11-17 19:34:48'),
+(594, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-17 19:44:43', '2021-11-17 19:44:43'),
+(595, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-17 20:02:26', '2021-11-17 20:02:26'),
+(596, 1, 0, 'Store modyfikacja', 'Store', 1, 1, '2021-11-17 20:08:56', '2021-11-17 20:08:56');
 
 -- --------------------------------------------------------
 
@@ -9383,7 +9402,9 @@ INSERT INTO `ps_mail` (`id_mail`, `recipient`, `template`, `subject`, `id_lang`,
 (1, 'kciuk2020@gmail.com', 'bankwire', '[CourseShop] Oczekiwanie na płatność przelewem', 1, '2021-10-31 11:02:27'),
 (2, 'kciuk2020@gmail.com', 'order_conf', '[CourseShop] Potwierdzenie zamówienia', 1, '2021-10-31 11:02:28'),
 (3, 'kciuk2020@gmail.com', 'bankwire', '[CourseShop] Oczekiwanie na płatność przelewem', 1, '2021-11-03 12:52:54'),
-(4, 'kciuk2020@gmail.com', 'order_conf', '[CourseShop] Potwierdzenie zamówienia', 1, '2021-11-03 12:53:03');
+(4, 'kciuk2020@gmail.com', 'order_conf', '[CourseShop] Potwierdzenie zamówienia', 1, '2021-11-03 12:53:03'),
+(5, 'example@example.com', 'bankwire', '[Helion] Oczekiwanie na płatność przelewem', 1, '2021-11-11 18:07:55'),
+(6, 'example@example.com', 'order_conf', '[Helion] Potwierdzenie zamówienia', 1, '2021-11-11 18:07:56');
 
 -- --------------------------------------------------------
 
@@ -10867,7 +10888,8 @@ INSERT INTO `ps_orders` (`id_order`, `reference`, `id_shop_group`, `id_shop`, `i
 (4, 'FFATNOMMJ', 1, 1, 2, 1, 2, 4, 1, 5, 5, 1, 'b44a6d9efd7a0076a0fbce6b15eaf3b1', 'Payment by check', '1.000000', 'ps_checkpayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '14.900000', '14.900000', '14.900000', '0.000000', '12.900000', '12.900000', '2.000000', '2.000000', '2.000000', '0.000', '0.000000', '0.000000', '0.000000', 0, 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-10-27 21:22:16', '2021-10-27 21:22:17'),
 (5, 'KHWLILZLL', 1, 1, 2, 1, 2, 5, 1, 5, 5, 10, 'b44a6d9efd7a0076a0fbce6b15eaf3b1', 'Bank wire', '1.000000', 'ps_wirepayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '20.900000', '20.900000', '20.900000', '0.000000', '18.900000', '18.900000', '2.000000', '2.000000', '2.000000', '0.000', '0.000000', '0.000000', '0.000000', 0, 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-10-27 21:22:16', '2021-10-27 21:22:17'),
 (6, 'XLPYHXGHV', 1, 1, 1, 1, 3, 6, 1, 6, 6, 10, 'c65a65af59e5f99b18162b50a585c535', 'Płatności elektroniczne', '1.000000', 'ps_wirepayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '35.330000', '35.330000', '28.720000', '0.000000', '28.720000', '35.330000', '0.000000', '0.000000', '0.000000', '23.000', '0.000000', '0.000000', '0.000000', 2, 2, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-10-31 11:02:25', '2021-10-31 11:02:25'),
-(7, 'BSHKLSFMW', 1, 1, 1, 1, 5, 8, 1, 8, 8, 10, '64717bd11786636ebb33117e73911659', 'Płatności elektroniczne', '1.000000', 'ps_wirepayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '124.200000', '124.200000', '100.980000', '0.000000', '100.980000', '124.200000', '0.000000', '0.000000', '0.000000', '23.000', '0.000000', '0.000000', '0.000000', 2, 2, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-11-03 12:52:44', '2021-11-03 12:52:44');
+(7, 'BSHKLSFMW', 1, 1, 1, 1, 5, 8, 1, 8, 8, 10, '64717bd11786636ebb33117e73911659', 'Płatności elektroniczne', '1.000000', 'ps_wirepayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '124.200000', '124.200000', '100.980000', '0.000000', '100.980000', '124.200000', '0.000000', '0.000000', '0.000000', '23.000', '0.000000', '0.000000', '0.000000', 2, 2, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-11-03 12:52:44', '2021-11-03 12:52:44'),
+(8, 'KXOLUWUJP', 1, 1, 12, 1, 6, 10, 1, 9, 9, 10, 'da55285f2028bf33957882bee4fd6828', 'Płatności elektroniczne', '1.000000', 'ps_wirepayment', 0, 0, '', 0, '', '0.000000', '0.000000', '0.000000', '22.050000', '22.050000', '17.930000', '0.000000', '17.930000', '22.050000', '0.000000', '0.000000', '0.000000', '23.000', '0.000000', '0.000000', '0.000000', 2, 2, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '2021-11-11 18:07:52', '2021-11-11 18:07:52');
 
 -- --------------------------------------------------------
 
@@ -10898,7 +10920,8 @@ INSERT INTO `ps_order_carrier` (`id_order_carrier`, `id_order`, `id_carrier`, `i
 (4, 4, 2, 0, '0.000000', '2.000000', '2.000000', '', '2021-10-27 21:22:16'),
 (5, 5, 2, 0, '0.000000', '2.000000', '2.000000', '', '2021-10-27 21:22:16'),
 (6, 6, 1, 0, '0.300000', '0.000000', '0.000000', '', '2021-10-31 11:02:25'),
-(7, 7, 1, 0, '0.000000', '0.000000', '0.000000', '', '2021-11-03 12:52:44');
+(7, 7, 1, 0, '0.000000', '0.000000', '0.000000', '', '2021-11-03 12:52:44'),
+(8, 8, 12, 0, '0.000000', '0.000000', '0.000000', '', '2021-11-11 18:07:52');
 
 -- --------------------------------------------------------
 
@@ -10989,7 +11012,8 @@ INSERT INTO `ps_order_detail` (`id_order_detail`, `id_order`, `id_order_invoice`
 (6, 4, 0, 0, 1, 16, 29, 0, 'Mountain fox notebook Style : Plain', 1, 1, 0, 0, 0, '12.900000', '0.00', '0.000000', '0.000000', '0.000000', '0.00', '0.000000', '', '', '', '', 'demo_8', '', '0.000000', 0, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '12.900000', '12.900000', '12.900000', '12.900000', '0.000000', '0.000000', '0.000000', '12.900000', '0.000000', '0.000000', '0.000000'),
 (7, 5, 0, 0, 1, 10, 25, 0, 'Brown bear cushion Color : Black', 1, 1, 0, 0, 0, '18.900000', '0.00', '0.000000', '0.000000', '0.000000', '0.00', '0.000000', '', '', '', '', 'demo_16', '', '0.000000', 0, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '18.900000', '18.900000', '18.900000', '18.900000', '0.000000', '0.000000', '0.000000', '18.900000', '0.000000', '0.000000', '0.000000'),
 (8, 6, 0, 0, 1, 2, 9, 0, 'Hummingbird printed sweater - Rozmiar : S', 1, 1, 0, 0, 0, '28.720000', '20.00', '0.000000', '0.000000', '0.000000', '0.00', '36.560000', '', '', '', '', 'demo_3', '', '0.300000', 1, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '35.330000', '28.720000', '35.325600', '28.720000', '0.000000', '0.000000', '0.000000', '35.900000', '0.000000', '0.000000', '0.000000'),
-(9, 7, 0, 0, 1, 30, 0, 0, 'Programowanie asynchroniczne i równoległe w C#. Kurs video. Poziom podstawowy', 2, 2, 0, 0, 0, '50.487805', '0.00', '0.000000', '0.000000', '0.000000', '0.00', '0.000000', '', '', '', '', '', '', '0.000000', 1, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '124.200000', '100.980000', '62.100000', '50.487805', '0.000000', '0.000000', '0.000000', '50.487805', '0.000000', '0.000000', '0.000000');
+(9, 7, 0, 0, 1, 30, 0, 0, 'Programowanie asynchroniczne i równoległe w C#. Kurs video. Poziom podstawowy', 2, 2, 0, 0, 0, '50.487805', '0.00', '0.000000', '0.000000', '0.000000', '0.00', '0.000000', '', '', '', '', '', '', '0.000000', 1, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '124.200000', '100.980000', '62.100000', '50.487805', '0.000000', '0.000000', '0.000000', '50.487805', '0.000000', '0.000000', '0.000000'),
+(10, 8, 0, 0, 1, 73, 0, 0, 'Testowanie aplikacji w React.js. Kurs video. Praca z biblioteką Jest.js', 1, 0, 0, 0, 0, '17.926829', '0.00', '0.000000', '0.000000', '0.000000', '0.00', '0.000000', '', '', '', '', '', '', '0.000000', 1, 0, '', '0.000', '0.000000', '0.000', 0, '', 0, '0000-00-00 00:00:00', '22.050000', '17.930000', '22.050000', '17.926829', '0.000000', '0.000000', '0.000000', '17.926829', '0.000000', '0.000000', '0.000000');
 
 -- --------------------------------------------------------
 
@@ -11010,7 +11034,8 @@ CREATE TABLE `ps_order_detail_tax` (
 
 INSERT INTO `ps_order_detail_tax` (`id_order_detail`, `id_tax`, `unit_amount`, `total_amount`) VALUES
 (8, 1, '6.605600', '6.610000'),
-(9, 1, '11.612195', '23.220000');
+(9, 1, '11.612195', '23.220000'),
+(10, 1, '4.123171', '4.120000');
 
 -- --------------------------------------------------------
 
@@ -11039,7 +11064,8 @@ INSERT INTO `ps_order_history` (`id_order_history`, `id_employee`, `id_order`, `
 (6, 1, 1, 6, '2021-10-27 21:22:17'),
 (7, 1, 3, 8, '2021-10-27 21:22:17'),
 (8, 0, 6, 10, '2021-10-31 11:02:25'),
-(9, 0, 7, 10, '2021-11-03 12:52:44');
+(9, 0, 7, 10, '2021-11-03 12:52:44'),
+(10, 0, 8, 10, '2021-11-11 18:07:52');
 
 -- --------------------------------------------------------
 
@@ -11389,7 +11415,8 @@ INSERT INTO `ps_page` (`id_page`, `id_page_type`, `id_object`) VALUES
 (1, 1, NULL),
 (2, 2, NULL),
 (3, 3, NULL),
-(4, 4, NULL);
+(4, 4, NULL),
+(5, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -11436,7 +11463,8 @@ INSERT INTO `ps_page_type` (`id_page_type`, `name`) VALUES
 (3, 'authentication'),
 (4, 'cms'),
 (1, 'index'),
-(2, 'orderconfirmation');
+(2, 'orderconfirmation'),
+(5, 'stores');
 
 -- --------------------------------------------------------
 
@@ -12900,7 +12928,8 @@ CREATE TABLE `ps_psgdpr_log` (
 INSERT INTO `ps_psgdpr_log` (`id_gdpr_log`, `id_customer`, `id_guest`, `client_name`, `id_module`, `request_type`, `date_add`, `date_upd`) VALUES
 (1, 3, 0, 'fgdsdf hgfshgfddf', 0, 1, '2021-10-31 11:02:09', '2021-10-31 11:02:09'),
 (2, 4, 0, 'ghdfgh fgdh', 0, 1, '2021-10-31 16:03:21', '2021-10-31 16:03:21'),
-(3, 5, 0, 'dfsgdfsgsd fdsgfdsg', 0, 1, '2021-11-03 12:52:29', '2021-11-03 12:52:29');
+(3, 5, 0, 'dfsgdfsgsd fdsgfdsg', 0, 1, '2021-11-03 12:52:29', '2021-11-03 12:52:29'),
+(4, 6, 0, 'er ert', 0, 1, '2021-11-11 17:57:34', '2021-11-11 17:57:34');
 
 -- --------------------------------------------------------
 
@@ -112456,7 +112485,7 @@ CREATE TABLE `ps_stock_available` (
 --
 
 INSERT INTO `ps_stock_available` (`id_stock_available`, `id_product`, `id_product_attribute`, `id_shop`, `id_shop_group`, `quantity`, `physical_quantity`, `reserved_quantity`, `depends_on_stock`, `out_of_stock`, `location`) VALUES
-(0, 43, 0, 1, 0, 636, 636, 0, 0, 0, '');
+(0, 73, 0, 1, 0, -1, 0, 1, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -112571,7 +112600,7 @@ CREATE TABLE `ps_store` (
 --
 
 INSERT INTO `ps_store` (`id_store`, `id_country`, `id_state`, `city`, `postcode`, `latitude`, `longitude`, `phone`, `fax`, `email`, `active`, `date_add`, `date_upd`) VALUES
-(1, 14, 12, 'Gliwice', '44-100', '50.28885930', '18.65963660', '32 230 98 63', '', 'prestakursy@gmail.com', 0, '2021-10-27 21:22:17', '2021-11-06 17:17:28');
+(1, 14, 12, 'Gliwice', '44-100', '50.28885930', '18.65963660', '32 230 98 63', '', 'prestakursy@gmail.com', 1, '2021-10-27 21:22:17', '2021-11-17 20:08:56');
 
 -- --------------------------------------------------------
 
@@ -112594,7 +112623,7 @@ CREATE TABLE `ps_store_lang` (
 --
 
 INSERT INTO `ps_store_lang` (`id_store`, `id_lang`, `name`, `address1`, `address2`, `hours`, `note`) VALUES
-(1, 1, 'Helion SA', 'Tadeusza Kościuszki 1C', '', '[[\"\"],[\"\"],[\"\"],[\"\"],[\"\"],[\"\"],[\"\"]]', '');
+(1, 1, 'Helion SA', 'Tadeusza Kościuszki 1C', '', '[[\"10:00 - 20:00\"],[\"10:00 - 20:00\"],[\"10:00 - 20:00\"],[\"10:00 - 20:00\"],[\"10:00 - 20:00\"],[\"10:00 - 16:00\"],[\"ZAMKNI\\u0118TE\"]]', '');
 
 -- --------------------------------------------------------
 
@@ -116250,7 +116279,7 @@ ALTER TABLE `ps_zone_shop`
 -- AUTO_INCREMENT dla tabeli `ps_address`
 --
 ALTER TABLE `ps_address`
-  MODIFY `id_address` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_address` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_admin_filter`
@@ -116394,7 +116423,7 @@ ALTER TABLE `ps_configuration_kpi`
 -- AUTO_INCREMENT dla tabeli `ps_connections`
 --
 ALTER TABLE `ps_connections`
-  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_connections` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_connections_source`
@@ -116424,7 +116453,7 @@ ALTER TABLE `ps_currency`
 -- AUTO_INCREMENT dla tabeli `ps_customer`
 --
 ALTER TABLE `ps_customer`
-  MODIFY `id_customer` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_customer` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_customer_message`
@@ -116484,7 +116513,7 @@ ALTER TABLE `ps_employee`
 -- AUTO_INCREMENT dla tabeli `ps_employee_session`
 --
 ALTER TABLE `ps_employee_session`
-  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_employee_session` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_feature`
@@ -116520,7 +116549,7 @@ ALTER TABLE `ps_group_reduction`
 -- AUTO_INCREMENT dla tabeli `ps_guest`
 --
 ALTER TABLE `ps_guest`
-  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_guest` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_homeslider`
@@ -116616,13 +116645,13 @@ ALTER TABLE `ps_link_block_shop`
 -- AUTO_INCREMENT dla tabeli `ps_log`
 --
 ALTER TABLE `ps_log`
-  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
+  MODIFY `id_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=597;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_mail`
 --
 ALTER TABLE `ps_mail`
-  MODIFY `id_mail` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_mail` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_manufacturer`
@@ -116676,13 +116705,13 @@ ALTER TABLE `ps_operating_system`
 -- AUTO_INCREMENT dla tabeli `ps_orders`
 --
 ALTER TABLE `ps_orders`
-  MODIFY `id_order` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_order` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_order_carrier`
 --
 ALTER TABLE `ps_order_carrier`
-  MODIFY `id_order_carrier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_order_carrier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_order_cart_rule`
@@ -116694,13 +116723,13 @@ ALTER TABLE `ps_order_cart_rule`
 -- AUTO_INCREMENT dla tabeli `ps_order_detail`
 --
 ALTER TABLE `ps_order_detail`
-  MODIFY `id_order_detail` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_order_detail` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_order_history`
 --
 ALTER TABLE `ps_order_history`
-  MODIFY `id_order_history` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_order_history` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_order_invoice`
@@ -116748,7 +116777,7 @@ ALTER TABLE `ps_order_state`
 -- AUTO_INCREMENT dla tabeli `ps_page`
 --
 ALTER TABLE `ps_page`
-  MODIFY `id_page` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_page` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_pagenotfound`
@@ -116760,7 +116789,7 @@ ALTER TABLE `ps_pagenotfound`
 -- AUTO_INCREMENT dla tabeli `ps_page_type`
 --
 ALTER TABLE `ps_page_type`
-  MODIFY `id_page_type` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_page_type` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_product`
@@ -116820,7 +116849,7 @@ ALTER TABLE `ps_psgdpr_consent_lang`
 -- AUTO_INCREMENT dla tabeli `ps_psgdpr_log`
 --
 ALTER TABLE `ps_psgdpr_log`
-  MODIFY `id_gdpr_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_gdpr_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `ps_psreassurance`
