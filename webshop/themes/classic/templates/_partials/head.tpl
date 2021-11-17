@@ -68,3 +68,6 @@
 {/block}
 
 {block name='hook_extra'}{/block}
+{literal}
+G-1W92ZQ85E4
+{/literal}
