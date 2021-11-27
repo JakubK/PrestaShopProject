@@ -20,9 +20,7 @@ services:
   prestashop:
     depends_on:
       - db
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/jakubk/presta_saved:latest
     ports:
       - 80:80
       - 443:443
@@ -38,7 +36,6 @@ services:
       PS_DOMAIN: localhost:80
       PS_FOLDER_ADMIN: admin
     volumes:
-      - ./webshop:/var/www/html
       - ./ssl:/etc/apache2/sites-available
       # example@example.com
       # P@ssw0rd

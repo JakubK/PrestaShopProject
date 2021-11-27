@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db-dumps:/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: CourseShop
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+        -  8080:80
+      environment:
+        PMA_HOST: db
+      depends_on:
+        - db
+  prestashop:
+    depends_on:
+      - db
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    environment:
+      PS_INSTALL_AUTO: 0
+      PS_ERASE_DB: 0
+      DB_SERVER: db
+      DB_USER: root
+      DB_PASSWD: root
+      DB_NAME: CourseShop
+      PS_DEV_MODE: 0
+      PS_DOMAIN: localhost:80
+      PS_FOLDER_ADMIN: admin
+    volumes:
+      - ./ssl:/etc/apache2/sites-available
+      # example@example.com
+      # P@ssw0rd
+      # http://localhost/admin897rxfwwm
+
