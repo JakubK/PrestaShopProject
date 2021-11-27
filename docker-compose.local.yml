@@ -37,8 +37,6 @@ services:
       PS_DEV_MODE: 0
       PS_DOMAIN: localhost:80
       PS_FOLDER_ADMIN: admin
-    volumes:
-      - ./ssl:/etc/apache2/sites-available
       # example@example.com
       # P@ssw0rd
       # http://localhost/admin897rxfwwm
