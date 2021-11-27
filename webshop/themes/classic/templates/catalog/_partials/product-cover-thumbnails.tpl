@@ -27,9 +27,6 @@
     <div class="product-cover">
       {if $product.default_image}
         <img class="js-qv-product-cover" src="{$product.default_image.bySize.large_default.url}" alt="{$product.default_image.legend}" title="{$product.default_image.legend}" style="width:100%;" itemprop="image">
-        <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
-          <i class="material-icons zoom-in">search</i>
-        </div>
       {else}
         <img src="{$urls.no_picture_image.bySize.large_default.url}" style="width:100%;">
       {/if}
